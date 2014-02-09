@@ -43,9 +43,11 @@ public class MainActivity extends ActionBarActivity implements OnItemSelectedLis
 	
 	private void attachActionBarSpinner() {
 		int titleId = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
+		if (titleId == 0)
+			titleId = R.id.action_bar_title;
 		View titleView = findViewById(titleId);
 		Spinner spinner = initActionBarSpinner();
-		
+
 		ViewGroup parent = (ViewGroup) titleView.getParent();
 		int index = parent.indexOfChild(titleView);
 		parent.removeView(titleView);
