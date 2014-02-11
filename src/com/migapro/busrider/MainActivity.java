@@ -37,7 +37,7 @@ public class MainActivity extends ActionBarActivity implements OnItemSelectedLis
 				.setTabListener(new ActionBarTabListener(new RouteFragment())));
 		actionBar.addTab(actionBar.newTab().setText("Elapsed\nTime")
 				.setTabListener(new ActionBarTabListener(new ElapsedTimeFragment())));
-		
+
 		attachActionBarSpinner();
 	}
 	
@@ -61,11 +61,11 @@ public class MainActivity extends ActionBarActivity implements OnItemSelectedLis
 		
 		// dummy data
 		entries = new ArrayList<String>();
-		entries.add("Bus A");
-		entries.add("Bus B");
+		entries.add("Centre Bus A");
+		entries.add("Bus B Express");
 		
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, entries);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
 		
 		return spinner;
@@ -104,8 +104,7 @@ public class MainActivity extends ActionBarActivity implements OnItemSelectedLis
 	}
 
 	@Override
-	public void onItemSelected(AdapterView<?> adapterView, View view, int position,
-			long id) {
+	public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
 		Toast.makeText(this, entries.get(position) + " loaded", Toast.LENGTH_SHORT).show();
 	}
 
