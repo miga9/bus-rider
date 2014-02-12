@@ -7,11 +7,11 @@
     
     <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
         <item name="android:background">@color/accent</item>
-        <item name="android:titleTextStyle">@style/MyActionBarTabText</item>
+        <item name="android:titleTextStyle">@style/MyActionBarTitleText</item>
         <item name="android:backgroundStacked">@color/light_accent</item>
     </style>
     
-    <style name="MyActionBarTabText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+    <style name="MyActionBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@android:color/transparent</item>
     </style>
 
