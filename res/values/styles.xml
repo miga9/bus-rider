@@ -1,12 +1,13 @@
 <resources>
 
-    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light">
 		<item name="actionBarStyle">@style/MyActionBar</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:spinnerStyle">@style/SpinnerAppTheme</item>
+        <item name="actionBarTabTextStyle">@style/MyActionBarTabText</item>
     </style>
     
-    <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar.Solid">
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
         <item name="background">@color/accent</item>
         <item name="titleTextStyle">@style/MyActionBarTitleText</item>
         <item name="backgroundStacked">@color/light_accent</item>
@@ -20,4 +21,8 @@
       <item name="android:background">@drawable/apptheme_spinner_background_holo_light</item>
   </style>
 
+    <style name="MyActionBarTabText" parent="@style/Widget.AppCompat.Light.ActionBar.TabText">
+        <item name="android:textColor">@color/white</item>
+    </style>
+  
 </resources>
