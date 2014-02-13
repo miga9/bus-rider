@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">Bus Rider</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="action_overflow">Options</string>
+    <string name="action_share">Share</string>
+    <string name="action_version_info">Version Info</string>
 
 </resources>
