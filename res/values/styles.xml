@@ -10,7 +10,7 @@
     <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
         <item name="background">@color/accent</item>
         <item name="titleTextStyle">@style/MyActionBarTitleText</item>
-        <item name="backgroundStacked">@color/light_accent</item>
+        <item name="backgroundStacked">@color/accent</item><!-- this attribute does not function properly on 2.x -->
     </style>
     
     <style name="MyActionBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
