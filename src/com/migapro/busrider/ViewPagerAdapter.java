@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 	
-	private static final String[] PAGE_TITLES = {"Schedule", "Route", "Elapsed\nTime"};
+	private static final String[] PAGE_TITLES = {"Schedule", "Route", "Elapsed Time"};
 
 	public ViewPagerAdapter(FragmentManager fm) {
 		super(fm);
