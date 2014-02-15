@@ -4,10 +4,7 @@ import java.util.ArrayList;
 
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBar.Tab;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.View;
@@ -18,25 +15,23 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.astuetz.PagerSlidingTabStrip;
+
 public class MainActivity extends ActionBarActivity implements OnItemSelectedListener {
 
-	// dummy data
-	ArrayList<String> entries;
+	ViewPager viewPager;
+	ArrayList<String> entries; // dummy data
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		final ActionBar actionBar = getSupportActionBar();
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		viewPager = (ViewPager) findViewById(R.id.view_pager);
+		viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
 		
-		actionBar.addTab(actionBar.newTab().setText("Schedule")
-				.setTabListener(new ActionBarTabListener(new ScheduleFragment())));
-		actionBar.addTab(actionBar.newTab().setText("Route")
-				.setTabListener(new ActionBarTabListener(new RouteFragment())));
-		actionBar.addTab(actionBar.newTab().setText("Elapsed\nTime")
-				.setTabListener(new ActionBarTabListener(new ElapsedTimeFragment())));
+		PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+		tabs.setViewPager(viewPager);
 
 		attachActionBarSpinner();
 	}
@@ -76,31 +71,6 @@ public class MainActivity extends ActionBarActivity implements OnItemSelectedLis
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
-	}
-	
-	public class ActionBarTabListener implements ActionBar.TabListener {
-		
-		private Fragment fragment;
-		
-		public ActionBarTabListener(Fragment fragment) {
-			this.fragment = fragment;
-		}
-
-		@Override
-		public void onTabReselected(Tab tab, FragmentTransaction ft) {
-			
-		}
-
-		@Override
-		public void onTabSelected(Tab tab, FragmentTransaction ft) {
-			ft.replace(R.id.fragment_container, fragment);
-		}
-
-		@Override
-		public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-			ft.remove(fragment);
-		}
-		
 	}
 
 	@Override

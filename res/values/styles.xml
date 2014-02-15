@@ -4,13 +4,11 @@
 		<item name="actionBarStyle">@style/MyActionBar</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:spinnerStyle">@style/SpinnerAppTheme</item>
-        <item name="actionBarTabTextStyle">@style/MyActionBarTabText</item>
     </style>
     
     <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
         <item name="background">@color/accent</item>
         <item name="titleTextStyle">@style/MyActionBarTitleText</item>
-        <item name="backgroundStacked">@color/accent</item><!-- this attribute does not function properly on 2.x -->
     </style>
     
     <style name="MyActionBarTitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
@@ -20,9 +18,5 @@
 	<style name="SpinnerAppTheme" parent="@style/Widget.AppCompat.Spinner.DropDown.ActionBar">
 	    <item name="android:background">@drawable/apptheme_spinner_background_holo_light</item>
 	</style>
-
-    <style name="MyActionBarTabText" parent="@style/Widget.AppCompat.Light.ActionBar.TabText">
-        <item name="android:textColor">@color/white</item>
-    </style>
   
 </resources>
