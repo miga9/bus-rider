@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 	
-	private static final String[] PAGE_TITLES = {"Schedule", "Route", "Elapsed Time"};
+	private static final String[] PAGE_TITLES = {"Schedule", "Map", "Elapsed Time"};
 
 	public ViewPagerAdapter(FragmentManager fm) {
 		super(fm);
@@ -18,7 +18,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
 		case 0:
 			return new ScheduleFragment();
 		case 1:
-			return new RouteFragment();
+			return new MapFragment();
 		case 2:
 			return new ElapsedTimeFragment();
 		}
