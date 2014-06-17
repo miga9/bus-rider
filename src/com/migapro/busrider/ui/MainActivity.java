@@ -1,4 +1,4 @@
-package com.migapro.busrider;
+package com.migapro.busrider.ui;
 
 import java.util.ArrayList;
 
@@ -11,6 +11,10 @@ import android.view.Menu;
 import android.widget.ArrayAdapter;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.migapro.busrider.R;
+import com.migapro.busrider.R.id;
+import com.migapro.busrider.R.layout;
+import com.migapro.busrider.R.menu;
 
 public class MainActivity extends ActionBarActivity implements OnNavigationListener {
 

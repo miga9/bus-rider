@@ -1,4 +1,5 @@
-package com.migapro.busrider;
+package com.migapro.busrider.ui;
+
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

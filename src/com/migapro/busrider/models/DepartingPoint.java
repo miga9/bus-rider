@@ -1,6 +1,7 @@
-package com.migapro.busrider;
+package com.migapro.busrider.models;
 
 import java.util.ArrayList;
+
 
 /**
  * DepartingPoint represents a bus stop where it contains departing times.

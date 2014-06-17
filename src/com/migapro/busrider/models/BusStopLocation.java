@@ -1,4 +1,4 @@
-package com.migapro.busrider;
+package com.migapro.busrider.models;
 
 import com.google.android.gms.maps.model.LatLng;
 

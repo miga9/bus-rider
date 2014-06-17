@@ -1,6 +1,7 @@
-package com.migapro.busrider;
+package com.migapro.busrider.models;
 
 import java.util.ArrayList;
+
 
 /**
  * Bus class represents a route its buses take.
