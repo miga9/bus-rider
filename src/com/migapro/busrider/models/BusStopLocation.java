@@ -16,5 +16,13 @@ public class BusStopLocation {
 		mTitle = title;
 		mLatLng = new LatLng(latitude, longtitude);
 	}
+	
+	public String getTitle() {
+		return mTitle;
+	}
+	
+	public LatLng getLatLng() {
+		return mLatLng;
+	}
 
 }
