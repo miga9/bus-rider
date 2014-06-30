@@ -1,23 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
-	<bus name="">
-	    <depart_point from="">
+	<bus name="Discovery Park">
+	    <depart_point from="GAB">
 	        <schedules>
-		        <schedule_set days="">
-		            <time hours="" minutes="" />
-		            <time hours="" minutes="" />
-		            <time hours="" minutes="" />
+		        <schedule_set days="Mon-Thu">
+		            <time hours="7" minutes="15" />
+		            <time hours="7" minutes="29" />
+		            <time hours="7" minutes="43" />
+		            <time hours="7" minutes="57" />
+		            <time hours="8" minutes="11" />
+		            <time hours="8" minutes="25" />
+		            <time hours="8" minutes="39" />
+		            <time hours="8" minutes="53" />
 		        </schedule_set>
-		        <schedule_set days="">
-		            <time hours="" minutes="" />
-		            <time hours="" minutes="" />
-		            <time hours="" minutes="" />
+		        <schedule_set days="Fri">
+		            <time hours="7" minutes="15" />
+		            <time hours="7" minutes="36" />
+		            <time hours="7" minutes="57" />
+		            <time hours="8" minutes="18" />
+		            <time hours="8" minutes="39" />
+		            <time hours="9" minutes="00" />
+		            <time hours="9" minutes="21" />
 		        </schedule_set>
 	        </schedules>
 	        <bus_stop_locations>
-	            <bus_stop name="" longtitude="" latitude="" />
-	            <bus_stop name="" longtitude="" latitude="" />
-	            <bus_stop name="" longtitude="" latitude="" />
+	            <bus_stop name="GAB" longtitude="1" latitude="2" />
+	            <bus_stop name="Avenue G & West Oak St." longtitude="3" latitude="4" />
+	            <bus_stop name="Bonnie Brae & University" longtitude="5" latitude="6" />
+	        </bus_stop_locations>
+	    </depart_point>
+	    <depart_point from="Discovery Park">
+	        <schedules>
+		        <schedule_set days="Mon-Thu">
+		            <time hours="7" minutes="36" />
+		            <time hours="7" minutes="50" />
+		            <time hours="8" minutes="04" />
+		            <time hours="8" minutes="18" />
+		            <time hours="8" minutes="32" />
+		            <time hours="8" minutes="46" />
+		            <time hours="9" minutes="00" />
+		            <time hours="9" minutes="14" />
+		        </schedule_set>
+		        <schedule_set days="Fri">
+		            <time hours="7" minutes="36" />
+		            <time hours="7" minutes="57" />
+		            <time hours="8" minutes="18" />
+		            <time hours="8" minutes="39" />
+		            <time hours="9" minutes="00" />
+		            <time hours="9" minutes="21" />
+		            <time hours="9" minutes="42" />
+		        </schedule_set>
+	        </schedules>
+	        <bus_stop_locations>
+	            <bus_stop name="Discovery Park East" longtitude="1" latitude="2" />
+	            <bus_stop name="Bonnie Brae & Windsor" longtitude="3" latitude="4" />
+	            <bus_stop name="Bonnie Brae & University" longtitude="5" latitude="6" />
+	        </bus_stop_locations>
+	    </depart_point>
+	</bus>
+	<bus name="Mean Green">
+	    <depart_point from="Kerr Hall">
+	        <schedules>
+		        <schedule_set days="Mon-Fri">
+		            <time hours="7" minutes="17" />
+		            <time hours="7" minutes="26" />
+		            <time hours="7" minutes="35" />
+		            <time hours="7" minutes="44" />
+		            <time hours="7" minutes="53" />
+		            <time hours="8" minutes="02" />
+		            <time hours="8" minutes="11" />
+		            <time hours="8" minutes="20" />
+		            <time hours="8" minutes="29" />
+		            <time hours="8" minutes="38" />
+		        </schedule_set>
+	        </schedules>
+	        <bus_stop_locations>
+	            <bus_stop name="Kerr Hall" longtitude="1" latitude="2" />
+	            <bus_stop name="Maple Hall" longtitude="3" latitude="4" />
+	            <bus_stop name="Mozart Square / Gateway" longtitude="5" latitude="6" />
+	        </bus_stop_locations>
+	    </depart_point>
+	    <depart_point from="GAB">
+	        <schedules>
+		        <schedule_set days="Mon-Fri">
+		            <time hours="7" minutes="31" />
+		            <time hours="7" minutes="40" />
+		            <time hours="7" minutes="49" />
+		            <time hours="7" minutes="58" />
+		            <time hours="8" minutes="07" />
+		            <time hours="8" minutes="16" />
+		            <time hours="8" minutes="25" />
+		            <time hours="8" minutes="34" />
+		            <time hours="8" minutes="43" />
+		            <time hours="8" minutes="52" />
+		        </schedule_set>
+	        </schedules>
+	        <bus_stop_locations>
+	            <bus_stop name="GAB" longtitude="1" latitude="2" />
+	            <bus_stop name="Art Building" longtitude="3" latitude="4" />
+	            <bus_stop name="Kerr Hall" longtitude="5" latitude="6" />
 	        </bus_stop_locations>
 	    </depart_point>
 	</bus>
