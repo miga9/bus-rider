@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<bus name="">
+	    <depart_point from="">
+	        <schedules>
+		        <schedule_set days="">
+		            <time hours="" minutes="" />
+		            <time hours="" minutes="" />
+		            <time hours="" minutes="" />
+		        </schedule_set>
+		        <schedule_set days="">
+		            <time hours="" minutes="" />
+		            <time hours="" minutes="" />
+		            <time hours="" minutes="" />
+		        </schedule_set>
+	        </schedules>
+	        <bus_stop_locations>
+	            <bus_stop name="" longtitude="" latitude="" />
+	            <bus_stop name="" longtitude="" latitude="" />
+	            <bus_stop name="" longtitude="" latitude="" />
+	        </bus_stop_locations>
+	    </depart_point>
+	</bus>
+</data>
