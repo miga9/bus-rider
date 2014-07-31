@@ -14,11 +14,33 @@ public class DepartingPoint {
 	private ArrayList<Schedule> mSchedules;
 	private ArrayList<BusStopLocation> mBusStops;
 	
-	public DepartingPoint(String departFrom, ArrayList<Schedule> schedules,
-			ArrayList<BusStopLocation> busStops) {
+	public DepartingPoint() {
+		mSchedules = new ArrayList<Schedule>();
+		mBusStops = new ArrayList<BusStopLocation>();
+	}
+	
+	public String getDepartFrom() {
+		return mDepartFrom;
+	}
+	
+	public ArrayList<Schedule> getSchedules() {
+		return mSchedules;
+	}
+	
+	public ArrayList<BusStopLocation> getBusStops() {
+		return mBusStops;
+	}
+	
+	public void setDepartFrom(String departFrom) {
 		mDepartFrom = departFrom;
-		mSchedules = schedules;
-		mBusStops = busStops;
+	}
+	
+	public void addSchedule(Schedule schedule) {
+		mSchedules.add(schedule);
+	}
+	
+	public void addBusStop(BusStopLocation busStop) {
+		mBusStops.add(busStop);
 	}
 
 }

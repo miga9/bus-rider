@@ -12,9 +12,8 @@ public class BusStopLocation {
 	private String mTitle;
 	private LatLng mLatLng;
 	
-	public BusStopLocation(String title, int latitude, int longtitude) {
-		mTitle = title;
-		mLatLng = new LatLng(latitude, longtitude);
+	public BusStopLocation() {
+
 	}
 	
 	public String getTitle() {
@@ -23,6 +22,14 @@ public class BusStopLocation {
 	
 	public LatLng getLatLng() {
 		return mLatLng;
+	}
+	
+	public void setTitle(String title) {
+		mTitle = title;
+	}
+	
+	public void setLatLng(int latitude, int longtitude) {
+		mLatLng = new LatLng(latitude, longtitude);
 	}
 
 }

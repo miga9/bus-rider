@@ -13,9 +13,24 @@ public class Bus {
 	private String mBusName;
 	private ArrayList<DepartingPoint> mDepartingPoints;
 	
-	public Bus(String busName, ArrayList<DepartingPoint> departingPoints) {
+	public Bus() {
+		mDepartingPoints = new ArrayList<DepartingPoint>();
+	}
+	
+	public String getBusName() {
+		return mBusName;
+	}
+	
+	public ArrayList<DepartingPoint> getDepartingPoints() {
+		return mDepartingPoints;
+	}
+	
+	public void setBusname(String busName) {
 		mBusName = busName;
-		mDepartingPoints = departingPoints;
+	}
+	
+	public void addDepartingPoint(DepartingPoint departingPoint) {
+		mDepartingPoints.add(departingPoint);
 	}
 
 }
