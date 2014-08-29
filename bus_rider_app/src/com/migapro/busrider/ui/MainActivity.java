@@ -5,12 +5,11 @@ import java.util.ArrayList;
 
 import org.xmlpull.v1.XmlPullParserException;
 
+import android.app.ActionBar;
+import android.app.ActionBar.OnNavigationListener;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBar.OnNavigationListener;
-import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 
@@ -19,7 +18,7 @@ import com.migapro.busrider.R;
 import com.migapro.busrider.models.Bus;
 import com.migapro.busrider.parser.BusXmlPullParser;
 
-public class MainActivity extends ActionBarActivity implements OnNavigationListener {
+public class MainActivity extends Activity implements OnNavigationListener {
 
 	private ViewPager mViewPager;
 	private BusXmlPullParser mParser;
@@ -31,7 +30,7 @@ public class MainActivity extends ActionBarActivity implements OnNavigationListe
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		final ActionBar actionBar = getSupportActionBar();
+		final ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
 
@@ -44,12 +43,12 @@ public class MainActivity extends ActionBarActivity implements OnNavigationListe
 			e.printStackTrace();
 		}
 		
-		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item, mBusNames);
-		spinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner_title, mBusNames);
+		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 		actionBar.setListNavigationCallbacks(spinnerAdapter, this);
 		
 		mViewPager = (ViewPager) findViewById(R.id.view_pager);
-		mViewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
+		mViewPager.setAdapter(new ViewPagerAdapter(getFragmentManager()));
 		
 		PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
 		tabs.setViewPager(mViewPager);

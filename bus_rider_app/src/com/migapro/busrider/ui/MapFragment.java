@@ -1,13 +1,13 @@
 package com.migapro.busrider.ui;
 
-import com.migapro.busrider.R;
-import com.migapro.busrider.R.layout;
 
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.migapro.busrider.R;
 
 public class MapFragment extends Fragment {
 	
