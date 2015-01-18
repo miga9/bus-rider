@@ -1,17 +1,8 @@
 package com.migapro.busrider.ui;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-import org.xmlpull.v1.XmlPullParserException;
-
-import android.app.ActionBar;
-import android.app.ActionBar.OnNavigationListener;
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -24,36 +15,53 @@ import com.migapro.busrider.R;
 import com.migapro.busrider.models.Bus;
 import com.migapro.busrider.parser.BusXmlPullParser;
 
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
 public class MainActivity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
 
 	private BusXmlPullParser mParser;
 	private ArrayList<String> mBusNames;
 	private Bus mCurrentBus;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+        loadBusNames();
+
+        initViews();
+
+        setFragment();
+	}
+
+    private void loadBusNames() {
+        try {
+            mParser = new BusXmlPullParser();
+            mBusNames = mParser.readBusNames(getAssets().open("data/bus_data.xml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void initViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-		try {
-			mParser = new BusXmlPullParser();
-			mBusNames = mParser.readBusNames(getAssets().open("data/bus_data.xml"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (XmlPullParserException e) {
-			e.printStackTrace();
-		}
-		
-		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner_title, mBusNames);
-		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner_title, mBusNames);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         Spinner titleSpinner = (Spinner) findViewById(R.id.title_spinner);
         titleSpinner.setAdapter(spinnerAdapter);
         titleSpinner.setOnItemSelectedListener(this);
+    }
 
+    private void setFragment() {
         FragmentManager fm = getFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.fragment_container);
 
@@ -63,7 +71,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                     .add(R.id.fragment_container, fragment)
                     .commit();
         }
-	}
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
