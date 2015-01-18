@@ -1,7 +1,5 @@
 package com.migapro.busrider.ui;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -11,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.migapro.busrider.R;
@@ -29,6 +28,11 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 	private ArrayList<String> mBusNames;
 	private Bus mCurrentBus;
 
+    private ScheduleAdapter scheduleAdapter;
+    private int mBusIndex;
+    private int mDeparturePointIndex;
+    private int mScheduleIndex;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,15 +44,32 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
             restoreState(savedInstanceState);
         }
 
-        initViews();
+        mBusIndex = 0;
+        mDeparturePointIndex = 0;
+        mScheduleIndex = 0;
 
-        setFragment();
+        loadBusData();
+
+        initViews();
 	}
 
     private void loadBusNames() {
         try {
             mParser = new BusXmlPullParser();
             mBusNames = mParser.readBusNames(getAssets().open(Constants.BUS_DATA_PATH));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void loadBusData() {
+        try {
+            if (mParser == null) {
+                mParser = new BusXmlPullParser();
+            }
+            mCurrentBus = mParser.readABusData(getAssets().open(Constants.BUS_DATA_PATH), mBusIndex);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (XmlPullParserException e) {
@@ -66,22 +87,19 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         Spinner titleSpinner = (Spinner) findViewById(R.id.title_spinner);
         titleSpinner.setAdapter(spinnerAdapter);
         titleSpinner.setOnItemSelectedListener(this);
-    }
 
-    private void setFragment() {
-        FragmentManager fm = getFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.fragment_container);
-
-        if (fragment == null) {
-            fragment = new ScheduleFragment();
-            fm.beginTransaction()
-                    .add(R.id.fragment_container, fragment)
-                    .commit();
-        }
+        ListView listView = (ListView) findViewById(R.id.schedule_listview);
+        scheduleAdapter = new ScheduleAdapter(this, mCurrentBus.getTimes(mDeparturePointIndex, mScheduleIndex));
+        listView.setAdapter(scheduleAdapter);
     }
 
     private void restoreState(Bundle savedInstanceState) {
         mBusNames = savedInstanceState.getStringArrayList(Constants.BUS_NAMES_KEY);
+    }
+
+    private void updateBusData() {
+        loadBusData();
+        scheduleAdapter.setData(mCurrentBus.getTimes(mDeparturePointIndex, mScheduleIndex));
     }
 
     @Override
@@ -121,20 +139,16 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        try {
-            if (mParser == null) {
-                mParser = new BusXmlPullParser();
-            }
-            mCurrentBus = mParser.readABusData(getAssets().open(Constants.BUS_DATA_PATH), position);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        }
+        mBusIndex = position;
+        updateBusData();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public Bus getCurrentBus() {
+        return mCurrentBus;
     }
 }

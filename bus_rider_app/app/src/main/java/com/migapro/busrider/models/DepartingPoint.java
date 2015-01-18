@@ -26,6 +26,10 @@ public class DepartingPoint {
 	public ArrayList<Schedule> getSchedules() {
 		return mSchedules;
 	}
+
+    public Schedule getSchedule(int index) {
+        return mSchedules.get(index);
+    }
 	
 	public ArrayList<BusStopLocation> getBusStops() {
 		return mBusStops;

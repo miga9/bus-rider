@@ -20,10 +20,14 @@ public class Bus {
 	public String getBusName() {
 		return mBusName;
 	}
-	
-	public ArrayList<DepartingPoint> getDepartingPoints() {
-		return mDepartingPoints;
-	}
+
+    public ArrayList<DepartingPoint> getDepartingPoints() {
+        return mDepartingPoints;
+    }
+
+    public ArrayList<Time> getTimes(int departureIndex, int scheduleIndex) {
+        return mDepartingPoints.get(departureIndex).getSchedule(scheduleIndex).getTimes();
+    }
 	
 	public void setBusname(String busName) {
 		mBusName = busName;
