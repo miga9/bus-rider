@@ -8,6 +8,8 @@ import org.xmlpull.v1.XmlPullParserException;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
@@ -18,14 +20,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import com.astuetz.PagerSlidingTabStrip;
 import com.migapro.busrider.R;
 import com.migapro.busrider.models.Bus;
 import com.migapro.busrider.parser.BusXmlPullParser;
 
 public class MainActivity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
 
-	private ViewPager mViewPager;
 	private BusXmlPullParser mParser;
 	private ArrayList<String> mBusNames;
 	private Bus mCurrentBus;
@@ -53,12 +53,16 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         Spinner titleSpinner = (Spinner) findViewById(R.id.title_spinner);
         titleSpinner.setAdapter(spinnerAdapter);
         titleSpinner.setOnItemSelectedListener(this);
-		
-		mViewPager = (ViewPager) findViewById(R.id.view_pager);
-		mViewPager.setAdapter(new ViewPagerAdapter(getFragmentManager()));
-		
-		PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
-		tabs.setViewPager(mViewPager);
+
+        FragmentManager fm = getFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.fragment_container);
+
+        if (fragment == null) {
+            fragment = new ScheduleFragment();
+            fm.beginTransaction()
+                    .add(R.id.fragment_container, fragment)
+                    .commit();
+        }
 	}
 
 	@Override
