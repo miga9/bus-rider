@@ -82,7 +82,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         try {
-            mCurrentBus = mParser.readABusData(getAssets().open("data/bus_data.xml"), 0);
+            mCurrentBus = mParser.readABusData(getAssets().open("data/bus_data.xml"), position);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (XmlPullParserException e) {
