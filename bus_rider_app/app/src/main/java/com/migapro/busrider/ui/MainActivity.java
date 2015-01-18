@@ -33,7 +33,11 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-        loadBusNames();
+        if (savedInstanceState == null) {
+            loadBusNames();
+        } else {
+            restoreState(savedInstanceState);
+        }
 
         initViews();
 
@@ -75,7 +79,18 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         }
     }
 
-	@Override
+    private void restoreState(Bundle savedInstanceState) {
+        mBusNames = savedInstanceState.getStringArrayList("busNames");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putStringArrayList("busNames", mBusNames);
+    }
+
+    @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
@@ -106,6 +121,9 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         try {
+            if (mParser == null) {
+                mParser = new BusXmlPullParser();
+            }
             mCurrentBus = mParser.readABusData(getAssets().open("data/bus_data.xml"), position);
         } catch (IOException e) {
             e.printStackTrace();
