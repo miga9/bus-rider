@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import com.migapro.busrider.R;
 import com.migapro.busrider.models.Bus;
 import com.migapro.busrider.parser.BusXmlPullParser;
+import com.migapro.busrider.utility.Constants;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -47,7 +48,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     private void loadBusNames() {
         try {
             mParser = new BusXmlPullParser();
-            mBusNames = mParser.readBusNames(getAssets().open("data/bus_data.xml"));
+            mBusNames = mParser.readBusNames(getAssets().open(Constants.BUS_DATA_PATH));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (XmlPullParserException e) {
@@ -80,14 +81,14 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     }
 
     private void restoreState(Bundle savedInstanceState) {
-        mBusNames = savedInstanceState.getStringArrayList("busNames");
+        mBusNames = savedInstanceState.getStringArrayList(Constants.BUS_NAMES_KEY);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        outState.putStringArrayList("busNames", mBusNames);
+        outState.putStringArrayList(Constants.BUS_NAMES_KEY, mBusNames);
     }
 
     @Override
@@ -101,11 +102,11 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         switch (item.getItemId()) {
             case R.id.action_map:
                 Intent intent = new Intent(this, MapActivity.class);
-                intent.putExtra("title", mCurrentBus.getBusName());
+                intent.putExtra(Constants.MAP_TITLE_KEY, mCurrentBus.getBusName());
                 startActivity(intent);
                 return true;
             case R.id.action_share:
-                String shareMessage = "Bus Rider https://play.google.com/store/apps/details?id=" + getPackageName();
+                String shareMessage = Constants.SHARE_MESSAGE + getPackageName();
 
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
@@ -124,7 +125,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
             if (mParser == null) {
                 mParser = new BusXmlPullParser();
             }
-            mCurrentBus = mParser.readABusData(getAssets().open("data/bus_data.xml"), position);
+            mCurrentBus = mParser.readABusData(getAssets().open(Constants.BUS_DATA_PATH), position);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (XmlPullParserException e) {
