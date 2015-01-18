@@ -89,6 +89,15 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                 intent.putExtra("title", mCurrentBus.getBusName());
                 startActivity(intent);
                 return true;
+            case R.id.action_share:
+                String shareMessage = "Bus Rider https://play.google.com/store/apps/details?id=" + getPackageName();
+
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                startActivity(Intent.createChooser(shareIntent, "Share this app"));
+
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

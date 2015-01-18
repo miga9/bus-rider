@@ -7,9 +7,9 @@
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/share"
+        android:id="@+id/action_share"
         android:title="@string/action_share" />
     <item
-        android:id="@+id/version_info"
+        android:id="@+id/action_version_info"
         android:title="@string/action_version_info" />
 </menu>
