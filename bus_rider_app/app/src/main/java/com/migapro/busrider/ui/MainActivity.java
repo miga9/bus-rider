@@ -1,6 +1,11 @@
 package com.migapro.busrider.ui;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -51,6 +56,8 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         loadBusData();
 
         initViews();
+
+        rateMyApp();
 	}
 
     private void loadBusNames() {
@@ -100,6 +107,47 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     private void updateBusData() {
         loadBusData();
         scheduleAdapter.setData(mCurrentBus.getTimes(mDeparturePointIndex, mScheduleIndex));
+    }
+
+    private void rateMyApp() {
+        SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
+        int count = sp.getInt(Constants.RATE_MY_APP_COUNT_KEY, 0);
+
+        if (count < 5) {
+            count++;
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putInt(Constants.RATE_MY_APP_COUNT_KEY, count);
+            editor.commit();
+
+            if (count == 5) {
+                showRateMyAppDialog();
+            }
+        }
+    }
+
+    private void showRateMyAppDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.rate_this_app))
+                .setMessage(getString(R.string.rate_this_app_msg))
+                .setPositiveButton(getString(R.string.rate_this_app_positive),
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivity(new Intent(Intent.ACTION_VIEW,
+                                        Uri.parse("market://details?id=" + getPackageName())));
+                            }
+                        })
+                .setNegativeButton(getString(R.string.rate_this_app_negative),
+                        new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                .create()
+                .show();
     }
 
     @Override

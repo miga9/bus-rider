@@ -6,4 +6,9 @@
     <string name="action_share">Share</string>
     <string name="action_version_info">Version Info</string>
 
+    <string name="rate_this_app">Rate this app</string>
+    <string name="rate_this_app_msg">Would you like to take a moment to rate this app?</string>
+    <string name="rate_this_app_positive">Rate this app</string>
+    <string name="rate_this_app_negative">No</string>
+
 </resources>
