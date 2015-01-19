@@ -3,23 +3,33 @@
 	<bus id="0" name="Discovery Park">
 	    <depart_point from="GAB">
 	        <schedule days="MTWR">
-	            <time hours="7" minutes="15" />
-	            <time hours="7" minutes="29" />
-	            <time hours="7" minutes="43" />
-	            <time hours="7" minutes="57" />
-	            <time hours="8" minutes="11" />
-	            <time hours="8" minutes="25" />
-	            <time hours="8" minutes="39" />
-	            <time hours="8" minutes="53" />
+                <time hours="7">
+                    <minutes min="15" />
+                    <minutes min="29" />
+                    <minutes min="43" />
+                    <minutes min="57" />
+                </time>
+                <time hours="8">
+                    <minutes min="11" />
+                    <minutes min="25" />
+                    <minutes min="39" />
+                    <minutes min="53" />
+                </time>
 	        </schedule>
 	        <schedule days="F">
-	            <time hours="7" minutes="15" />
-	            <time hours="7" minutes="36" />
-	            <time hours="7" minutes="57" />
-	            <time hours="8" minutes="18" />
-	            <time hours="8" minutes="39" />
-	            <time hours="9" minutes="00" />
-	            <time hours="9" minutes="21" />
+                <time hours="7">
+                    <minutes min="15" />
+                    <minutes min="36" />
+                    <minutes min="57" />
+                </time>
+                <time hours="8">
+                    <minutes min="18" />
+                    <minutes min="39" />
+                </time>
+                <time hours="9">
+                    <minutes min="00" />
+                    <minutes min="21" />
+                </time>
 	        </schedule>
             <bus_stop name="GAB" longtitude="1" latitude="2" />
             <bus_stop name="Avenue G &amp; West Oak St." longtitude="3" latitude="4" />
@@ -27,23 +37,35 @@
 	    </depart_point>
 	    <depart_point from="Discovery Park">
 	        <schedule days="MTWR">
-	            <time hours="7" minutes="36" />
-	            <time hours="7" minutes="50" />
-	            <time hours="8" minutes="04" />
-	            <time hours="8" minutes="18" />
-	            <time hours="8" minutes="32" />
-	            <time hours="8" minutes="46" />
-	            <time hours="9" minutes="00" />
-	            <time hours="9" minutes="14" />
+                <time hours="7">
+                    <minutes min="36" />
+                    <minutes min="50" />
+                </time>
+                <time hours="8">
+                    <minutes min="04" />
+                    <minutes min="18" />
+                    <minutes min="32" />
+                    <minutes min="46" />
+                </time>
+                <time hours="9">
+                    <minutes min="00" />
+                    <minutes min="14" />
+                </time>
 	        </schedule>
 	        <schedule days="F">
-	            <time hours="7" minutes="36" />
-	            <time hours="7" minutes="57" />
-	            <time hours="8" minutes="18" />
-	            <time hours="8" minutes="39" />
-	            <time hours="9" minutes="00" />
-	            <time hours="9" minutes="21" />
-	            <time hours="9" minutes="42" />
+                <time hours="7">
+                    <minutes min="36" />
+                    <minutes min="57" />
+                </time>
+                <time hours="8">
+                    <minutes min="18" />
+                    <minutes min="39" />
+                </time>
+                <time hours="9">
+                    <minutes min="00" />
+                    <minutes min="21" />
+                    <minutes min="42" />
+                </time>
 	        </schedule>
 	        <bus_stop_locations>
 	            <bus_stop name="Discovery Park East" longtitude="1" latitude="2" />
@@ -55,16 +77,19 @@
 	<bus id="1" name="Mean Green">
 	    <depart_point from="Kerr Hall">
 	        <schedule days="MTWR">
-	            <time hours="7" minutes="17" />
-	            <time hours="7" minutes="26" />
-	            <time hours="7" minutes="35" />
-	            <time hours="7" minutes="44" />
-	            <time hours="7" minutes="53" />
-	            <time hours="8" minutes="02" />
-	            <time hours="8" minutes="11" />
-	            <time hours="8" minutes="20" />
-	            <time hours="8" minutes="29" />
-	            <time hours="8" minutes="38" />
+                <time hours="7">
+                    <minutes min="17" />
+                    <minutes min="26" />
+                    <minutes min="35" />
+                    <minutes min="44" />
+                    <minutes min="53" />
+                </time>
+                <time hours="8">
+                    <minutes min="02" />
+                    <minutes min="20" />
+                    <minutes min="29" />
+                    <minutes min="38" />
+                </time>
 	        </schedule>
 	        <bus_stop_locations>
 	            <bus_stop name="Kerr Hall" longtitude="1" latitude="2" />
@@ -74,16 +99,20 @@
 	    </depart_point>
 	    <depart_point from="GAB">
 	        <schedule days="MTWR">
-	            <time hours="7" minutes="31" />
-	            <time hours="7" minutes="40" />
-	            <time hours="7" minutes="49" />
-	            <time hours="7" minutes="58" />
-	            <time hours="8" minutes="07" />
-	            <time hours="8" minutes="16" />
-	            <time hours="8" minutes="25" />
-	            <time hours="8" minutes="34" />
-	            <time hours="8" minutes="43" />
-	            <time hours="8" minutes="52" />
+                <time hours="7">
+                    <minutes min="31" />
+                    <minutes min="40" />
+                    <minutes min="49" />
+                    <minutes min="58" />
+                </time>
+                <time hours="8">
+                    <minutes min="07" />
+                    <minutes min="16" />
+                    <minutes min="25" />
+                    <minutes min="34" />
+                    <minutes min="43" />
+                    <minutes min="52" />
+                </time>
 	        </schedule>
             <bus_stop name="GAB" longtitude="1" latitude="2" />
             <bus_stop name="Art Building" longtitude="3" latitude="4" />

@@ -1,18 +1,18 @@
 package com.migapro.busrider.parser;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-import org.xmlpull.v1.XmlPullParserFactory;
-
 import com.migapro.busrider.models.Bus;
 import com.migapro.busrider.models.BusStopLocation;
 import com.migapro.busrider.models.DepartingPoint;
 import com.migapro.busrider.models.Schedule;
 import com.migapro.busrider.models.Time;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 
 public class BusXmlPullParser {
@@ -24,7 +24,8 @@ public class BusXmlPullParser {
 	private Bus mBus;
 	private DepartingPoint mDepartingPoint;
 	private Schedule mSchedule;
-	private BusStopLocation mBusStopLocation;
+    private BusStopLocation mBusStopLocation;
+    private Time mTime;
 	
 	public BusXmlPullParser() throws XmlPullParserException {
 		factory = XmlPullParserFactory.newInstance();
@@ -96,10 +97,12 @@ public class BusXmlPullParser {
 			mDepartingPoint.addSchedule(mSchedule);
 			
 		} else if (name.equals("time")) {
-			Time time = new Time();
-			time.setHours(parser.getAttributeValue(null, "hours"));
-			time.setMinutes(parser.getAttributeValue(null, "minutes"));
-			mSchedule.addTime(time);
+            mTime = new Time();
+            mTime.setHours(parser.getAttributeValue(null, "hours"));
+            mSchedule.addTime(mTime);
+
+        } else if (name.equals("minutes")) {
+            mTime.addMinutes(parser.getAttributeValue(null, "min"));
 			
 		} else if (name.equals("bus_stop")) {
 			mBusStopLocation = new BusStopLocation();
