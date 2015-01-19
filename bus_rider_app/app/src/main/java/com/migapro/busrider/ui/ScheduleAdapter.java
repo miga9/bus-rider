@@ -1,7 +1,6 @@
 package com.migapro.busrider.ui;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 
 import com.migapro.busrider.R;
 import com.migapro.busrider.models.Time;
-import com.migapro.busrider.utility.Constants;
 
 import java.util.ArrayList;
 
@@ -19,12 +17,10 @@ public class ScheduleAdapter extends BaseAdapter {
 
     private LayoutInflater mInflater;
     private ArrayList<Time> mData;
-    private Typeface mRobotoLight;
 
     public ScheduleAdapter(Context context, ArrayList<Time> data) {
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mData = data;
-        mRobotoLight = Typeface.createFromAsset(context.getAssets(), Constants.ROBOTO_LIGHT_PATH);
     }
 
     @Override
@@ -40,6 +36,11 @@ public class ScheduleAdapter extends BaseAdapter {
     @Override
     public long getItemId(int position) {
         return 0;
+    }
+
+    @Override
+    public boolean isEnabled(int position) {
+        return false;
     }
 
     @Override
