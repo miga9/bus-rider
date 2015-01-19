@@ -139,16 +139,14 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        mBusIndex = position;
-        updateBusData();
+        if (mBusIndex != position) {
+            mBusIndex = position;
+            updateBusData();
+        }
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
-    }
-
-    public Bus getCurrentBus() {
-        return mCurrentBus;
     }
 }
