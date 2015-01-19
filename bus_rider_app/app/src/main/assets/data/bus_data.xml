@@ -3,13 +3,13 @@
 	<bus id="0" name="Discovery Park">
 	    <depart_point from="GAB">
 	        <schedule days="MTWR">
-                <time hours="7">
+                <time hours="07">
                     <minutes min="15" />
                     <minutes min="29" />
                     <minutes min="43" />
                     <minutes min="57" />
                 </time>
-                <time hours="8">
+                <time hours="08">
                     <minutes min="11" />
                     <minutes min="25" />
                     <minutes min="39" />
@@ -17,16 +17,16 @@
                 </time>
 	        </schedule>
 	        <schedule days="F">
-                <time hours="7">
+                <time hours="07">
                     <minutes min="15" />
                     <minutes min="36" />
                     <minutes min="57" />
                 </time>
-                <time hours="8">
+                <time hours="08">
                     <minutes min="18" />
                     <minutes min="39" />
                 </time>
-                <time hours="9">
+                <time hours="09">
                     <minutes min="00" />
                     <minutes min="21" />
                 </time>
@@ -37,31 +37,31 @@
 	    </depart_point>
 	    <depart_point from="Discovery Park">
 	        <schedule days="MTWR">
-                <time hours="7">
+                <time hours="07">
                     <minutes min="36" />
                     <minutes min="50" />
                 </time>
-                <time hours="8">
+                <time hours="08">
                     <minutes min="04" />
                     <minutes min="18" />
                     <minutes min="32" />
                     <minutes min="46" />
                 </time>
-                <time hours="9">
+                <time hours="09">
                     <minutes min="00" />
                     <minutes min="14" />
                 </time>
 	        </schedule>
 	        <schedule days="F">
-                <time hours="7">
+                <time hours="07">
                     <minutes min="36" />
                     <minutes min="57" />
                 </time>
-                <time hours="8">
+                <time hours="08">
                     <minutes min="18" />
                     <minutes min="39" />
                 </time>
-                <time hours="9">
+                <time hours="09">
                     <minutes min="00" />
                     <minutes min="21" />
                     <minutes min="42" />
@@ -77,14 +77,14 @@
 	<bus id="1" name="Mean Green">
 	    <depart_point from="Kerr Hall">
 	        <schedule days="MTWR">
-                <time hours="7">
+                <time hours="07">
                     <minutes min="17" />
                     <minutes min="26" />
                     <minutes min="35" />
                     <minutes min="44" />
                     <minutes min="53" />
                 </time>
-                <time hours="8">
+                <time hours="08">
                     <minutes min="02" />
                     <minutes min="20" />
                     <minutes min="29" />
@@ -99,13 +99,13 @@
 	    </depart_point>
 	    <depart_point from="GAB">
 	        <schedule days="MTWR">
-                <time hours="7">
+                <time hours="07">
                     <minutes min="31" />
                     <minutes min="40" />
                     <minutes min="49" />
                     <minutes min="58" />
                 </time>
-                <time hours="8">
+                <time hours="08">
                     <minutes min="07" />
                     <minutes min="16" />
                     <minutes min="25" />
