@@ -3,5 +3,5 @@
     android:id="@+id/minutes"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="@dimen/medium_padding"
+    android:padding="@dimen/small_padding"
     android:textSize="@dimen/small_textsize"/>

@@ -12,8 +12,8 @@
     <dimen name="small_margin">8dp</dimen>
     <dimen name="medium_margin">14dp</dimen>
 
-    <dimen name="small_textsize">12sp</dimen>
+    <dimen name="small_textsize">14sp</dimen>
     <dimen name="medium_textsize">16sp</dimen>
-    <dimen name="large_textsize">20sp</dimen>
+    <dimen name="large_textsize">22sp</dimen>
 
 </resources>
