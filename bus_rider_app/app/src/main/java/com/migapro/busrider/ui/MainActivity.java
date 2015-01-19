@@ -45,13 +45,13 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
         if (savedInstanceState == null) {
             loadBusNames();
+
+            mBusIndex = 0;
+            mDeparturePointIndex = 0;
+            mScheduleIndex = 0;
         } else {
             restoreState(savedInstanceState);
         }
-
-        mBusIndex = 0;
-        mDeparturePointIndex = 0;
-        mScheduleIndex = 0;
 
         loadBusData();
 
@@ -102,6 +102,9 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 
     private void restoreState(Bundle savedInstanceState) {
         mBusNames = savedInstanceState.getStringArrayList(Constants.BUS_NAMES_KEY);
+        mBusIndex = savedInstanceState.getInt(Constants.BUS_INDEX_KEY, 0);
+        mDeparturePointIndex = savedInstanceState.getInt(Constants.DEPARTURE_INDEX_KEY, 0);
+        mScheduleIndex = savedInstanceState.getInt(Constants.SCHEDULE_INDEX_KEY, 0);
     }
 
     private void updateBusData() {
@@ -155,6 +158,9 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         super.onSaveInstanceState(outState);
 
         outState.putStringArrayList(Constants.BUS_NAMES_KEY, mBusNames);
+        outState.putInt(Constants.BUS_INDEX_KEY, mBusIndex);
+        outState.putInt(Constants.DEPARTURE_INDEX_KEY, mDeparturePointIndex);
+        outState.putInt(Constants.SCHEDULE_INDEX_KEY, mScheduleIndex);
     }
 
     @Override
