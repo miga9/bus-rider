@@ -14,8 +14,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.migapro.busrider.R;
 import com.migapro.busrider.models.Bus;
@@ -95,9 +97,34 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         titleSpinner.setAdapter(spinnerAdapter);
         titleSpinner.setOnItemSelectedListener(this);
 
+        LinearLayout departsFromLayout = (LinearLayout) findViewById(R.id.depart_from_layout);
+        departsFromLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDepartFromDialog();
+            }
+        });
+
+        TextView departsFrom = (TextView) findViewById(R.id.depart_from);
+        departsFrom.setText(getString(R.string.departs_from) + mCurrentBus.getDepartingPoint(mDeparturePointIndex));
+
         ListView listView = (ListView) findViewById(R.id.schedule_listview);
         scheduleAdapter = new ScheduleAdapter(this, mCurrentBus.getTimes(mDeparturePointIndex, mScheduleIndex));
         listView.setAdapter(scheduleAdapter);
+    }
+
+    private void showDepartFromDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle(getString(R.string.departs_from))
+                .setSingleChoiceItems(mCurrentBus.getDepartingPointsStrings(mDeparturePointIndex), mDeparturePointIndex, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mDeparturePointIndex = which;
+                        updateBusData();
+                        dialog.dismiss();
+                    }
+                })
+                .create().show();
     }
 
     private void restoreState(Bundle savedInstanceState) {
@@ -108,8 +135,8 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     }
 
     private void updateBusData() {
-        loadBusData();
         scheduleAdapter.setData(mCurrentBus.getTimes(mDeparturePointIndex, mScheduleIndex));
+        ((TextView) findViewById(R.id.depart_from)).setText(getString(R.string.departs_from) + mCurrentBus.getDepartingPoint(mDeparturePointIndex));
     }
 
     private void rateMyApp() {
@@ -195,7 +222,9 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         if (mBusIndex != position) {
             mBusIndex = position;
+            loadBusData();
             updateBusData();
+            ((TextView) findViewById(R.id.depart_from)).setText(getString(R.string.departs_from) + mCurrentBus.getDepartingPoint(mDeparturePointIndex));
         }
     }
 

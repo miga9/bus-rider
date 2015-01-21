@@ -11,4 +11,6 @@
     <string name="rate_this_app_positive">Rate this app</string>
     <string name="rate_this_app_negative">No</string>
 
+    <string name="departs_from">"Departs from "</string>
+
 </resources>
