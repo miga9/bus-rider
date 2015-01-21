@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
-        android:background="@color/accent" >
+        android:background="@color/accent"
+        app:popupTheme="@style/Theme.AppCompat.Light" >
 
         <Spinner
             android:id="@+id/title_spinner"

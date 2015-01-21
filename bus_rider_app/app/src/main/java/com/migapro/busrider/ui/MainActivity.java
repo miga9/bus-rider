@@ -92,7 +92,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner_title, mBusNames);
-        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinnerAdapter.setDropDownViewResource(R.layout.simple_dropdown_item_1line_light);
         Spinner titleSpinner = (Spinner) findViewById(R.id.title_spinner);
         titleSpinner.setAdapter(spinnerAdapter);
         titleSpinner.setOnItemSelectedListener(this);
