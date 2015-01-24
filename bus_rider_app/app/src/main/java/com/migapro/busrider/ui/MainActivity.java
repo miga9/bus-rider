@@ -35,7 +35,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
 	private ArrayList<String> mBusNames;
 	private Bus mCurrentBus;
 
-    private ScheduleAdapter scheduleAdapter;
+    private ScheduleAdapter mScheduleAdapter;
     private int mBusIndex;
     private int mDeparturePointIndex;
     private int mScheduleIndex;
@@ -109,8 +109,8 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         departsFrom.setText(getString(R.string.departs_from) + mCurrentBus.getDepartingPoint(mDeparturePointIndex));
 
         ListView listView = (ListView) findViewById(R.id.schedule_listview);
-        scheduleAdapter = new ScheduleAdapter(this, mCurrentBus.getTimes(mDeparturePointIndex, mScheduleIndex));
-        listView.setAdapter(scheduleAdapter);
+        mScheduleAdapter = new ScheduleAdapter(this, mCurrentBus.getTimes(mDeparturePointIndex, mScheduleIndex));
+        listView.setAdapter(mScheduleAdapter);
     }
 
     private void showDepartFromDialog() {
@@ -135,7 +135,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     }
 
     private void updateBusData() {
-        scheduleAdapter.setData(mCurrentBus.getTimes(mDeparturePointIndex, mScheduleIndex));
+        mScheduleAdapter.setData(mCurrentBus.getTimes(mDeparturePointIndex, mScheduleIndex));
         ((TextView) findViewById(R.id.depart_from)).setText(getString(R.string.departs_from) + mCurrentBus.getDepartingPoint(mDeparturePointIndex));
     }
 
