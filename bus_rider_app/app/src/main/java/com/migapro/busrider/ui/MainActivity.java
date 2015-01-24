@@ -55,7 +55,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
             restoreState(savedInstanceState);
         }
 
-        loadBusData();
+        loadCurrentBusData();
 
         initViews();
 
@@ -73,7 +73,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         }
     }
 
-    private void loadBusData() {
+    private void loadCurrentBusData() {
         try {
             if (mParser == null) {
                 mParser = new BusXmlPullParser();
@@ -120,7 +120,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         mDeparturePointIndex = which;
-                        updateBusData();
+                        updateCurrentBusData();
                         dialog.dismiss();
                     }
                 })
@@ -134,7 +134,7 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         mScheduleIndex = savedInstanceState.getInt(Constants.SCHEDULE_INDEX_KEY, 0);
     }
 
-    private void updateBusData() {
+    private void updateCurrentBusData() {
         mScheduleAdapter.setData(mCurrentBus.getTimes(mDeparturePointIndex, mScheduleIndex));
         ((TextView) findViewById(R.id.depart_from)).setText(getString(R.string.departs_from) + mCurrentBus.getDepartingPoint(mDeparturePointIndex));
     }
@@ -222,8 +222,8 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         if (mBusIndex != position) {
             mBusIndex = position;
-            loadBusData();
-            updateBusData();
+            loadCurrentBusData();
+            updateCurrentBusData();
         }
     }
 
