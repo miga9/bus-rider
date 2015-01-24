@@ -224,7 +224,6 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
             mBusIndex = position;
             loadBusData();
             updateBusData();
-            ((TextView) findViewById(R.id.depart_from)).setText(getString(R.string.departs_from) + mCurrentBus.getDepartingPoint(mDeparturePointIndex));
         }
     }
 
