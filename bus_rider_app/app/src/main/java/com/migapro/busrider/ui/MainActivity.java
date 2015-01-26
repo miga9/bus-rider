@@ -31,7 +31,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MainActivity extends ActionBarActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends ActionBarActivity {
 
 	private BusXmlPullParser mParser;
 	private ArrayList<String> mBusNames;
@@ -99,7 +99,24 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         spinnerAdapter.setDropDownViewResource(R.layout.simple_dropdown_item_1line_light);
         Spinner titleSpinner = (Spinner) findViewById(R.id.title_spinner);
         titleSpinner.setAdapter(spinnerAdapter);
-        titleSpinner.setOnItemSelectedListener(this);
+        titleSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (mBusIndex != position) {
+                    mBusIndex = position;
+                    mDeparturePointIndex = 0;
+                    mScheduleIndex = 0;
+
+                    loadCurrentBusData();
+                    updateCurrentBusData();
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         LinearLayout departsFromLayout = (LinearLayout) findViewById(R.id.depart_from_layout);
         departsFromLayout.setOnClickListener(new View.OnClickListener() {
@@ -229,23 +246,6 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        if (mBusIndex != position) {
-            mBusIndex = position;
-            mDeparturePointIndex = 0;
-            mScheduleIndex = 0;
-
-            loadCurrentBusData();
-            updateCurrentBusData();
-        }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
     }
 
     public ArrayList<Time> getTimeList(int scheduleIndex) {
