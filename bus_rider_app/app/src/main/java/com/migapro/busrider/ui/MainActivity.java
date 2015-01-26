@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -115,6 +116,10 @@ public class MainActivity extends ActionBarActivity implements AdapterView.OnIte
         mViewPagerAdapter = new ViewPagerAdapter(getFragmentManager());
         mViewPagerAdapter.setTitles(mCurrentBus.getDaysOfOperation(mDeparturePointIndex));
         mViewPager.setAdapter(mViewPagerAdapter);
+
+        PagerTabStrip pagerTabStrip = (PagerTabStrip) findViewById(R.id.pagertabstrip);
+        pagerTabStrip.setDrawFullUnderline(true);
+        pagerTabStrip.setTabIndicatorColor(getResources().getColor(R.color.light_accent));
     }
 
     private void showDepartFromDialog() {
