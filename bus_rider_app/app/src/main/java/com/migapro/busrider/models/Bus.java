@@ -45,6 +45,15 @@ public class Bus {
         mDepartingPoints.add(departingPoint);
     }
 
+    public String[] getDaysOfOperation(int departureIndex) {
+        ArrayList<Schedule> schedules = mDepartingPoints.get(departureIndex).getSchedules();
+
+        String[] daysOfOperation = new String[schedules.size()];
+        for (int i = 0; i < daysOfOperation.length; i++) {
+            daysOfOperation[i] = schedules.get(i).getDaysOfOperation();
+        }
+        return daysOfOperation;
+    }
 
     public ArrayList<Time> getTimes(int departureIndex, int scheduleIndex) {
         return mDepartingPoints.get(departureIndex).getSchedule(scheduleIndex).getTimes();
