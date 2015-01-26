@@ -12,5 +12,6 @@ public class Constants {
     public static final String SCHEDULE_INDEX_KEY = "scheduleIndex";
     public static final String FRAGMENT_SCHEDULE_INDEX_KEY = "scheduleIndexArg";
 
+    public static final int NUM_OF_VISITS_TO_PROMPT_RATE_THIS_APP = 5;
     public static final String SHARE_MESSAGE = "Check out Bus Rider https://play.google.com/store/apps/details?id=";
 }
