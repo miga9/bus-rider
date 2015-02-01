@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.migapro.busrider.R;
@@ -52,17 +51,18 @@ public class ScheduleAdapter extends BaseAdapter {
         TextView tv = (TextView) convertView.findViewById(R.id.hours);
         tv.setText(mData.get(position).getHours());
 
-        LinearLayout minutesLayout = (LinearLayout) convertView.findViewById(R.id.minutes_layout);
-        minutesLayout.removeAllViews();
-        TextView minutesTextView;
-
-        for (String minutes : mData.get(position).getMinutes()) {
-            minutesTextView = (TextView) mInflater.inflate(R.layout.minutes_item, minutesLayout, false);
-            minutesTextView.setText(minutes);
-            minutesLayout.addView(minutesTextView);
-        }
+        TextView  minutesTextView = (TextView) convertView.findViewById(R.id.minutes);
+        minutesTextView.setText(concatenateMinutesString(mData.get(position).getMinutes()));
 
         return convertView;
+    }
+
+    private String concatenateMinutesString(ArrayList<String> minutesList) {
+        StringBuilder strBuilder = new StringBuilder();
+        for (String minutes : minutesList) {
+            strBuilder.append(minutes).append("    ");
+        }
+        return strBuilder.toString();
     }
 
     public void setData(ArrayList<Time> data) {

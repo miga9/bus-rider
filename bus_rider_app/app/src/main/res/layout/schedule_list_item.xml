@@ -11,14 +11,13 @@
         android:textSize="@dimen/large_textsize"
         android:textColor="@color/black"/>
 
-    <LinearLayout
-        android:id="@+id/minutes_layout"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/minutes"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/hours"
-        android:orientation="horizontal"
-        android:padding="@dimen/small_padding">
-
-    </LinearLayout>
+        android:padding="@dimen/medium_padding"
+        android:textSize="@dimen/small_textsize"
+        android:textColor="@color/black"/>
 
 </RelativeLayout>
