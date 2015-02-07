@@ -1,4 +1,4 @@
 Bus Rider
 =========
 
-Bus app for my university
+Bus schedule app for my university
