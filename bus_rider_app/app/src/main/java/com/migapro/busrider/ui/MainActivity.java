@@ -43,7 +43,6 @@ public class MainActivity extends ActionBarActivity {
 
     private int mBusIndex;
     private int mDeparturePointIndex;
-    private int mScheduleIndex;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +106,6 @@ public class MainActivity extends ActionBarActivity {
                 if (mBusIndex != position) {
                     mBusIndex = position;
                     mDeparturePointIndex = 0;
-                    mScheduleIndex = 0;
 
                     SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
                     editor.putInt(Constants.BUS_INDEX_KEY, mBusIndex);
@@ -153,7 +151,6 @@ public class MainActivity extends ActionBarActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         mDeparturePointIndex = which;
-                        mScheduleIndex = 0;
 
                         SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
                         editor.putInt(Constants.DEPARTURE_INDEX_KEY, mDeparturePointIndex);
@@ -170,7 +167,6 @@ public class MainActivity extends ActionBarActivity {
         mBusNames = savedInstanceState.getStringArrayList(Constants.BUS_NAMES_KEY);
         mBusIndex = savedInstanceState.getInt(Constants.BUS_INDEX_KEY, 0);
         mDeparturePointIndex = savedInstanceState.getInt(Constants.DEPARTURE_INDEX_KEY, 0);
-        //mScheduleIndex = savedInstanceState.getInt(Constants.SCHEDULE_INDEX_KEY, 0);
     }
 
     private void rateMyApp() {
@@ -228,7 +224,6 @@ public class MainActivity extends ActionBarActivity {
         outState.putStringArrayList(Constants.BUS_NAMES_KEY, mBusNames);
         outState.putInt(Constants.BUS_INDEX_KEY, mBusIndex);
         outState.putInt(Constants.DEPARTURE_INDEX_KEY, mDeparturePointIndex);
-        outState.putInt(Constants.SCHEDULE_INDEX_KEY, mScheduleIndex);
     }
 
     @Override
