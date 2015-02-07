@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/medium_padding"
             android:orientation="vertical"
-            android:background="@color/light_accent">
+            android:background="@drawable/departure_from_background">
 
             <TextView
                 android:id="@+id/depart_from"
