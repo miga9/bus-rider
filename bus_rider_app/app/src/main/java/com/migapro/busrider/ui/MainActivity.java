@@ -21,6 +21,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.migapro.busrider.R;
+import com.migapro.busrider.config.FeatureFlags;
 import com.migapro.busrider.models.Bus;
 import com.migapro.busrider.models.Time;
 import com.migapro.busrider.parser.BusXmlPullParser;
@@ -222,18 +223,46 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.main, menu);
+        if (FeatureFlags.MAPS) {
+            getMenuInflater().inflate(R.menu.main_feature_maps, menu);
+        } else {
+            getMenuInflater().inflate(R.menu.main, menu);
+        }
 		return true;
 	}
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if (FeatureFlags.MAPS) {
+            return processOptionsItemSelectedFeatureMaps(item);
+        } else {
+            return processOptionsItemSelectedDefault(item);
+        }
+    }
+
+    private boolean processOptionsItemSelectedFeatureMaps(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_map:
                 Intent intent = new Intent(this, MapActivity.class);
                 intent.putExtra(Constants.MAP_TITLE_KEY, mCurrentBus.getBusName());
                 startActivity(intent);
                 return true;
+            case R.id.action_share:
+                String shareMessage = Constants.SHARE_MESSAGE + getPackageName();
+
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                startActivity(Intent.createChooser(shareIntent, "Share this app"));
+
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private boolean processOptionsItemSelectedDefault(MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.action_share:
                 String shareMessage = Constants.SHARE_MESSAGE + getPackageName();
 
