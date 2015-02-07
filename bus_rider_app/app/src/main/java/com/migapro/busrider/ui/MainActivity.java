@@ -53,9 +53,9 @@ public class MainActivity extends ActionBarActivity {
         if (savedInstanceState == null) {
             loadBusNames();
 
-            mBusIndex = 0;
-            mDeparturePointIndex = 0;
-            mScheduleIndex = 0;
+            SharedPreferences sp = getPreferences(MODE_PRIVATE);
+            mBusIndex = sp.getInt(Constants.BUS_INDEX_KEY, 0);
+            mDeparturePointIndex = sp.getInt(Constants.DEPARTURE_INDEX_KEY, 0);
         } else {
             restoreState(savedInstanceState);
         }
@@ -100,6 +100,7 @@ public class MainActivity extends ActionBarActivity {
         spinnerAdapter.setDropDownViewResource(R.layout.simple_dropdown_item_1line_light);
         Spinner titleSpinner = (Spinner) findViewById(R.id.title_spinner);
         titleSpinner.setAdapter(spinnerAdapter);
+        titleSpinner.setSelection(mBusIndex);
         titleSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -107,6 +108,11 @@ public class MainActivity extends ActionBarActivity {
                     mBusIndex = position;
                     mDeparturePointIndex = 0;
                     mScheduleIndex = 0;
+
+                    SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+                    editor.putInt(Constants.BUS_INDEX_KEY, mBusIndex);
+                    editor.putInt(Constants.DEPARTURE_INDEX_KEY, mDeparturePointIndex);
+                    editor.commit();
 
                     loadCurrentBusData();
                     updateCurrentBusData();
@@ -149,6 +155,10 @@ public class MainActivity extends ActionBarActivity {
                         mDeparturePointIndex = which;
                         mScheduleIndex = 0;
 
+                        SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+                        editor.putInt(Constants.DEPARTURE_INDEX_KEY, mDeparturePointIndex);
+                        editor.commit();
+
                         updateCurrentBusData();
                         dialog.dismiss();
                     }
@@ -160,7 +170,7 @@ public class MainActivity extends ActionBarActivity {
         mBusNames = savedInstanceState.getStringArrayList(Constants.BUS_NAMES_KEY);
         mBusIndex = savedInstanceState.getInt(Constants.BUS_INDEX_KEY, 0);
         mDeparturePointIndex = savedInstanceState.getInt(Constants.DEPARTURE_INDEX_KEY, 0);
-        mScheduleIndex = savedInstanceState.getInt(Constants.SCHEDULE_INDEX_KEY, 0);
+        //mScheduleIndex = savedInstanceState.getInt(Constants.SCHEDULE_INDEX_KEY, 0);
     }
 
     private void rateMyApp() {
