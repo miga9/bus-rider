@@ -51,10 +51,7 @@ public class MainActivity extends ActionBarActivity {
 
         if (savedInstanceState == null) {
             loadBusNames();
-
-            SharedPreferences sp = getPreferences(MODE_PRIVATE);
-            mBusIndex = sp.getInt(Constants.BUS_INDEX_KEY, 0);
-            mDeparturePointIndex = sp.getInt(Constants.DEPARTURE_INDEX_KEY, 0);
+            initBusDataSelections();
         } else {
             restoreState(savedInstanceState);
         }
@@ -63,7 +60,7 @@ public class MainActivity extends ActionBarActivity {
 
         initViews();
 
-        rateMyApp();
+        checkRateMyApp();
 	}
 
     private void loadBusNames() {
@@ -75,6 +72,18 @@ public class MainActivity extends ActionBarActivity {
         } catch (XmlPullParserException e) {
             e.printStackTrace();
         }
+    }
+
+    private void initBusDataSelections() {
+        SharedPreferences sp = getPreferences(MODE_PRIVATE);
+        mBusIndex = sp.getInt(Constants.BUS_INDEX_KEY, 0);
+        mDeparturePointIndex = sp.getInt(Constants.DEPARTURE_INDEX_KEY, 0);
+    }
+
+    private void restoreState(Bundle savedInstanceState) {
+        mBusNames = savedInstanceState.getStringArrayList(Constants.BUS_NAMES_KEY);
+        mBusIndex = savedInstanceState.getInt(Constants.BUS_INDEX_KEY, 0);
+        mDeparturePointIndex = savedInstanceState.getInt(Constants.DEPARTURE_INDEX_KEY, 0);
     }
 
     private void loadCurrentBusData() {
@@ -95,10 +104,10 @@ public class MainActivity extends ActionBarActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner_title, mBusNames);
-        spinnerAdapter.setDropDownViewResource(R.layout.simple_dropdown_item_1line_light);
+        ArrayAdapter<String> titleSpinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner_title, mBusNames);
+        titleSpinnerAdapter.setDropDownViewResource(R.layout.simple_dropdown_item_1line_light);
         Spinner titleSpinner = (Spinner) findViewById(R.id.title_spinner);
-        titleSpinner.setAdapter(spinnerAdapter);
+        titleSpinner.setAdapter(titleSpinnerAdapter);
         titleSpinner.setSelection(mBusIndex);
         titleSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -144,6 +153,13 @@ public class MainActivity extends ActionBarActivity {
         pagerTabStrip.setTabIndicatorColor(getResources().getColor(R.color.light_accent));
     }
 
+    private void updateCurrentBusData() {
+        ((TextView) findViewById(R.id.depart_from)).setText(getString(R.string.departs_from) + mCurrentBus.getDepartingPoint(mDeparturePointIndex));
+        mViewPagerAdapter.setTitles(mCurrentBus.getDaysOfOperation(mDeparturePointIndex));
+        mViewPagerAdapter.notifyDataSetChanged();
+        mViewPager.setCurrentItem(0);
+    }
+
     private void showDepartFromDialog() {
         new AlertDialog.Builder(this)
                 .setTitle(getString(R.string.departs_from))
@@ -163,13 +179,7 @@ public class MainActivity extends ActionBarActivity {
                 .create().show();
     }
 
-    private void restoreState(Bundle savedInstanceState) {
-        mBusNames = savedInstanceState.getStringArrayList(Constants.BUS_NAMES_KEY);
-        mBusIndex = savedInstanceState.getInt(Constants.BUS_INDEX_KEY, 0);
-        mDeparturePointIndex = savedInstanceState.getInt(Constants.DEPARTURE_INDEX_KEY, 0);
-    }
-
-    private void rateMyApp() {
+    private void checkRateMyApp() {
         SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
         int count = sp.getInt(Constants.RATE_MY_APP_COUNT_KEY, 0);
 
@@ -208,13 +218,6 @@ public class MainActivity extends ActionBarActivity {
                         })
                 .create()
                 .show();
-    }
-
-    private void updateCurrentBusData() {
-        ((TextView) findViewById(R.id.depart_from)).setText(getString(R.string.departs_from) + mCurrentBus.getDepartingPoint(mDeparturePointIndex));
-        mViewPagerAdapter.setTitles(mCurrentBus.getDaysOfOperation(mDeparturePointIndex));
-        mViewPagerAdapter.notifyDataSetChanged();
-        mViewPager.setCurrentItem(0);
     }
 
     @Override
