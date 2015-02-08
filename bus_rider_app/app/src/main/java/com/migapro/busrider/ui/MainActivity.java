@@ -257,13 +257,7 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(intent);
                 return true;
             case R.id.action_share:
-                String shareMessage = Constants.SHARE_MESSAGE + getPackageName();
-
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("text/plain");
-                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-                startActivity(Intent.createChooser(shareIntent, "Share this app"));
-
+                showShareAppChooser();
                 return true;
             case R.id.action_version_info:
                 showVersionInfoDialog();
@@ -276,13 +270,7 @@ public class MainActivity extends ActionBarActivity {
     private boolean processOptionsItemSelectedDefault(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_share:
-                String shareMessage = Constants.SHARE_MESSAGE + getPackageName();
-
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("text/plain");
-                shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-                startActivity(Intent.createChooser(shareIntent, "Share this app"));
-
+                showShareAppChooser();
                 return true;
             case R.id.action_version_info:
                 showVersionInfoDialog();
@@ -290,6 +278,15 @@ public class MainActivity extends ActionBarActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void showShareAppChooser() {
+        String shareMessage = Constants.SHARE_MESSAGE + getPackageName();
+
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+        startActivity(Intent.createChooser(shareIntent, "Share this app"));
     }
 
     private void showVersionInfoDialog() {
