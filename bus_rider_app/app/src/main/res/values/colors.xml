@@ -2,7 +2,7 @@
 <resources>
     <color name="accent">#008F29</color>
     <color name="light_accent">#5BB81E</color>
-    <color name="light_accent_pressed">#69CC22</color>
+    <color name="light_accent_pressed">#7FC310</color>
     <color name="black">#251D18</color>
     <color name="white">#FFFFFF</color>
     <color name="gray">#898989</color>
