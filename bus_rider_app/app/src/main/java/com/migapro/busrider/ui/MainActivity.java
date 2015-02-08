@@ -20,6 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.migapro.busrider.R;
 import com.migapro.busrider.config.FeatureFlags;
@@ -232,29 +233,15 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-        if (FeatureFlags.MAPS) {
-            getMenuInflater().inflate(R.menu.main_feature_maps, menu);
-        } else {
-            getMenuInflater().inflate(R.menu.main, menu);
-        }
+        getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (FeatureFlags.MAPS) {
-            return processOptionsItemSelectedFeatureMaps(item);
-        } else {
-            return processOptionsItemSelectedDefault(item);
-        }
-    }
-
-    private boolean processOptionsItemSelectedFeatureMaps(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_map:
-                Intent intent = new Intent(this, MapActivity.class);
-                intent.putExtra(Constants.MAP_TITLE_KEY, mCurrentBus.getBusName());
-                startActivity(intent);
+                processActionMapSelected();
                 return true;
             case R.id.action_share:
                 showShareAppChooser();
@@ -267,17 +254,18 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    private boolean processOptionsItemSelectedDefault(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_share:
-                showShareAppChooser();
-                return true;
-            case R.id.action_version_info:
-                showVersionInfoDialog();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+    private void processActionMapSelected() {
+        if (FeatureFlags.MAPS) {
+            startMapActivity();
+        } else {
+            Toast.makeText(this, "Map feature coming soon...", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void startMapActivity() {
+        Intent intent = new Intent(this, MapActivity.class);
+        intent.putExtra(Constants.MAP_TITLE_KEY, mCurrentBus.getBusName());
+        startActivity(intent);
     }
 
     private void showShareAppChooser() {
