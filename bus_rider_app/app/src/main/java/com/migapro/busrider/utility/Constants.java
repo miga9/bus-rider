@@ -9,7 +9,6 @@ public class Constants {
     public static final String RATE_MY_APP_COUNT_KEY = "rateMyApp";
     public static final String BUS_INDEX_KEY = "busIndex";
     public static final String DEPARTURE_INDEX_KEY = "departureIndex";
-    public static final String SCHEDULE_INDEX_KEY = "scheduleIndex";
     public static final String FRAGMENT_SCHEDULE_INDEX_KEY = "scheduleIndexArg";
 
     public static final int NUM_OF_VISITS_TO_PROMPT_RATE_THIS_APP = 5;
