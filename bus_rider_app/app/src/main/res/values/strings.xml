@@ -13,4 +13,8 @@
 
     <string name="departs_from">"Departs from "</string>
 
+    <string name="version_info_title">Version </string>
+    <string name="version_info_message">A message related to this version.</string>
+    <string name="ok">"OK"</string>
+
 </resources>
