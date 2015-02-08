@@ -281,12 +281,12 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void showShareAppChooser() {
-        String shareMessage = Constants.SHARE_MESSAGE + getPackageName();
+        String shareMessage = getString(R.string.share_message) + getPackageName();
 
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
         shareIntent.setType("text/plain");
         shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-        startActivity(Intent.createChooser(shareIntent, "Share this app"));
+        startActivity(Intent.createChooser(shareIntent, getString(R.string.share_title)));
     }
 
     private void showVersionInfoDialog() {
