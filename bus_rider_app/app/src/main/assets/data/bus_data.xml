@@ -1,82 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <data>
-	<bus id="0" name="Discovery Park">
-	    <depart_point from="GAB">
-	        <schedule days="MTWR">
-                <time hours="07">
-                    <minutes min="15" />
-                    <minutes min="29" />
-                    <minutes min="43" />
-                    <minutes min="57" />
-                </time>
-                <time hours="08">
-                    <minutes min="11" />
-                    <minutes min="25" />
-                    <minutes min="39" />
-                    <minutes min="53" />
-                </time>
-	        </schedule>
-	        <schedule days="F">
-                <time hours="07">
-                    <minutes min="15" />
-                    <minutes min="36" />
-                    <minutes min="57" />
-                </time>
-                <time hours="08">
-                    <minutes min="18" />
-                    <minutes min="39" />
-                </time>
-                <time hours="09">
-                    <minutes min="00" />
-                    <minutes min="21" />
-                </time>
-	        </schedule>
-            <bus_stop name="GAB" longtitude="1" latitude="2" />
-            <bus_stop name="Avenue G &amp; West Oak St." longtitude="3" latitude="4" />
-            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
-	    </depart_point>
-	    <depart_point from="Discovery Park">
-	        <schedule days="MTWR">
-                <time hours="07">
-                    <minutes min="36" />
-                    <minutes min="50" />
-                </time>
-                <time hours="08">
-                    <minutes min="04" />
-                    <minutes min="18" />
-                    <minutes min="32" />
-                    <minutes min="46" />
-                </time>
-                <time hours="09">
-                    <minutes min="00" />
-                    <minutes min="14" />
-                </time>
-	        </schedule>
-	        <schedule days="F">
-                <time hours="07">
-                    <minutes min="36" />
-                    <minutes min="57" />
-                </time>
-                <time hours="08">
-                    <minutes min="18" />
-                    <minutes min="39" />
-                </time>
-                <time hours="09">
-                    <minutes min="00" />
-                    <minutes min="21" />
-                    <minutes min="42" />
-                </time>
-	        </schedule>
-	        <bus_stop_locations>
-	            <bus_stop name="Discovery Park East" longtitude="1" latitude="2" />
-	            <bus_stop name="Bonnie Brae &amp; Windsor" longtitude="3" latitude="4" />
-	            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
-	        </bus_stop_locations>
-	    </depart_point>
-	</bus>
-	<bus id="1" name="Mean Green">
-	    <depart_point from="Kerr Hall">
-	        <schedule days="MTWR">
+    <bus id="0" name="Mean Green">
+        <depart_point from="Kerr Hall">
+            <schedule days="Mon-Fri">
                 <time hours="07">
                     <minutes min="17" />
                     <minutes min="26" />
@@ -86,19 +12,103 @@
                 </time>
                 <time hours="08">
                     <minutes min="02" />
+                    <minutes min="11" />
                     <minutes min="20" />
                     <minutes min="29" />
                     <minutes min="38" />
+                    <minutes min="47" />
+                    <minutes min="56" />
                 </time>
-	        </schedule>
-	        <bus_stop_locations>
-	            <bus_stop name="Kerr Hall" longtitude="1" latitude="2" />
-	            <bus_stop name="Maple Hall" longtitude="3" latitude="4" />
-	            <bus_stop name="Mozart Square / Gateway" longtitude="5" latitude="6" />
-	        </bus_stop_locations>
-	    </depart_point>
-	    <depart_point from="GAB">
-	        <schedule days="MTWR">
+                <time hours="09">
+                    <minutes min="05" />
+                    <minutes min="14" />
+                    <minutes min="23" />
+                    <minutes min="32" />
+                    <minutes min="41" />
+                    <minutes min="50" />
+                    <minutes min="59" />
+                </time>
+                <time hours="10">
+                    <minutes min="08" />
+                    <minutes min="17" />
+                    <minutes min="26" />
+                    <minutes min="35" />
+                    <minutes min="44" />
+                    <minutes min="53" />
+                </time>
+                <time hours="11">
+                    <minutes min="02" />
+                    <minutes min="11" />
+                    <minutes min="20" />
+                    <minutes min="29" />
+                    <minutes min="38" />
+                    <minutes min="47" />
+                    <minutes min="56" />
+                </time>
+                <time hours="12">
+                    <minutes min="05" />
+                    <minutes min="14" />
+                    <minutes min="23" />
+                    <minutes min="32" />
+                    <minutes min="41" />
+                    <minutes min="50" />
+                    <minutes min="59" />
+                </time>
+                <time hours="13">
+                    <minutes min="08" />
+                    <minutes min="17" />
+                    <minutes min="26" />
+                    <minutes min="35" />
+                    <minutes min="44" />
+                    <minutes min="53" />
+                </time>
+                <time hours="14">
+                    <minutes min="02" />
+                    <minutes min="11" />
+                    <minutes min="20" />
+                    <minutes min="29" />
+                    <minutes min="38" />
+                    <minutes min="47" />
+                    <minutes min="56" />
+                </time>
+                <time hours="15">
+                    <minutes min="05" />
+                    <minutes min="14" />
+                    <minutes min="23" />
+                    <minutes min="32" />
+                    <minutes min="41" />
+                    <minutes min="50" />
+                    <minutes min="59" />
+                </time>
+                <time hours="16">
+                    <minutes min="08" />
+                    <minutes min="17" />
+                    <minutes min="26" />
+                    <minutes min="35" />
+                    <minutes min="44" />
+                    <minutes min="53" />
+                </time>
+                <time hours="17">
+                    <minutes min="02" />
+                    <minutes min="11" />
+                </time>
+            </schedule>
+            <bus_stop_locations>
+                <bus_stop name="Kerr Hall" longtitude="1" latitude="2" />
+                <bus_stop name="Maple Hall" longtitude="3" latitude="4" />
+                <bus_stop name="Mozart Square / Gateway" longtitude="5" latitude="6" />
+                <bus_stop name="Fouts Field(EAST)" longtitude="3" latitude="4" />
+                <bus_stop name="Fouts Field(SOUTH)" longtitude="5" latitude="6" />
+                <bus_stop name="Fouts Field(WEST)" longtitude="3" latitude="4" />
+                <bus_stop name="USB" longtitude="5" latitude="6" />
+                <bus_stop name="Santa Fe Square" longtitude="5" latitude="6" />
+                <bus_stop name="Student Rec Center" longtitude="5" latitude="6" />
+                <bus_stop name="College Inn / EESAT" longtitude="5" latitude="6" />
+                <bus_stop name="GAB" longtitude="5" latitude="6" />
+            </bus_stop_locations>
+        </depart_point>
+        <depart_point from="GAB">
+            <schedule days="Mon-Fri">
                 <time hours="07">
                     <minutes min="31" />
                     <minutes min="40" />
@@ -113,10 +123,552 @@
                     <minutes min="43" />
                     <minutes min="52" />
                 </time>
-	        </schedule>
+                <time hours="09">
+                    <minutes min="01" />
+                    <minutes min="10" />
+                    <minutes min="19" />
+                    <minutes min="28" />
+                    <minutes min="37" />
+                    <minutes min="46" />
+                    <minutes min="55" />
+                </time>
+                <time hours="10">
+                    <minutes min="04" />
+                    <minutes min="13" />
+                    <minutes min="22" />
+                    <minutes min="31" />
+                    <minutes min="40" />
+                    <minutes min="49" />
+                    <minutes min="58" />
+                </time>
+                <time hours="11">
+                    <minutes min="07" />
+                    <minutes min="16" />
+                    <minutes min="25" />
+                    <minutes min="34" />
+                    <minutes min="43" />
+                    <minutes min="52" />
+                </time>
+                <time hours="12">
+                    <minutes min="01" />
+                    <minutes min="10" />
+                    <minutes min="19" />
+                    <minutes min="28" />
+                    <minutes min="37" />
+                    <minutes min="46" />
+                    <minutes min="55" />
+                </time>
+                <time hours="13">
+                    <minutes min="04" />
+                    <minutes min="13" />
+                    <minutes min="22" />
+                    <minutes min="31" />
+                    <minutes min="40" />
+                    <minutes min="49" />
+                    <minutes min="58" />
+                </time>
+                <time hours="14">
+                    <minutes min="07" />
+                    <minutes min="16" />
+                    <minutes min="25" />
+                    <minutes min="34" />
+                    <minutes min="43" />
+                    <minutes min="52" />
+                </time>
+                <time hours="15">
+                    <minutes min="01" />
+                    <minutes min="10" />
+                    <minutes min="19" />
+                    <minutes min="28" />
+                    <minutes min="37" />
+                    <minutes min="46" />
+                    <minutes min="55" />
+                </time>
+                <time hours="16">
+                    <minutes min="04" />
+                    <minutes min="13" />
+                    <minutes min="22" />
+                    <minutes min="31" />
+                    <minutes min="40" />
+                    <minutes min="49" />
+                    <minutes min="58" />
+                </time>
+                <time hours="17">
+                    <minutes min="07" />
+                    <minutes min="16" />
+                    <minutes min="25" />
+                </time>
+            </schedule>
             <bus_stop name="GAB" longtitude="1" latitude="2" />
             <bus_stop name="Art Building" longtitude="3" latitude="4" />
             <bus_stop name="Kerr Hall" longtitude="5" latitude="6" />
+        </depart_point>
+    </bus>
+    <bus id="1" name="North Texan">
+        <depart_point from="University Uptown">
+            <schedule days="Mon-Fri">
+                <time hours="07">
+                    <minutes min="15" />
+                    <minutes min="20" />
+                    <minutes min="25" />
+                    <minutes min="30" />
+                    <minutes min="35" />
+                    <minutes min="40" />
+                    <minutes min="45" />
+                    <minutes min="50" />
+                    <minutes min="55" />
+                </time>
+                <time hours="08">
+                    <minutes min="00" />
+                    <minutes min="05" />
+                    <minutes min="10" />
+                    <minutes min="15" />
+                    <minutes min="20" />
+                    <minutes min="25" />
+                    <minutes min="30" />
+                    <minutes min="35" />
+                    <minutes min="40" />
+                    <minutes min="45" />
+                    <minutes min="50" />
+                    <minutes min="55" />
+                </time>
+                <time hours="09">
+                    <minutes min="05" />
+                    <minutes min="14" />
+                    <minutes min="23" />
+                    <minutes min="32" />
+                    <minutes min="41" />
+                    <minutes min="50" />
+                    <minutes min="59" />
+                </time>
+                <time hours="10">
+                    <minutes min="08" />
+                    <minutes min="17" />
+                    <minutes min="26" />
+                    <minutes min="35" />
+                    <minutes min="44" />
+                    <minutes min="53" />
+                </time>
+                <time hours="11">
+                    <minutes min="02" />
+                    <minutes min="11" />
+                    <minutes min="20" />
+                    <minutes min="29" />
+                    <minutes min="38" />
+                    <minutes min="47" />
+                    <minutes min="56" />
+                </time>
+                <time hours="12">
+                    <minutes min="05" />
+                    <minutes min="14" />
+                    <minutes min="23" />
+                    <minutes min="32" />
+                    <minutes min="41" />
+                    <minutes min="50" />
+                    <minutes min="59" />
+                </time>
+                <time hours="13">
+                    <minutes min="08" />
+                    <minutes min="17" />
+                    <minutes min="26" />
+                    <minutes min="35" />
+                    <minutes min="44" />
+                    <minutes min="53" />
+                </time>
+                <time hours="14">
+                    <minutes min="02" />
+                    <minutes min="11" />
+                    <minutes min="20" />
+                    <minutes min="29" />
+                    <minutes min="38" />
+                    <minutes min="47" />
+                    <minutes min="56" />
+                </time>
+                <time hours="15">
+                    <minutes min="05" />
+                    <minutes min="14" />
+                    <minutes min="23" />
+                    <minutes min="32" />
+                    <minutes min="41" />
+                    <minutes min="50" />
+                    <minutes min="59" />
+                </time>
+                <time hours="16">
+                    <minutes min="08" />
+                    <minutes min="17" />
+                    <minutes min="26" />
+                    <minutes min="35" />
+                    <minutes min="44" />
+                    <minutes min="53" />
+                </time>
+                <time hours="17">
+                    <minutes min="02" />
+                    <minutes min="11" />
+                </time>
+            </schedule>
+            <bus_stop_locations>
+                <bus_stop name="Kerr Hall" longtitude="1" latitude="2" />
+                <bus_stop name="Maple Hall" longtitude="3" latitude="4" />
+                <bus_stop name="Mozart Square / Gateway" longtitude="5" latitude="6" />
+                <bus_stop name="Fouts Field(EAST)" longtitude="3" latitude="4" />
+                <bus_stop name="Fouts Field(SOUTH)" longtitude="5" latitude="6" />
+                <bus_stop name="Fouts Field(WEST)" longtitude="3" latitude="4" />
+                <bus_stop name="USB" longtitude="5" latitude="6" />
+                <bus_stop name="Santa Fe Square" longtitude="5" latitude="6" />
+                <bus_stop name="Student Rec Center" longtitude="5" latitude="6" />
+                <bus_stop name="College Inn / EESAT" longtitude="5" latitude="6" />
+                <bus_stop name="GAB" longtitude="5" latitude="6" />
+            </bus_stop_locations>
+        </depart_point>
+        <depart_point from="GAB">
+            <schedule days="Mon-Fri">
+                <time hours="07">
+                    <minutes min="31" />
+                    <minutes min="40" />
+                    <minutes min="49" />
+                    <minutes min="58" />
+                </time>
+                <time hours="08">
+                    <minutes min="07" />
+                    <minutes min="16" />
+                    <minutes min="25" />
+                    <minutes min="34" />
+                    <minutes min="43" />
+                    <minutes min="52" />
+                </time>
+                <time hours="09">
+                    <minutes min="01" />
+                    <minutes min="10" />
+                    <minutes min="19" />
+                    <minutes min="28" />
+                    <minutes min="37" />
+                    <minutes min="46" />
+                    <minutes min="55" />
+                </time>
+                <time hours="10">
+                    <minutes min="04" />
+                    <minutes min="13" />
+                    <minutes min="22" />
+                    <minutes min="31" />
+                    <minutes min="40" />
+                    <minutes min="49" />
+                    <minutes min="58" />
+                </time>
+                <time hours="11">
+                    <minutes min="07" />
+                    <minutes min="16" />
+                    <minutes min="25" />
+                    <minutes min="34" />
+                    <minutes min="43" />
+                    <minutes min="52" />
+                </time>
+                <time hours="12">
+                    <minutes min="01" />
+                    <minutes min="10" />
+                    <minutes min="19" />
+                    <minutes min="28" />
+                    <minutes min="37" />
+                    <minutes min="46" />
+                    <minutes min="55" />
+                </time>
+                <time hours="13">
+                    <minutes min="04" />
+                    <minutes min="13" />
+                    <minutes min="22" />
+                    <minutes min="31" />
+                    <minutes min="40" />
+                    <minutes min="49" />
+                    <minutes min="58" />
+                </time>
+                <time hours="14">
+                    <minutes min="07" />
+                    <minutes min="16" />
+                    <minutes min="25" />
+                    <minutes min="34" />
+                    <minutes min="43" />
+                    <minutes min="52" />
+                </time>
+                <time hours="15">
+                    <minutes min="01" />
+                    <minutes min="10" />
+                    <minutes min="19" />
+                    <minutes min="28" />
+                    <minutes min="37" />
+                    <minutes min="46" />
+                    <minutes min="55" />
+                </time>
+                <time hours="16">
+                    <minutes min="04" />
+                    <minutes min="13" />
+                    <minutes min="22" />
+                    <minutes min="31" />
+                    <minutes min="40" />
+                    <minutes min="49" />
+                    <minutes min="58" />
+                </time>
+                <time hours="17">
+                    <minutes min="07" />
+                    <minutes min="16" />
+                    <minutes min="25" />
+                </time>
+            </schedule>
+            <bus_stop name="GAB" longtitude="1" latitude="2" />
+            <bus_stop name="Art Building" longtitude="3" latitude="4" />
+            <bus_stop name="Kerr Hall" longtitude="5" latitude="6" />
+        </depart_point>
+    </bus>
+	<bus id="2" name="Discovery Park">
+	    <depart_point from="GAB">
+	        <schedule days="Mon-Thurs">
+                <time hours="07">
+                    <minutes min="15" />
+                    <minutes min="29" />
+                    <minutes min="43" />
+                    <minutes min="57" />
+                </time>
+                <time hours="08">
+                    <minutes min="11" />
+                    <minutes min="25" />
+                    <minutes min="39" />
+                    <minutes min="53" />
+                </time>
+                <time hours="09">
+                    <minutes min="07" />
+                    <minutes min="21" />
+                    <minutes min="35" />
+                    <minutes min="49" />
+                </time>
+                <time hours="10">
+                    <minutes min="03" />
+                    <minutes min="17" />
+                    <minutes min="31" />
+                    <minutes min="45" />
+                    <minutes min="59" />
+                </time>
+                <time hours="11">
+                    <minutes min="13" />
+                    <minutes min="27" />
+                    <minutes min="41" />
+                    <minutes min="55" />
+                </time>
+                <time hours="12">
+                    <minutes min="09" />
+                    <minutes min="23" />
+                    <minutes min="37" />
+                    <minutes min="51" />
+                </time>
+                <time hours="13">
+                    <minutes min="05" />
+                    <minutes min="19" />
+                    <minutes min="33" />
+                    <minutes min="47" />
+                </time>
+                <time hours="14">
+                    <minutes min="01" />
+                    <minutes min="15" />
+                    <minutes min="29" />
+                    <minutes min="57" />
+                </time>
+                <time hours="15">
+                    <minutes min="18" />
+                    <minutes min="39" />
+                </time>
+                <time hours="16">
+                    <minutes min="00" />
+                    <minutes min="21" />
+                    <minutes min="42" />
+                </time>
+                <time hours="17">
+                    <minutes min="03" />
+                </time>
+            </schedule>
+	        <schedule days="Fri">
+                <time hours="07">
+                    <minutes min="15" />
+                    <minutes min="36" />
+                    <minutes min="57" />
+                </time>
+                <time hours="08">
+                    <minutes min="18" />
+                    <minutes min="39" />
+                </time>
+                <time hours="09">
+                    <minutes min="00" />
+                    <minutes min="21" />
+                    <minutes min="42" />
+                </time>
+                <time hours="10">
+                    <minutes min="03" />
+                    <minutes min="24" />
+                    <minutes min="45" />
+                </time>
+                <time hours="11">
+                    <minutes min="06" />
+                    <minutes min="27" />
+                    <minutes min="48" />
+                </time>
+                <time hours="12">
+                    <minutes min="09" />
+                    <minutes min="30" />
+                    <minutes min="51" />
+                </time>
+                <time hours="13">
+                    <minutes min="12" />
+                    <minutes min="33" />
+                </time>
+                <time hours="14">
+                    <minutes min="00" />
+                    <minutes min="15" />
+                    <minutes min="36" />
+                    <minutes min="57" />
+                </time>
+                <time hours="15">
+                    <minutes min="18" />
+                    <minutes min="39" />
+                </time>
+                <time hours="16">
+                    <minutes min="00" />
+                    <minutes min="21" />
+                    <minutes min="42" />
+                </time>
+                <time hours="17">
+                    <minutes min="03" />
+                    <minutes min="24" />
+                </time>
+                <time hours="18">
+                    <minutes min="06" />
+                </time>
+	        </schedule>
+            <bus_stop name="GAB" longtitude="1" latitude="2" />
+            <bus_stop name="Avenue G &amp; West Oak St." longtitude="3" latitude="4" />
+            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
+	    </depart_point>
+	    <depart_point from="Discovery Park">
+	        <schedule days="Mon-Thurs">
+                <time hours="07">
+                    <minutes min="36" />
+                    <minutes min="50" />
+                </time>
+                <time hours="08">
+                    <minutes min="04" />
+                    <minutes min="18" />
+                    <minutes min="32" />
+                    <minutes min="46" />
+                </time>
+                <time hours="09">
+                    <minutes min="00" />
+                    <minutes min="14" />
+                    <minutes min="28" />
+                    <minutes min="42" />
+                    <minutes min="56" />
+                </time>
+                <time hours="10">
+                    <minutes min="10" />
+                    <minutes min="24" />
+                    <minutes min="38" />
+                    <minutes min="52" />
+                </time>
+                <time hours="11">
+                    <minutes min="06" />
+                    <minutes min="20" />
+                    <minutes min="34" />
+                    <minutes min="48" />
+                </time>
+                <time hours="12">
+                    <minutes min="02" />
+                    <minutes min="16" />
+                    <minutes min="30" />
+                    <minutes min="44" />
+                    <minutes min="58" />
+                </time>
+                <time hours="13">
+                    <minutes min="12" />
+                    <minutes min="26" />
+                    <minutes min="40" />
+                    <minutes min="54" />
+                </time>
+                <time hours="14">
+                    <minutes min="08" />
+                    <minutes min="22" />
+                    <minutes min="36" />
+                    <minutes min="50" />
+                </time>
+                <time hours="15">
+                    <minutes min="18" />
+                    <minutes min="39" />
+                </time>
+                <time hours="16">
+                    <minutes min="00" />
+                    <minutes min="21" />
+                    <minutes min="42" />
+                </time>
+                <time hours="17">
+                    <minutes min="03" />
+                    <minutes min="24" />
+                </time>
+	        </schedule>
+	        <schedule days="Fri">
+                <time hours="07">
+                    <minutes min="36" />
+                    <minutes min="57" />
+                </time>
+                <time hours="08">
+                    <minutes min="18" />
+                    <minutes min="39" />
+                </time>
+                <time hours="09">
+                    <minutes min="00" />
+                    <minutes min="21" />
+                    <minutes min="42" />
+                </time>
+                <time hours="10">
+                    <minutes min="03" />
+                    <minutes min="24" />
+                    <minutes min="45" />
+                </time>
+                <time hours="11">
+                    <minutes min="06" />
+                    <minutes min="27" />
+                    <minutes min="48" />
+                </time>
+                <time hours="12">
+                    <minutes min="09" />
+                    <minutes min="30" />
+                    <minutes min="51" />
+                </time>
+                <time hours="13">
+                    <minutes min="12" />
+                    <minutes min="33" />
+                    <minutes min="54" />
+                </time>
+                <time hours="14">
+                    <minutes min="15" />
+                    <minutes min="36" />
+                    <minutes min="57" />
+                </time>
+                <time hours="15">
+                    <minutes min="18" />
+                    <minutes min="39" />
+                </time>
+                <time hours="16">
+                    <minutes min="00" />
+                    <minutes min="21" />
+                    <minutes min="42" />
+                </time>
+                <time hours="17">
+                    <minutes min="03" />
+                    <minutes min="24" />
+                    <minutes min="45" />
+                </time>
+                <time hours="18">
+                    <minutes min="27" />
+                </time>
+	        </schedule>
+	        <bus_stop_locations>
+	            <bus_stop name="Discovery Park East" longtitude="1" latitude="2" />
+	            <bus_stop name="Bonnie Brae &amp; Windsor" longtitude="3" latitude="4" />
+	            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
+	        </bus_stop_locations>
 	    </depart_point>
 	</bus>
 </data>
