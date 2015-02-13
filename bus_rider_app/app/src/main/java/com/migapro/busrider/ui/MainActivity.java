@@ -12,6 +12,7 @@ import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -285,7 +286,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void showVersionInfoDialog() {
-        new AlertDialog.Builder(this)
+        final AlertDialog versionInfoDialog = new AlertDialog.Builder(this)
                 .setTitle(getString(R.string.version_info_title) + getAppVersionNumber())
                 .setMessage(R.string.version_info_message)
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
@@ -294,7 +295,9 @@ public class MainActivity extends ActionBarActivity {
                         dialog.dismiss();
                     }
                 })
-                .create().show();
+                .create();
+        versionInfoDialog.show();
+        ((TextView)versionInfoDialog.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     private String getAppVersionNumber() {
