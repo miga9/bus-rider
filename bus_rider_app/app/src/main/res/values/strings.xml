@@ -15,6 +15,7 @@
     <string name="rate_this_app_negative">No</string>
 
     <string name="departs_from">"Departs from "</string>
+    <string name="schedule_empty_text">Unavailable</string>
 
     <string name="version_info_title">Version </string>
     <string name="version_info_message">A message related to this version.</string>
