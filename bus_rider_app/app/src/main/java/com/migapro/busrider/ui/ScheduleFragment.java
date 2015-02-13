@@ -24,6 +24,6 @@ public class ScheduleFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        setEmptyText(getActivity().getResources().getString(R.string.schedule_empty_text));
+        setEmptyText(getActivity().getString(R.string.schedule_empty_text));
     }
 }
