@@ -6,6 +6,10 @@
         android:drawable="@color/light_accent_pressed" />
 
     <item
+        android:state_enabled="false"
+        android:drawable="@color/light_accent_disabled" />
+
+    <item
         android:drawable="@color/light_accent" />
 
 </selector>

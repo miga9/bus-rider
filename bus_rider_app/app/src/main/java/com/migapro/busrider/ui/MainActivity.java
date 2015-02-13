@@ -141,6 +141,7 @@ public class MainActivity extends ActionBarActivity {
                 showDepartFromDialog();
             }
         });
+        findViewById(R.id.depart_from_layout).setEnabled(scheduleExists());
 
         TextView departsFrom = (TextView) findViewById(R.id.depart_from);
         departsFrom.setText(getString(R.string.departs_from) + mCurrentBus.getDepartingPoint(mDeparturePointIndex));
@@ -156,10 +157,16 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void updateCurrentBusData() {
+        findViewById(R.id.depart_from_layout).setEnabled(scheduleExists());
         ((TextView) findViewById(R.id.depart_from)).setText(getString(R.string.departs_from) + mCurrentBus.getDepartingPoint(mDeparturePointIndex));
+
         mViewPagerAdapter.setTitles(mCurrentBus.getDaysOfOperation(mDeparturePointIndex));
         mViewPagerAdapter.notifyDataSetChanged();
         mViewPager.setCurrentItem(0);
+    }
+
+    private boolean scheduleExists() {
+        return !mCurrentBus.getTimes(mDeparturePointIndex, 0).isEmpty();
     }
 
     private void showDepartFromDialog() {
