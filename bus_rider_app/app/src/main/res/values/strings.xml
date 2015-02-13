@@ -18,7 +18,7 @@
     <string name="schedule_empty_text">Unavailable</string>
 
     <string name="version_info_title">Version </string>
-    <string name="version_info_message">A message related to this version.</string>
+    <string name="version_info_message">This is an unofficial app.\n\nThe schedule information is pulled from the UNT website.\n\nIn severe weather or school holidays, please refer to the official website.\n\nThe schedule data was updated on 2/12/15.</string>
     <string name="ok">"OK"</string>
 
 </resources>
