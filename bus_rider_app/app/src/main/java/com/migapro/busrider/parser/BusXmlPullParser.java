@@ -1,6 +1,5 @@
 package com.migapro.busrider.parser;
 
-import com.migapro.busrider.config.FeatureFlags;
 import com.migapro.busrider.models.Bus;
 import com.migapro.busrider.models.BusStopLocation;
 import com.migapro.busrider.models.DepartingPoint;
@@ -105,12 +104,6 @@ public class BusXmlPullParser {
         } else if (name.equals("minutes")) {
             mTime.addMinutes(parser.getAttributeValue(null, "min"));
 			
-		} else if(FeatureFlags.MAPS) {
-            if (name.equals("bus_stop")) {
-                mBusStopLocation = new BusStopLocation();
-                mBusStopLocation.setTitle(parser.getAttributeValue(null, "name"));
-                mDepartingPoint.addBusStop(mBusStopLocation);
-            }
 		}
 	}
 	

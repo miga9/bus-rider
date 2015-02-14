@@ -24,7 +24,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.migapro.busrider.R;
-import com.migapro.busrider.config.FeatureFlags;
 import com.migapro.busrider.models.Bus;
 import com.migapro.busrider.models.Time;
 import com.migapro.busrider.parser.BusXmlPullParser;
@@ -263,11 +262,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void processActionMapSelected() {
-        if (FeatureFlags.MAPS) {
-            startMapActivity();
-        } else {
-            Toast.makeText(this, "Map feature coming soon...", Toast.LENGTH_LONG).show();
-        }
+        Toast.makeText(this, "Map feature coming soon...", Toast.LENGTH_LONG).show();
     }
 
     private void startMapActivity() {
