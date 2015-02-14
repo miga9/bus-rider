@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Bus Rider</string>
+    <string name="app_name">UNT Bus Rider</string>
     <string name="action_map">View the route in Map</string>
     <string name="action_share">Share</string>
     <string name="action_version_info">Version Info</string>
 
     <string name="share_title">Share this app</string>
-    <string name="share_message">Check out Bus Rider https://play.google.com/store/apps/details?id=</string>
+    <string name="share_message">Check out UNT Bus Rider https://play.google.com/store/apps/details?id=</string>
 
     <string name="rate_this_app">Rate this app</string>
     <string name="rate_this_app_msg">Would you like to take a moment to rate this app?</string>
