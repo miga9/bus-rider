@@ -46,6 +46,6 @@ public class BusXmlPullParserTest extends TestCase {
 
         assertEquals("Mean Green", busNames.get(0));
         assertEquals("North Texan", busNames.get(1));
-        assertEquals("Discovery Park", busNames.get(2));
+        assertEquals("Discovery Park", busNames.get(5));
     }
 }
