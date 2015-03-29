@@ -1,7 +1,6 @@
 package com.migapro.busrider.parser;
 
 import com.migapro.busrider.models.Bus;
-import com.migapro.busrider.models.BusStopLocation;
 import com.migapro.busrider.models.DepartingPoint;
 import com.migapro.busrider.models.Schedule;
 import com.migapro.busrider.models.Time;
@@ -24,7 +23,6 @@ public class BusXmlPullParser {
 	private Bus mBus;
 	private DepartingPoint mDepartingPoint;
 	private Schedule mSchedule;
-    private BusStopLocation mBusStopLocation;
     private Time mTime;
 	
 	public BusXmlPullParser() throws XmlPullParserException {

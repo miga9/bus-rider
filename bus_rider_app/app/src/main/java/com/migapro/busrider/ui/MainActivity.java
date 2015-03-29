@@ -23,6 +23,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+import com.migapro.busrider.BusRiderApplication;
 import com.migapro.busrider.R;
 import com.migapro.busrider.models.Bus;
 import com.migapro.busrider.models.Time;
@@ -307,5 +311,13 @@ public class MainActivity extends ActionBarActivity {
 
     public ArrayList<Time> getTimeList(int scheduleIndex) {
         return mCurrentBus.getTimes(mDeparturePointIndex, scheduleIndex);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Tracker tracker = ((BusRiderApplication) getApplication()).getTracker();
+        tracker.setScreenName(Constants.ANALYTICS_MAIN_SCREEN);
+        tracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 }
