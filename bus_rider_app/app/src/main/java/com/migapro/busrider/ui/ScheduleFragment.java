@@ -13,8 +13,6 @@ public class ScheduleFragment extends ListFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-
         int scheduleIndex = getArguments().getInt(Constants.FRAGMENT_SCHEDULE_INDEX_KEY);
         setListAdapter(new ScheduleAdapter(getActivity(), ((MainActivity) getActivity()).getTimeList(scheduleIndex)));
 
