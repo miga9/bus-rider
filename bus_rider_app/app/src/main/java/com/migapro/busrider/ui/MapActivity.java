@@ -18,6 +18,7 @@ public class MapActivity extends ActionBarActivity {
         setContentView(R.layout.activity_map);
 
         String title = getIntent().getStringExtra(Constants.MAP_TITLE_KEY);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(title);
         setSupportActionBar(toolbar);
@@ -28,6 +29,7 @@ public class MapActivity extends ActionBarActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
         Tracker tracker = ((BusRiderApplication) getApplication()).getTracker();
         tracker.setScreenName(Constants.ANALYTICS_MAP_SCREEN);
         tracker.send(new HitBuilders.ScreenViewBuilder().build());

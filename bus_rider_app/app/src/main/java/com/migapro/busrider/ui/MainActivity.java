@@ -321,6 +321,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
         Tracker tracker = ((BusRiderApplication) getApplication()).getTracker();
         tracker.setScreenName(Constants.ANALYTICS_MAIN_SCREEN);
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
