@@ -92,20 +92,7 @@
                     <minutes min="02" />
                     <minutes min="11" />
                 </time>
-            </schedule><!--
-            <bus_stop_locations>
-                <bus_stop name="Kerr Hall" longtitude="1" latitude="2" />
-                <bus_stop name="Maple Hall" longtitude="3" latitude="4" />
-                <bus_stop name="Mozart Square / Gateway" longtitude="5" latitude="6" />
-                <bus_stop name="Fouts Field(EAST)" longtitude="3" latitude="4" />
-                <bus_stop name="Fouts Field(SOUTH)" longtitude="5" latitude="6" />
-                <bus_stop name="Fouts Field(WEST)" longtitude="3" latitude="4" />
-                <bus_stop name="USB" longtitude="5" latitude="6" />
-                <bus_stop name="Santa Fe Square" longtitude="5" latitude="6" />
-                <bus_stop name="Student Rec Center" longtitude="5" latitude="6" />
-                <bus_stop name="College Inn / EESAT" longtitude="5" latitude="6" />
-                <bus_stop name="GAB" longtitude="5" latitude="6" />
-            </bus_stop_locations>-->
+            </schedule>
         </depart_point>
         <depart_point from="GAB">
             <schedule days="Mon-Fri">
@@ -198,11 +185,22 @@
                     <minutes min="16" />
                     <minutes min="25" />
                 </time>
-            </schedule><!--
-            <bus_stop name="GAB" longtitude="1" latitude="2" />
-            <bus_stop name="Art Building" longtitude="3" latitude="4" />
-            <bus_stop name="Kerr Hall" longtitude="5" latitude="6" />-->
+            </schedule>
         </depart_point>
+        <bus_stop_locations>
+            <bus_stop name="Kerr Hall" lat="1" lng="2" />
+            <bus_stop name="Maple Hall" lat="3.3" lng="4" />
+            <bus_stop name="Mozart Square / Gateway" lat="5" lng="6" />
+            <bus_stop name="Fouts Field(EAST)" lat="3" lng="4" />
+            <bus_stop name="Fouts Field(SOUTH)" lat="5" lng="6" />
+            <bus_stop name="Fouts Field(WEST)" lat="3" lng="4" />
+            <bus_stop name="USB" lat="5" lng="6" />
+            <bus_stop name="Santa Fe Square" lat="5" lng="6" />
+            <bus_stop name="Student Rec Center" lat="5" lng="6" />
+            <bus_stop name="College Inn / EESAT" lat="5" lng="6" />
+            <bus_stop name="GAB" lat="5" lng="6" />
+            <bus_stop name="Art Building" lat="5" lng="6" />
+        </bus_stop_locations>
     </bus>
     <bus id="1" name="North Texan">
         <depart_point from="University Uptown">
@@ -322,20 +320,7 @@
                     <minutes min="19" />
                     <minutes min="28" />
                 </time>
-            </schedule><!--
-            <bus_stop_locations>
-                <bus_stop name="Kerr Hall" longtitude="1" latitude="2" />
-                <bus_stop name="Maple Hall" longtitude="3" latitude="4" />
-                <bus_stop name="Mozart Square / Gateway" longtitude="5" latitude="6" />
-                <bus_stop name="Fouts Field(EAST)" longtitude="3" latitude="4" />
-                <bus_stop name="Fouts Field(SOUTH)" longtitude="5" latitude="6" />
-                <bus_stop name="Fouts Field(WEST)" longtitude="3" latitude="4" />
-                <bus_stop name="USB" longtitude="5" latitude="6" />
-                <bus_stop name="Santa Fe Square" longtitude="5" latitude="6" />
-                <bus_stop name="Student Rec Center" longtitude="5" latitude="6" />
-                <bus_stop name="College Inn / EESAT" longtitude="5" latitude="6" />
-                <bus_stop name="GAB" longtitude="5" latitude="6" />
-            </bus_stop_locations>-->
+            </schedule>
         </depart_point>
         <depart_point from="Highland St Garage">
             <schedule days="Mon-Fri">
@@ -453,6 +438,15 @@
                 </time>
             </schedule>
         </depart_point>
+        <bus_stop_locations>
+            <bus_stop name="University Uptown" lat="1" lng="2" />
+            <bus_stop name="University Courtyard" lat="3.3" lng="4" />
+            <bus_stop name="Avenue H and Hickory" lat="5" lng="6" />
+            <bus_stop name="Stella St. &amp; N. Texas Blvd" lat="3" lng="4" />
+            <bus_stop name="West Hall" lat="5" lng="6" />
+            <bus_stop name="Highland Street Garage" lat="3" lng="4" />
+            <bus_stop name="Honors Hall" lat="5" lng="6" />
+        </bus_stop_locations>
     </bus>
     <bus id="2" name="Centre Place East">
         <depart_point from="14 Fifty One">
@@ -519,11 +513,8 @@
                 <time hours="17">
                     <minutes min="05" />
                 </time>
-            </schedule><!--
-            <bus_stop name="GAB" longtitude="1" latitude="2" />
-            <bus_stop name="Avenue G &amp; West Oak St." longtitude="3" latitude="4" />
-            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
-	 --></depart_point>
+            </schedule>
+	    </depart_point>
         <depart_point from="Business Leadership Building">
             <schedule days="Mon-Fri">
                 <time hours="07">
@@ -588,13 +579,14 @@
                     <minutes min="05" />
                     <minutes min="20" />
                 </time>
-            </schedule><!--
-	        <bus_stop_locations>
-	            <bus_stop name="Discovery Park East" longtitude="1" latitude="2" />
-	            <bus_stop name="Bonnie Brae &amp; Windsor" longtitude="3" latitude="4" />
-	            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
-	        </bus_stop_locations>-->
+            </schedule>
         </depart_point>
+        <bus_stop_locations>
+            <bus_stop name="14 Fifty One" lat="1" lng="2" />
+            <bus_stop name="Allegre Vista" lat="3.3" lng="4" />
+            <bus_stop name="The Grove" lat="5" lng="6" />
+            <bus_stop name="Business Leadership Building (southside)" lat="3" lng="4" />
+        </bus_stop_locations>
     </bus>
     <bus id="3" name="Centre Place West">
         <depart_point from="Forum">
@@ -788,11 +780,8 @@
                     <minutes min="15" />
                     <minutes min="45" />
                 </time>
-            </schedule><!--
-            <bus_stop name="GAB" longtitude="1" latitude="2" />
-            <bus_stop name="Avenue G &amp; West Oak St." longtitude="3" latitude="4" />
-            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
-	 --></depart_point>
+            </schedule>
+        </depart_point>
         <depart_point from="Business Leadership Building">
             <schedule days="Mon-Thurs">
                 <time hours="07">
@@ -983,13 +972,15 @@
                     <minutes min="20" />
                     <minutes min="30" />
                 </time>
-            </schedule><!--
-	        <bus_stop_locations>
-	            <bus_stop name="Discovery Park East" longtitude="1" latitude="2" />
-	            <bus_stop name="Bonnie Brae &amp; Windsor" longtitude="3" latitude="4" />
-	            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
-	        </bus_stop_locations>-->
+            </schedule>
         </depart_point>
+        <bus_stop_locations>
+            <bus_stop name="The Forum / The Republic" lat="1" lng="2" />
+            <bus_stop name="Campus Park" lat="3.3" lng="4" />
+            <bus_stop name="The Grove" lat="5" lng="6" />
+            <bus_stop name="Business Leadership Building (southside)" lat="3" lng="4" />
+            <bus_stop name="Allegre Vista" lat="5" lng="6" />
+        </bus_stop_locations>
     </bus>
     <bus id="4" name="Eagle Point">
         <depart_point from="Victory Hall">
@@ -1076,7 +1067,7 @@
                     <minutes min="25" />
                 </time>
             </schedule>
-	 --></depart_point>
+	    </depart_point>
         <depart_point from="Kerr Hall">
             <schedule days="Mon-Fri">
                 <time hours="07">
@@ -1161,6 +1152,14 @@
                 </time>
             </schedule>
         </depart_point>
+        <bus_stop_locations>
+            <bus_stop name="Victory Hall" lat="1" lng="2" />
+            <bus_stop name="Bonnie Brae" lat="3.3" lng="4" />
+            <bus_stop name="Kerr Hall" lat="5" lng="6" />
+            <bus_stop name="Maple Hall" lat="3" lng="4" />
+            <bus_stop name="Mozart Square / Gateway" lat="5" lng="6" />
+            <bus_stop name="Mean Green Village" lat="3" lng="4" />
+        </bus_stop_locations>
     </bus>
 	<bus id="5" name="Discovery Park">
 	    <depart_point from="GAB">
@@ -1283,11 +1282,8 @@
                 <time hours="18">
                     <minutes min="06" />
                 </time>
-	        </schedule><!--
-            <bus_stop name="GAB" longtitude="1" latitude="2" />
-            <bus_stop name="Avenue G &amp; West Oak St." longtitude="3" latitude="4" />
-            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
-	 --></depart_point>
+	        </schedule>
+	    </depart_point>
 	    <depart_point from="Discovery Park">
 	        <schedule days="Mon-Thurs">
                 <time hours="07">
@@ -1410,6 +1406,20 @@
                 </time>
 	        </schedule>
 	    </depart_point>
+        <bus_stop_locations>
+            <bus_stop name="GAB" lat="1" lng="2" />
+            <bus_stop name="Avenue G &amp; West Oak St." lat="3.3" lng="4" />
+            <bus_stop name="Bonnie Brae &amp; University" lat="5" lng="6" />
+            <bus_stop name="Bonnie Brae &amp; Windsor" lat="3" lng="4" />
+            <bus_stop name="Discovery Park Main" lat="5" lng="6" />
+            <bus_stop name="Discovery Park East" lat="3" lng="4" />
+            <bus_stop name="Bonnie Brae &amp; Windsor" lat="5" lng="6" />
+            <bus_stop name="SBonnie Brae &amp; University" lat="5" lng="6" />
+            <bus_stop name="Avenue H. &amp; Hickory St." lat="5" lng="6" />
+            <bus_stop name="Stella &amp; North Texas Blvd." lat="5" lng="6" />
+            <bus_stop name="Student Rec Center" lat="5" lng="6" />
+            <bus_stop name="EESAT" lat="5" lng="6" />
+        </bus_stop_locations>
 	</bus>
     <bus id="6" name="Bernard Street">
     <depart_point from="Gateway Apartments">
@@ -1636,11 +1646,8 @@
                 <minutes min="20" />
                 <minutes min="30" />
             </time>
-        </schedule><!--
-            <bus_stop name="GAB" longtitude="1" latitude="2" />
-            <bus_stop name="Avenue G &amp; West Oak St." longtitude="3" latitude="4" />
-            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
-	 --></depart_point>
+        </schedule>
+	</depart_point>
     <depart_point from="Business Leadership Building">
         <schedule days="Mon-Thurs">
             <time hours="07">
@@ -1861,12 +1868,7 @@
                 <minutes min="10" />
                 <minutes min="20" />
             </time>
-        </schedule><!--
-	        <bus_stop_locations>
-	            <bus_stop name="Discovery Park East" longtitude="1" latitude="2" />
-	            <bus_stop name="Bonnie Brae &amp; Windsor" longtitude="3" latitude="4" />
-	            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
-	        </bus_stop_locations>-->
+        </schedule>
     </depart_point>
     </bus>
     <bus id="7" name="Colorado Express">
@@ -2018,11 +2020,8 @@
                     <minutes min="03" />
                     <minutes min="13" />
                 </time>
-            </schedule><!--
-            <bus_stop name="GAB" longtitude="1" latitude="2" />
-            <bus_stop name="Avenue G &amp; West Oak St." longtitude="3" latitude="4" />
-            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
-	 --></depart_point>
+            </schedule>
+	    </depart_point>
         <depart_point from="Business Leadership Building">
             <schedule days="Mon-Thurs">
                 <time hours="07">
@@ -2175,12 +2174,7 @@
                     <minutes min="24" />
                     <minutes min="34" />
                 </time>
-            </schedule><!--
-	        <bus_stop_locations>
-	            <bus_stop name="Discovery Park East" longtitude="1" latitude="2" />
-	            <bus_stop name="Bonnie Brae &amp; Windsor" longtitude="3" latitude="4" />
-	            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
-	        </bus_stop_locations>-->
+            </schedule>
         </depart_point>
     </bus>
     <bus id="8" name="Campus Cruiser">
@@ -2736,11 +2730,8 @@
                     <minutes min="15" />
                     <minutes min="30" />
                 </time>
-            </schedule><!--
-            <bus_stop name="GAB" longtitude="1" latitude="2" />
-            <bus_stop name="Avenue G &amp; West Oak St." longtitude="3" latitude="4" />
-            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
-	 --></depart_point>
+            </schedule>
+	    </depart_point>
         <depart_point from="Business Leadership Building">
             <schedule days="Mon-Thurs">
                 <time hours="07">
@@ -2891,12 +2882,7 @@
                     <minutes min="18" />
                     <minutes min="33" />
                 </time>
-            </schedule><!--
-	        <bus_stop_locations>
-	            <bus_stop name="Discovery Park East" longtitude="1" latitude="2" />
-	            <bus_stop name="Bonnie Brae &amp; Windsor" longtitude="3" latitude="4" />
-	            <bus_stop name="Bonnie Brae &amp; University" longtitude="5" latitude="6" />
-	        </bus_stop_locations>-->
+            </schedule>
         </depart_point>
     </bus>
 </data>
