@@ -277,6 +277,8 @@ public class MainActivity extends ActionBarActivity {
     private void startMapActivity() {
         Intent intent = new Intent(this, MapActivity.class);
         intent.putExtra(Constants.MAP_TITLE_KEY, mCurrentBus.getBusName());
+        intent.putStringArrayListExtra(Constants.MAP_BUSSTOP_TITLES_KEY, mCurrentBus.getBusStopTitles());
+        intent.putParcelableArrayListExtra(Constants.MAP_BUSSTOP_LATNLNGS_KEY, mCurrentBus.getBusStopLatLngs());
         startActivity(intent);
     }
 
