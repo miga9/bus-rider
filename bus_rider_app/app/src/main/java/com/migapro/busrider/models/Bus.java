@@ -1,5 +1,7 @@
 package com.migapro.busrider.models;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 
 
@@ -12,9 +14,13 @@ public class Bus {
 	
 	private String mBusName;
 	private ArrayList<DepartingPoint> mDepartingPoints;
-	
+    private ArrayList<String> mBusStopTitles;
+    private ArrayList<LatLng> mBusStopLatLngs;
+
 	public Bus() {
 		mDepartingPoints = new ArrayList<DepartingPoint>();
+        mBusStopTitles = new ArrayList<String>();
+        mBusStopLatLngs = new ArrayList<LatLng>();
 	}
 	
 	public String getBusName() {
@@ -59,6 +65,19 @@ public class Bus {
         return mDepartingPoints.get(departureIndex).getSchedule(scheduleIndex).getTimes();
     }
 
+    public ArrayList<String> getBusStopTitles() {
+        return mBusStopTitles;
+    }
 
+    public ArrayList<LatLng> getBusStopLatLngs() {
+        return mBusStopLatLngs;
+    }
 
+    public void addBusStopTitle(String busStopTitle) {
+        mBusStopTitles.add(busStopTitle);
+    }
+
+    public void addBusStopLatLng(LatLng busStopLatLng) {
+        mBusStopLatLngs.add(busStopLatLng);
+    }
 }

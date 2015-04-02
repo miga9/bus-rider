@@ -12,11 +12,9 @@ public class DepartingPoint {
 	
 	private String mDepartFrom;
 	private ArrayList<Schedule> mSchedules;
-	private ArrayList<BusStopLocation> mBusStops;
 	
 	public DepartingPoint() {
 		mSchedules = new ArrayList<Schedule>();
-		mBusStops = new ArrayList<BusStopLocation>();
 	}
 	
 	public String getDepartFrom() {
@@ -31,10 +29,6 @@ public class DepartingPoint {
         return mSchedules.get(index);
     }
 	
-	public ArrayList<BusStopLocation> getBusStops() {
-		return mBusStops;
-	}
-	
 	public void setDepartFrom(String departFrom) {
 		mDepartFrom = departFrom;
 	}
@@ -42,9 +36,4 @@ public class DepartingPoint {
 	public void addSchedule(Schedule schedule) {
 		mSchedules.add(schedule);
 	}
-	
-	public void addBusStop(BusStopLocation busStop) {
-		mBusStops.add(busStop);
-	}
-
 }

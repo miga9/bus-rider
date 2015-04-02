@@ -1,8 +1,8 @@
 package com.migapro.busrider.parser;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.migapro.busrider.config.FeatureFlags;
 import com.migapro.busrider.models.Bus;
-import com.migapro.busrider.models.BusStopLocation;
 import com.migapro.busrider.models.DepartingPoint;
 import com.migapro.busrider.models.Schedule;
 import com.migapro.busrider.models.Time;
@@ -25,7 +25,6 @@ public class BusXmlPullParser {
 	private Bus mBus;
 	private DepartingPoint mDepartingPoint;
 	private Schedule mSchedule;
-    private BusStopLocation mBusStopLocation;
     private Time mTime;
 	
 	public BusXmlPullParser() throws XmlPullParserException {
@@ -107,9 +106,11 @@ public class BusXmlPullParser {
 			
 		} else if(FeatureFlags.MAPS) {
             if (name.equals("bus_stop")) {
-                mBusStopLocation = new BusStopLocation();
-                mBusStopLocation.setTitle(parser.getAttributeValue(null, "name"));
-                mDepartingPoint.addBusStop(mBusStopLocation);
+                mBus.addBusStopTitle(parser.getAttributeValue(null, "name"));
+                LatLng latLng = new LatLng(
+                        Double.parseDouble(parser.getAttributeValue(null, "lat")),
+                        Double.parseDouble(parser.getAttributeValue(null, "lng")));
+                mBus.addBusStopLatLng(latLng);
             }
 		}
 	}
