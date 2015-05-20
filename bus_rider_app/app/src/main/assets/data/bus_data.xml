@@ -983,8 +983,8 @@
         </bus_stop_locations>
     </bus>
     <bus id="4" name="Eagle Point">
-        <depart_point from="Victory Hall">
-            <schedule days="Mon-Fri">
+        <depart_point from="N/A">
+            <schedule days="N/A"><!--
                 <time hours="07">
                     <minutes min="15" />
                     <minutes min="24" />
@@ -1149,9 +1149,9 @@
                 <time hours="17">
                     <minutes min="12" />
                     <minutes min="38" />
-                </time>
+                </time>-->
             </schedule>
-        </depart_point>
+        </depart_point><!--
         <bus_stop_locations>
             <bus_stop name="Victory Hall" lat="1" lng="2" />
             <bus_stop name="Bonnie Brae" lat="3.3" lng="4" />
@@ -1159,7 +1159,7 @@
             <bus_stop name="Maple Hall" lat="3" lng="4" />
             <bus_stop name="Mozart Square / Gateway" lat="5" lng="6" />
             <bus_stop name="Mean Green Village" lat="3" lng="4" />
-        </bus_stop_locations>
+        </bus_stop_locations>-->
     </bus>
 	<bus id="5" name="Discovery Park">
 	    <depart_point from="GAB">
@@ -2178,8 +2178,8 @@
         </depart_point>
     </bus>
     <bus id="8" name="Campus Cruiser">
-        <depart_point from="Victory Hall">
-            <schedule days="Mon-Thurs">
+        <depart_point from="N/A">
+            <schedule days="N/A"><!--
                 <time hours="17">
                     <minutes min="45" />
                 </time>
@@ -2573,7 +2573,7 @@
                 </time>
                 <time hours="19">
                     <minutes min="15" />
-                </time>
+                </time>-->
             </schedule>
         </depart_point>
     </bus>
