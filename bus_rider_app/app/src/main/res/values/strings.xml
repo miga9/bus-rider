@@ -15,7 +15,7 @@
     <string name="rate_this_app_negative">No</string>
 
     <string name="departs_from">"Departs from "</string>
-    <string name="schedule_empty_text">Unavailable</string>
+    <string name="schedule_empty_text">No Service Available</string>
 
     <string name="version_info_title">Version </string>
     <string name="version_info_message">This is an unofficial app.\n\nThe schedule information is pulled from the UNT website.\n\nIn severe weather or school holidays, please refer to the <a href="http://www.unt.edu/transit/routes_sched.html">official website</a>.\n\nThe schedule data was updated on 2/12/15.</string>
