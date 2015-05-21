@@ -4,186 +4,155 @@
         <depart_point from="Kerr Hall">
             <schedule days="Mon-Fri">
                 <time hours="07">
-                    <minutes min="17" />
-                    <minutes min="26" />
-                    <minutes min="35" />
-                    <minutes min="44" />
-                    <minutes min="53" />
+                    <minutes min="30" />
+                    <minutes min="43" />
+                    <minutes min="56" />
                 </time>
                 <time hours="08">
-                    <minutes min="02" />
-                    <minutes min="11" />
-                    <minutes min="20" />
-                    <minutes min="29" />
-                    <minutes min="38" />
-                    <minutes min="47" />
-                    <minutes min="56" />
+                    <minutes min="09" />
+                    <minutes min="22" />
+                    <minutes min="35" />
+                    <minutes min="48" />
                 </time>
                 <time hours="09">
-                    <minutes min="05" />
+                    <minutes min="01" />
                     <minutes min="14" />
-                    <minutes min="23" />
-                    <minutes min="32" />
-                    <minutes min="41" />
-                    <minutes min="50" />
-                    <minutes min="59" />
-                </time>
-                <time hours="10">
-                    <minutes min="08" />
-                    <minutes min="17" />
-                    <minutes min="26" />
-                    <minutes min="35" />
-                    <minutes min="44" />
+                    <minutes min="27" />
+                    <minutes min="40" />
                     <minutes min="53" />
                 </time>
+                <time hours="10">
+                    <minutes min="06" />
+                    <minutes min="19" />
+                    <minutes min="32" />
+                    <minutes min="45" />
+                    <minutes min="58" />
+                </time>
                 <time hours="11">
-                    <minutes min="02" />
                     <minutes min="11" />
-                    <minutes min="20" />
-                    <minutes min="29" />
-                    <minutes min="38" />
-                    <minutes min="47" />
-                    <minutes min="56" />
+                    <minutes min="24" />
+                    <minutes min="37" />
+                    <minutes min="50" />
                 </time>
                 <time hours="12">
-                    <minutes min="05" />
-                    <minutes min="14" />
-                    <minutes min="23" />
-                    <minutes min="32" />
-                    <minutes min="41" />
-                    <minutes min="50" />
-                    <minutes min="59" />
+                    <minutes min="02" />
+                    <minutes min="16" />
+                    <minutes min="29" />
+                    <minutes min="42" />
+                    <minutes min="55" />
                 </time>
                 <time hours="13">
                     <minutes min="08" />
-                    <minutes min="17" />
-                    <minutes min="26" />
-                    <minutes min="35" />
-                    <minutes min="44" />
-                    <minutes min="53" />
+                    <minutes min="21" />
+                    <minutes min="34" />
+                    <minutes min="47" />
                 </time>
                 <time hours="14">
-                    <minutes min="02" />
-                    <minutes min="11" />
-                    <minutes min="20" />
-                    <minutes min="29" />
-                    <minutes min="38" />
-                    <minutes min="47" />
-                    <minutes min="56" />
+                    <minutes min="00" />
+                    <minutes min="26" />
+                    <minutes min="52" />
                 </time>
                 <time hours="15">
-                    <minutes min="05" />
-                    <minutes min="14" />
-                    <minutes min="23" />
-                    <minutes min="32" />
-                    <minutes min="41" />
-                    <minutes min="50" />
-                    <minutes min="59" />
+                    <minutes min="18" />
+                    <minutes min="44" />
                 </time>
                 <time hours="16">
-                    <minutes min="08" />
-                    <minutes min="17" />
-                    <minutes min="26" />
-                    <minutes min="35" />
-                    <minutes min="44" />
-                    <minutes min="53" />
+                    <minutes min="10" />
+                    <minutes min="36" />
                 </time>
                 <time hours="17">
                     <minutes min="02" />
-                    <minutes min="11" />
+                    <minutes min="28" />
+                    <minutes min="54" />
+                </time>
+                <time hours="18">
+                    <minutes min="20" />
+                    <minutes min="46" />
+                </time>
+                <time hours="19">
+                    <minutes min="12" />
+                    <minutes min="38" />
+                </time>
+                <time hours="20">
+                    <minutes min="04" />
+                    <minutes min="30" />
                 </time>
             </schedule>
         </depart_point>
         <depart_point from="GAB">
             <schedule days="Mon-Fri">
                 <time hours="07">
-                    <minutes min="31" />
-                    <minutes min="40" />
-                    <minutes min="49" />
-                    <minutes min="58" />
+                    <minutes min="30" />
+                    <minutes min="43" />
+                    <minutes min="56" />
                 </time>
                 <time hours="08">
-                    <minutes min="07" />
-                    <minutes min="16" />
-                    <minutes min="25" />
-                    <minutes min="34" />
-                    <minutes min="43" />
-                    <minutes min="52" />
+                    <minutes min="09" />
+                    <minutes min="22" />
+                    <minutes min="35" />
+                    <minutes min="48" />
                 </time>
                 <time hours="09">
                     <minutes min="01" />
-                    <minutes min="10" />
-                    <minutes min="19" />
-                    <minutes min="28" />
-                    <minutes min="37" />
-                    <minutes min="46" />
-                    <minutes min="55" />
+                    <minutes min="14" />
+                    <minutes min="27" />
+                    <minutes min="40" />
+                    <minutes min="53" />
                 </time>
                 <time hours="10">
-                    <minutes min="04" />
-                    <minutes min="13" />
-                    <minutes min="22" />
-                    <minutes min="31" />
-                    <minutes min="40" />
-                    <minutes min="49" />
+                    <minutes min="06" />
+                    <minutes min="19" />
+                    <minutes min="32" />
+                    <minutes min="45" />
                     <minutes min="58" />
                 </time>
                 <time hours="11">
-                    <minutes min="07" />
-                    <minutes min="16" />
-                    <minutes min="25" />
-                    <minutes min="34" />
-                    <minutes min="43" />
-                    <minutes min="52" />
+                    <minutes min="11" />
+                    <minutes min="24" />
+                    <minutes min="37" />
+                    <minutes min="50" />
                 </time>
                 <time hours="12">
-                    <minutes min="01" />
-                    <minutes min="10" />
-                    <minutes min="19" />
-                    <minutes min="28" />
-                    <minutes min="37" />
-                    <minutes min="46" />
+                    <minutes min="02" />
+                    <minutes min="16" />
+                    <minutes min="29" />
+                    <minutes min="42" />
                     <minutes min="55" />
                 </time>
                 <time hours="13">
-                    <minutes min="04" />
-                    <minutes min="13" />
-                    <minutes min="22" />
-                    <minutes min="31" />
-                    <minutes min="40" />
-                    <minutes min="49" />
-                    <minutes min="58" />
+                    <minutes min="08" />
+                    <minutes min="21" />
+                    <minutes min="34" />
+                    <minutes min="47" />
                 </time>
                 <time hours="14">
-                    <minutes min="07" />
-                    <minutes min="16" />
-                    <minutes min="25" />
-                    <minutes min="34" />
-                    <minutes min="43" />
-                    <minutes min="52" />
+                    <minutes min="13" />
+                    <minutes min="39" />
                 </time>
                 <time hours="15">
-                    <minutes min="01" />
-                    <minutes min="10" />
-                    <minutes min="19" />
-                    <minutes min="28" />
-                    <minutes min="37" />
-                    <minutes min="46" />
-                    <minutes min="55" />
+                    <minutes min="05" />
+                    <minutes min="31" />
+                    <minutes min="57" />
                 </time>
                 <time hours="16">
-                    <minutes min="04" />
-                    <minutes min="13" />
-                    <minutes min="22" />
-                    <minutes min="31" />
-                    <minutes min="40" />
+                    <minutes min="23" />
                     <minutes min="49" />
-                    <minutes min="58" />
                 </time>
                 <time hours="17">
+                    <minutes min="15" />
+                    <minutes min="41" />
+                </time>
+                <time hours="18">
                     <minutes min="07" />
-                    <minutes min="16" />
+                    <minutes min="33" />
+                    <minutes min="59" />
+                </time>
+                <time hours="19">
                     <minutes min="25" />
+                    <minutes min="51" />
+                </time>
+                <time hours="20">
+                    <minutes min="17" />
                 </time>
             </schedule>
         </depart_point>
@@ -206,235 +175,129 @@
         <depart_point from="University Uptown">
             <schedule days="Mon-Fri">
                 <time hours="07">
-                    <minutes min="15" />
-                    <minutes min="20" />
-                    <minutes min="25" />
                     <minutes min="30" />
-                    <minutes min="35" />
-                    <minutes min="40" />
-                    <minutes min="45" />
-                    <minutes min="50" />
                     <minutes min="55" />
                 </time>
                 <time hours="08">
-                    <minutes min="00" />
-                    <minutes min="05" />
-                    <minutes min="10" />
-                    <minutes min="15" />
                     <minutes min="20" />
-                    <minutes min="25" />
-                    <minutes min="30" />
-                    <minutes min="35" />
-                    <minutes min="40" />
                     <minutes min="45" />
-                    <minutes min="50" />
-                    <minutes min="55" />
                 </time>
                 <time hours="09">
-                    <minutes min="00" />
-                    <minutes min="05" />
                     <minutes min="10" />
-                    <minutes min="15" />
-                    <minutes min="20" />
-                    <minutes min="25" />
-                    <minutes min="30" />
                     <minutes min="35" />
-                    <minutes min="40" />
-                    <minutes min="45" />
-                    <minutes min="50" />
-                    <minutes min="55" />
                 </time>
                 <time hours="10">
                     <minutes min="00" />
-                    <minutes min="05" />
-                    <minutes min="10" />
-                    <minutes min="15" />
-                    <minutes min="20" />
                     <minutes min="25" />
-                    <minutes min="30" />
-                    <minutes min="35" />
-                    <minutes min="40" />
-                    <minutes min="45" />
                     <minutes min="50" />
-                    <minutes min="55" />
                 </time>
                 <time hours="11">
-                    <minutes min="00" />
-                    <minutes min="05" />
-                    <minutes min="10" />
                     <minutes min="15" />
-                    <minutes min="20" />
-                    <minutes min="25" />
-                    <minutes min="30" />
-                    <minutes min="35" />
                     <minutes min="40" />
-                    <minutes min="45" />
-                    <minutes min="50" />
-                    <minutes min="55" />
                 </time>
                 <time hours="12">
-                    <minutes min="00" />
                     <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="26" />
-                    <minutes min="35" />
-                    <minutes min="44" />
-                    <minutes min="53" />
-                </time>
-                <time hours="13">
-                    <minutes min="02" />
-                    <minutes min="11" />
-                    <minutes min="20" />
-                    <minutes min="29" />
-                    <minutes min="38" />
-                    <minutes min="47" />
-                    <minutes min="56" />
-                </time>
-                <time hours="14">
-                    <minutes min="05" />
-                    <minutes min="14" />
-                    <minutes min="37" />
-                    <minutes min="46" />
+                    <minutes min="30" />
                     <minutes min="55" />
                 </time>
+                <time hours="13">
+                    <minutes min="20" />
+                    <minutes min="45" />
+                </time>
+                <time hours="14">
+                    <minutes min="10" />
+                    <minutes min="35" />
+                </time>
                 <time hours="15">
-                    <minutes min="04" />
-                    <minutes min="13" />
-                    <minutes min="22" />
-                    <minutes min="31" />
-                    <minutes min="40" />
-                    <minutes min="49" />
-                    <minutes min="58" />
+                    <minutes min="00" />
+                    <minutes min="25" />
+                    <minutes min="50" />
                 </time>
                 <time hours="16">
-                    <minutes min="07" />
-                    <minutes min="16" />
-                    <minutes min="25" />
-                    <minutes min="34" />
-                    <minutes min="43" />
-                    <minutes min="52" />
+                    <minutes min="15" />
+                    <minutes min="40" />
                 </time>
                 <time hours="17">
-                    <minutes min="01" />
+                    <minutes min="05" />
+                    <minutes min="30" />
+                    <minutes min="55" />
+                </time>
+                <time hours="18">
+                    <minutes min="20" />
+                    <minutes min="45" />
+                </time>
+                <time hours="19">
                     <minutes min="10" />
-                    <minutes min="19" />
-                    <minutes min="28" />
+                    <minutes min="35" />
+                </time>
+                <time hours="20">
+                    <minutes min="00" />
+                    <minutes min="25" />
+                    <minutes min="50" />
                 </time>
             </schedule>
         </depart_point>
-        <depart_point from="Highland St Garage">
+        <depart_point from="Avenue A.">
             <schedule days="Mon-Fri">
                 <time hours="07">
-                    <minutes min="27" />
-                    <minutes min="32" />
-                    <minutes min="37" />
                     <minutes min="42" />
-                    <minutes min="47" />
-                    <minutes min="52" />
-                    <minutes min="57" />
                 </time>
                 <time hours="08">
-                    <minutes min="02" />
                     <minutes min="07" />
-                    <minutes min="12" />
-                    <minutes min="17" />
-                    <minutes min="22" />
-                    <minutes min="27" />
                     <minutes min="32" />
-                    <minutes min="37" />
-                    <minutes min="42" />
-                    <minutes min="47" />
-                    <minutes min="52" />
                     <minutes min="57" />
                 </time>
                 <time hours="09">
-                    <minutes min="02" />
-                    <minutes min="07" />
-                    <minutes min="12" />
-                    <minutes min="17" />
                     <minutes min="22" />
-                    <minutes min="27" />
-                    <minutes min="32" />
-                    <minutes min="37" />
-                    <minutes min="42" />
                     <minutes min="47" />
-                    <minutes min="52" />
-                    <minutes min="57" />
                 </time>
                 <time hours="10">
-                    <minutes min="02" />
-                    <minutes min="07" />
                     <minutes min="12" />
-                    <minutes min="17" />
-                    <minutes min="22" />
-                    <minutes min="27" />
-                    <minutes min="32" />
                     <minutes min="37" />
-                    <minutes min="42" />
-                    <minutes min="47" />
-                    <minutes min="52" />
-                    <minutes min="57" />
                 </time>
                 <time hours="11">
                     <minutes min="02" />
-                    <minutes min="07" />
-                    <minutes min="12" />
-                    <minutes min="17" />
-                    <minutes min="22" />
                     <minutes min="27" />
-                    <minutes min="32" />
-                    <minutes min="37" />
-                    <minutes min="42" />
-                    <minutes min="47" />
                     <minutes min="52" />
-                    <minutes min="57" />
                 </time>
                 <time hours="12">
-                    <minutes min="02" />
-                    <minutes min="07" />
-                    <minutes min="12" />
                     <minutes min="17" />
-                    <minutes min="22" />
-                    <minutes min="39" />
-                    <minutes min="48" />
-                    <minutes min="57" />
+                    <minutes min="42" />
                 </time>
                 <time hours="13">
-                    <minutes min="06" />
-                    <minutes min="15" />
-                    <minutes min="24" />
-                    <minutes min="33" />
-                    <minutes min="42" />
-                    <minutes min="51" />
+                    <minutes min="07" />
+                    <minutes min="32" />
+                    <minutes min="57" />
                 </time>
                 <time hours="14">
-                    <minutes min="00" />
-                    <minutes min="09" />
-                    <minutes min="18" />
-                    <minutes min="27" />
-                    <minutes min="50" />
-                    <minutes min="59" />
+                    <minutes min="22" />
+                    <minutes min="47" />
                 </time>
                 <time hours="15">
-                    <minutes min="17" />
-                    <minutes min="26" />
-                    <minutes min="35" />
-                    <minutes min="44" />
-                    <minutes min="53" />
+                    <minutes min="12" />
+                    <minutes min="37" />
                 </time>
                 <time hours="16">
                     <minutes min="02" />
-                    <minutes min="11" />
-                    <minutes min="20" />
-                    <minutes min="29" />
-                    <minutes min="38" />
-                    <minutes min="47" />
-                    <minutes min="56" />
+                    <minutes min="27" />
+                    <minutes min="52" />
                 </time>
                 <time hours="17">
-                    <minutes min="05" />
-                    <minutes min="14" />
-                    <minutes min="23" />
+                    <minutes min="17" />
+                    <minutes min="42" />
+                </time>
+                <time hours="18">
+                    <minutes min="07" />
+                    <minutes min="32" />
+                    <minutes min="57" />
+                </time>
+                <time hours="19">
+                    <minutes min="22" />
+                    <minutes min="47" />
+                </time>
+                <time hours="20">
+                    <minutes min="12" />
+                    <minutes min="37" />
                 </time>
             </schedule>
         </depart_point>
@@ -444,234 +307,180 @@
             <bus_stop name="Avenue H and Hickory" lat="5" lng="6" />
             <bus_stop name="Stella St. &amp; N. Texas Blvd" lat="3" lng="4" />
             <bus_stop name="West Hall" lat="5" lng="6" />
-            <bus_stop name="Highland Street Garage" lat="3" lng="4" />
+            <bus_stop name="Willis Library" lat="3" lng="4" />
+            <bus_stop name="Avenue A." lat="3" lng="4" />
             <bus_stop name="Honors Hall" lat="5" lng="6" />
         </bus_stop_locations>
     </bus>
     <bus id="2" name="Centre Place East">
-        <depart_point from="14 Fifty One">
+        <depart_point from="The Republic">
             <schedule days="Mon-Fri">
                 <time hours="07">
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="30" />
                 </time>
                 <time hours="08">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="09">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="10">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="11">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="12">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="13">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="14">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="15">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="16">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="17">
-                    <minutes min="05" />
+                    <minutes min="00" />
+                    <minutes min="30" />
+                </time>
+                <time hours="18">
+                    <minutes min="00" />
+                    <minutes min="30" />
+                </time>
+                <time hours="19">
+                    <minutes min="00" />
+                    <minutes min="30" />
+                </time>
+                <time hours="20">
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
             </schedule>
 	    </depart_point>
-        <depart_point from="Business Leadership Building">
+        <depart_point from="Highland St.">
             <schedule days="Mon-Fri">
                 <time hours="07">
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="45" />
                 </time>
                 <time hours="08">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="15" />
+                    <minutes min="45" />
                 </time>
                 <time hours="09">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="15" />
+                    <minutes min="45" />
                 </time>
                 <time hours="10">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="15" />
+                    <minutes min="45" />
                 </time>
                 <time hours="11">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="15" />
+                    <minutes min="45" />
                 </time>
                 <time hours="12">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="15" />
+                    <minutes min="45" />
                 </time>
                 <time hours="13">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="15" />
+                    <minutes min="45" />
                 </time>
                 <time hours="14">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="15" />
+                    <minutes min="45" />
                 </time>
                 <time hours="15">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="15" />
+                    <minutes min="45" />
                 </time>
                 <time hours="16">
-                    <minutes min="05" />
-                    <minutes min="20" />
-                    <minutes min="35" />
-                    <minutes min="50" />
+                    <minutes min="15" />
+                    <minutes min="45" />
                 </time>
                 <time hours="17">
-                    <minutes min="05" />
-                    <minutes min="20" />
+                    <minutes min="15" />
+                    <minutes min="45" />
+                </time>
+                <time hours="18">
+                    <minutes min="15" />
+                    <minutes min="45" />
+                </time>
+                <time hours="19">
+                    <minutes min="15" />
+                    <minutes min="45" />
+                </time>
+                <time hours="20">
+                    <minutes min="15" />
                 </time>
             </schedule>
-        </depart_point>
+        </depart_point><!--
         <bus_stop_locations>
             <bus_stop name="14 Fifty One" lat="1" lng="2" />
             <bus_stop name="Allegre Vista" lat="3.3" lng="4" />
             <bus_stop name="The Grove" lat="5" lng="6" />
             <bus_stop name="Business Leadership Building (southside)" lat="3" lng="4" />
-        </bus_stop_locations>
+        </bus_stop_locations>-->
     </bus>
     <bus id="3" name="Centre Place West">
         <depart_point from="Forum">
-            <schedule days="Mon-Thurs">
+            <schedule days="Mon-Fri">
                 <time hours="07">
                     <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
                     <minutes min="45" />
-                    <minutes min="55" />
                 </time>
                 <time hours="08">
-                    <minutes min="05" />
                     <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
                     <minutes min="45" />
-                    <minutes min="55" />
                 </time>
                 <time hours="09">
-                    <minutes min="05" />
                     <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
                     <minutes min="45" />
-                    <minutes min="55" />
                 </time>
                 <time hours="10">
-                    <minutes min="05" />
                     <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
                     <minutes min="45" />
-                    <minutes min="55" />
                 </time>
                 <time hours="11">
-                    <minutes min="05" />
                     <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
                     <minutes min="45" />
-                    <minutes min="55" />
                 </time>
                 <time hours="12">
-                    <minutes min="05" />
                     <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
                     <minutes min="45" />
-                    <minutes min="55" />
                 </time>
                 <time hours="13">
-                    <minutes min="05" />
                     <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
                     <minutes min="45" />
-                    <minutes min="55" />
                 </time>
                 <time hours="14">
-                    <minutes min="05" />
                     <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
                     <minutes min="45" />
-                    <minutes min="55" />
                 </time>
                 <time hours="15">
-                    <minutes min="05" />
                     <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
                     <minutes min="45" />
-                    <minutes min="55" />
                 </time>
                 <time hours="16">
-                    <minutes min="05" />
                     <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
                     <minutes min="45" />
-                    <minutes min="55" />
                 </time>
                 <time hours="17">
-                    <minutes min="05" />
                     <minutes min="15" />
                     <minutes min="45" />
                 </time>
@@ -687,184 +496,51 @@
                     <minutes min="15" />
                     <minutes min="45" />
                 </time>
-                <time hours="21">
-                    <minutes min="15" />
-                    <minutes min="45" />
-                </time>
-                <time hours="22">
-                    <minutes min="15" />
-                </time>
-            </schedule>
-            <schedule days="Fri">
-                <time hours="07">
-                    <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
-                    <minutes min="45" />
-                    <minutes min="55" />
-                </time>
-                <time hours="08">
-                    <minutes min="05" />
-                    <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
-                    <minutes min="45" />
-                    <minutes min="55" />
-                </time>
-                <time hours="09">
-                    <minutes min="05" />
-                    <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
-                    <minutes min="45" />
-                    <minutes min="55" />
-                </time>
-                <time hours="10">
-                    <minutes min="05" />
-                    <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
-                    <minutes min="45" />
-                    <minutes min="55" />
-                </time>
-                <time hours="11">
-                    <minutes min="05" />
-                    <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
-                    <minutes min="45" />
-                    <minutes min="55" />
-                </time>
-                <time hours="12">
-                    <minutes min="05" />
-                    <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
-                    <minutes min="45" />
-                    <minutes min="55" />
-                </time>
-                <time hours="13">
-                    <minutes min="05" />
-                    <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
-                    <minutes min="45" />
-                    <minutes min="55" />
-                </time>
-                <time hours="14">
-                    <minutes min="05" />
-                    <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
-                    <minutes min="45" />
-                    <minutes min="55" />
-                </time>
-                <time hours="15">
-                    <minutes min="05" />
-                    <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
-                    <minutes min="45" />
-                    <minutes min="55" />
-                </time>
-                <time hours="16">
-                    <minutes min="05" />
-                    <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
-                    <minutes min="45" />
-                    <minutes min="55" />
-                </time>
-                <time hours="17">
-                    <minutes min="05" />
-                    <minutes min="15" />
-                    <minutes min="45" />
-                </time>
             </schedule>
         </depart_point>
-        <depart_point from="Business Leadership Building">
-            <schedule days="Mon-Thurs">
+        <depart_point from="Highland St.">
+            <schedule days="Mon-Fri">
                 <time hours="07">
                     <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
                 </time>
                 <time hours="08">
                     <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
                     <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
                 </time>
                 <time hours="09">
                     <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
                     <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
                 </time>
                 <time hours="10">
                     <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
                     <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
                 </time>
                 <time hours="11">
                     <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
                     <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
                 </time>
                 <time hours="12">
                     <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
                     <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
                 </time>
                 <time hours="13">
                     <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
                     <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
                 </time>
                 <time hours="14">
                     <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
                     <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
                 </time>
                 <time hours="15">
                     <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
                     <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
                 </time>
                 <time hours="16">
                     <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
                     <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
                 </time>
                 <time hours="17">
                     <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
                     <minutes min="30" />
                 </time>
                 <time hours="18">
@@ -879,108 +555,15 @@
                     <minutes min="00" />
                     <minutes min="30" />
                 </time>
-                <time hours="21">
-                    <minutes min="00" />
-                    <minutes min="30" />
-                </time>
-                <time hours="22">
-                    <minutes min="00" />
-                    <minutes min="30" />
-                </time>
             </schedule>
-            <schedule days="Fri">
-                <time hours="07">
-                    <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
-                </time>
-                <time hours="08">
-                    <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
-                    <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
-                </time>
-                <time hours="09">
-                    <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
-                    <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
-                </time>
-                <time hours="10">
-                    <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
-                    <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
-                </time>
-                <time hours="11">
-                    <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
-                    <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
-                </time>
-                <time hours="12">
-                    <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
-                    <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
-                </time>
-                <time hours="13">
-                    <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
-                    <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
-                </time>
-                <time hours="14">
-                    <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
-                    <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
-                </time>
-                <time hours="15">
-                    <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
-                    <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
-                </time>
-                <time hours="16">
-                    <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
-                    <minutes min="30" />
-                    <minutes min="40" />
-                    <minutes min="50" />
-                </time>
-                <time hours="17">
-                    <minutes min="00" />
-                    <minutes min="10" />
-                    <minutes min="20" />
-                    <minutes min="30" />
-                </time>
-            </schedule>
-        </depart_point>
+        </depart_point><!--
         <bus_stop_locations>
             <bus_stop name="The Forum / The Republic" lat="1" lng="2" />
             <bus_stop name="Campus Park" lat="3.3" lng="4" />
             <bus_stop name="The Grove" lat="5" lng="6" />
             <bus_stop name="Business Leadership Building (southside)" lat="3" lng="4" />
             <bus_stop name="Allegre Vista" lat="5" lng="6" />
-        </bus_stop_locations>
+        </bus_stop_locations>-->
     </bus>
     <bus id="4" name="Eagle Point">
         <depart_point from="N/A">
@@ -1163,249 +746,147 @@
     </bus>
 	<bus id="5" name="Discovery Park">
 	    <depart_point from="GAB">
-	        <schedule days="Mon-Thurs">
+	        <schedule days="Mon-Fri">
                 <time hours="07">
                     <minutes min="15" />
-                    <minutes min="29" />
-                    <minutes min="43" />
+                    <minutes min="34" />
                     <minutes min="57" />
                 </time>
                 <time hours="08">
-                    <minutes min="11" />
-                    <minutes min="25" />
+                    <minutes min="16" />
                     <minutes min="39" />
-                    <minutes min="53" />
+                    <minutes min="58" />
                 </time>
                 <time hours="09">
-                    <minutes min="07" />
                     <minutes min="21" />
-                    <minutes min="35" />
-                    <minutes min="49" />
+                    <minutes min="40" />
                 </time>
                 <time hours="10">
                     <minutes min="03" />
-                    <minutes min="17" />
-                    <minutes min="31" />
-                    <minutes min="45" />
-                    <minutes min="59" />
-                </time>
-                <time hours="11">
-                    <minutes min="13" />
-                    <minutes min="27" />
-                    <minutes min="41" />
-                    <minutes min="55" />
-                </time>
-                <time hours="12">
-                    <minutes min="09" />
-                    <minutes min="23" />
-                    <minutes min="37" />
-                    <minutes min="51" />
-                </time>
-                <time hours="13">
-                    <minutes min="05" />
-                    <minutes min="19" />
-                    <minutes min="33" />
-                    <minutes min="47" />
-                </time>
-                <time hours="14">
-                    <minutes min="01" />
-                    <minutes min="15" />
-                    <minutes min="29" />
-                    <minutes min="57" />
-                </time>
-                <time hours="15">
-                    <minutes min="18" />
-                    <minutes min="39" />
-                </time>
-                <time hours="16">
-                    <minutes min="00" />
-                    <minutes min="21" />
-                    <minutes min="42" />
-                </time>
-                <time hours="17">
-                    <minutes min="03" />
-                </time>
-            </schedule>
-	        <schedule days="Fri">
-                <time hours="07">
-                    <minutes min="15" />
-                    <minutes min="36" />
-                    <minutes min="57" />
-                </time>
-                <time hours="08">
-                    <minutes min="18" />
-                    <minutes min="39" />
-                </time>
-                <time hours="09">
-                    <minutes min="00" />
-                    <minutes min="21" />
-                    <minutes min="42" />
-                </time>
-                <time hours="10">
-                    <minutes min="03" />
-                    <minutes min="24" />
+                    <minutes min="22" />
                     <minutes min="45" />
                 </time>
                 <time hours="11">
-                    <minutes min="06" />
+                    <minutes min="04" />
                     <minutes min="27" />
-                    <minutes min="48" />
+                    <minutes min="46" />
                 </time>
                 <time hours="12">
                     <minutes min="09" />
-                    <minutes min="30" />
+                    <minutes min="28" />
                     <minutes min="51" />
                 </time>
                 <time hours="13">
-                    <minutes min="12" />
+                    <minutes min="10" />
                     <minutes min="33" />
+                    <minutes min="52" />
                 </time>
                 <time hours="14">
-                    <minutes min="00" />
                     <minutes min="15" />
-                    <minutes min="36" />
+                    <minutes min="34" />
                     <minutes min="57" />
                 </time>
                 <time hours="15">
-                    <minutes min="18" />
+                    <minutes min="16" />
                     <minutes min="39" />
+                    <minutes min="58" />
                 </time>
                 <time hours="16">
-                    <minutes min="00" />
                     <minutes min="21" />
-                    <minutes min="42" />
+                    <minutes min="40" />
                 </time>
                 <time hours="17">
                     <minutes min="03" />
-                    <minutes min="24" />
+                    <minutes min="22" />
+                    <minutes min="45" />
                 </time>
                 <time hours="18">
-                    <minutes min="06" />
+                    <minutes min="04" />
+                    <minutes min="27" />
+                    <minutes min="46" />
                 </time>
-	        </schedule>
+                <time hours="19">
+                    <minutes min="09" />
+                    <minutes min="28" />
+                    <minutes min="51" />
+                </time>
+                <time hours="20">
+                    <minutes min="10" />
+                    <minutes min="33" />
+                    <minutes min="52" />
+                </time>
+            </schedule>
 	    </depart_point>
 	    <depart_point from="Discovery Park">
-	        <schedule days="Mon-Thurs">
+	        <schedule days="Mon-Fri">
                 <time hours="07">
-                    <minutes min="36" />
+                    <minutes min="31" />
                     <minutes min="50" />
                 </time>
                 <time hours="08">
-                    <minutes min="04" />
-                    <minutes min="18" />
+                    <minutes min="13" />
                     <minutes min="32" />
-                    <minutes min="46" />
+                    <minutes min="55" />
                 </time>
                 <time hours="09">
-                    <minutes min="00" />
                     <minutes min="14" />
-                    <minutes min="28" />
-                    <minutes min="42" />
+                    <minutes min="37" />
                     <minutes min="56" />
                 </time>
                 <time hours="10">
-                    <minutes min="10" />
-                    <minutes min="24" />
+                    <minutes min="19" />
                     <minutes min="38" />
-                    <minutes min="52" />
                 </time>
                 <time hours="11">
-                    <minutes min="06" />
+                    <minutes min="01" />
                     <minutes min="20" />
-                    <minutes min="34" />
-                    <minutes min="48" />
+                    <minutes min="43" />
                 </time>
                 <time hours="12">
                     <minutes min="02" />
-                    <minutes min="16" />
-                    <minutes min="30" />
+                    <minutes min="25" />
                     <minutes min="44" />
-                    <minutes min="58" />
                 </time>
                 <time hours="13">
-                    <minutes min="12" />
+                    <minutes min="07" />
                     <minutes min="26" />
-                    <minutes min="40" />
                     <minutes min="54" />
                 </time>
                 <time hours="14">
-                    <minutes min="08" />
-                    <minutes min="22" />
+                    <minutes min="13" />
                     <minutes min="36" />
-                    <minutes min="50" />
+                    <minutes min="55" />
                 </time>
                 <time hours="15">
                     <minutes min="18" />
-                    <minutes min="39" />
+                    <minutes min="37" />
                 </time>
                 <time hours="16">
                     <minutes min="00" />
-                    <minutes min="21" />
+                    <minutes min="19" />
                     <minutes min="42" />
                 </time>
                 <time hours="17">
-                    <minutes min="03" />
+                    <minutes min="01" />
                     <minutes min="24" />
-                </time>
-	        </schedule>
-	        <schedule days="Fri">
-                <time hours="07">
-                    <minutes min="36" />
-                    <minutes min="57" />
-                </time>
-                <time hours="08">
-                    <minutes min="18" />
-                    <minutes min="39" />
-                </time>
-                <time hours="09">
-                    <minutes min="00" />
-                    <minutes min="21" />
-                    <minutes min="42" />
-                </time>
-                <time hours="10">
-                    <minutes min="03" />
-                    <minutes min="24" />
-                    <minutes min="45" />
-                </time>
-                <time hours="11">
-                    <minutes min="06" />
-                    <minutes min="27" />
-                    <minutes min="48" />
-                </time>
-                <time hours="12">
-                    <minutes min="09" />
-                    <minutes min="30" />
-                    <minutes min="51" />
-                </time>
-                <time hours="13">
-                    <minutes min="12" />
-                    <minutes min="33" />
-                    <minutes min="54" />
-                </time>
-                <time hours="14">
-                    <minutes min="15" />
-                    <minutes min="36" />
-                    <minutes min="57" />
-                </time>
-                <time hours="15">
-                    <minutes min="18" />
-                    <minutes min="39" />
-                </time>
-                <time hours="16">
-                    <minutes min="00" />
-                    <minutes min="21" />
-                    <minutes min="42" />
-                </time>
-                <time hours="17">
-                    <minutes min="03" />
-                    <minutes min="24" />
-                    <minutes min="45" />
+                    <minutes min="43" />
                 </time>
                 <time hours="18">
-                    <minutes min="27" />
+                    <minutes min="06" />
+                    <minutes min="25" />
+                    <minutes min="48" />
+                </time>
+                <time hours="19">
+                    <minutes min="07" />
+                    <minutes min="30" />
+                    <minutes min="49" />
+                </time>
+                <time hours="20">
+                    <minutes min="12" />
+                    <minutes min="31" />
                 </time>
 	        </schedule>
-	    </depart_point>
+	    </depart_point><!--
         <bus_stop_locations>
             <bus_stop name="GAB" lat="1" lng="2" />
             <bus_stop name="Avenue G &amp; West Oak St." lat="3.3" lng="4" />
@@ -1419,107 +900,61 @@
             <bus_stop name="Stella &amp; North Texas Blvd." lat="5" lng="6" />
             <bus_stop name="Student Rec Center" lat="5" lng="6" />
             <bus_stop name="EESAT" lat="5" lng="6" />
-        </bus_stop_locations>
+        </bus_stop_locations>-->
 	</bus>
     <bus id="6" name="Bernard Street">
     <depart_point from="Gateway Apartments">
-        <schedule days="Mon-Thurs">
+        <schedule days="Mon-Fri">
             <time hours="07">
-                <minutes min="15" />
-                <minutes min="22" />
-                <minutes min="29" />
-                <minutes min="36" />
-                <minutes min="43" />
+                <minutes min="30" />
                 <minutes min="50" />
-                <minutes min="57" />
             </time>
             <time hours="08">
-                <minutes min="04" />
-                <minutes min="11" />
-                <minutes min="18" />
-                <minutes min="25" />
-                <minutes min="32" />
-                <minutes min="39" />
-                <minutes min="46" />
-                <minutes min="53" />
+                <minutes min="10" />
+                <minutes min="30" />
+                <minutes min="50" />
             </time>
             <time hours="09">
-                <minutes min="00" />
-                <minutes min="07" />
-                <minutes min="14" />
-                <minutes min="21" />
-                <minutes min="28" />
-                <minutes min="35" />
-                <minutes min="42" />
-                <minutes min="49" />
-                <minutes min="56" />
+                <minutes min="10" />
+                <minutes min="30" />
+                <minutes min="50" />
             </time>
             <time hours="10">
-                <minutes min="03" />
                 <minutes min="10" />
-                <minutes min="17" />
-                <minutes min="24" />
-                <minutes min="31" />
-                <minutes min="38" />
-                <minutes min="45" />
-                <minutes min="52" />
-                <minutes min="59" />
+                <minutes min="30" />
+                <minutes min="50" />
             </time>
             <time hours="11">
-                <minutes min="06" />
-                <minutes min="13" />
-                <minutes min="20" />
-                <minutes min="27" />
-                <minutes min="34" />
-                <minutes min="41" />
-                <minutes min="48" />
-                <minutes min="55" />
+                <minutes min="10" />
+                <minutes min="30" />
+                <minutes min="50" />
             </time>
             <time hours="12">
-                <minutes min="02" />
-                <minutes min="09" />
-                <minutes min="16" />
-                <minutes min="23" />
+                <minutes min="10" />
                 <minutes min="30" />
-                <minutes min="40" />
                 <minutes min="50" />
             </time>
             <time hours="13">
                 <minutes min="00" />
-                <minutes min="10" />
-                <minutes min="20" />
                 <minutes min="30" />
-                <minutes min="40" />
-                <minutes min="50" />
             </time>
             <time hours="14">
-                <minutes min="00" />
                 <minutes min="10" />
-                <minutes min="20" />
                 <minutes min="30" />
-                <minutes min="40" />
                 <minutes min="50" />
             </time>
             <time hours="15">
-                <minutes min="00" />
                 <minutes min="10" />
-                <minutes min="20" />
                 <minutes min="30" />
-                <minutes min="40" />
                 <minutes min="50" />
             </time>
             <time hours="16">
-                <minutes min="00" />
                 <minutes min="10" />
-                <minutes min="20" />
                 <minutes min="30" />
-                <minutes min="40" />
                 <minutes min="50" />
             </time>
             <time hours="17">
-                <minutes min="00" />
                 <minutes min="10" />
-                <minutes min="20" />
                 <minutes min="30" />
                 <minutes min="50" />
             </time>
@@ -1535,216 +970,63 @@
             </time>
             <time hours="20">
                 <minutes min="10" />
-                <minutes min="30" />
-                <minutes min="50" />
-            </time>
-            <time hours="21">
-                <minutes min="10" />
-                <minutes min="30" />
-                <minutes min="50" />
-            </time>
-            <time hours="22">
-                <minutes min="10" />
-            </time>
-        </schedule>
-        <schedule days="Fri">
-            <time hours="07">
-                <minutes min="15" />
-                <minutes min="22" />
-                <minutes min="29" />
-                <minutes min="36" />
-                <minutes min="43" />
-                <minutes min="50" />
-                <minutes min="57" />
-            </time>
-            <time hours="08">
-                <minutes min="04" />
-                <minutes min="11" />
-                <minutes min="18" />
-                <minutes min="25" />
-                <minutes min="32" />
-                <minutes min="39" />
-                <minutes min="46" />
-                <minutes min="53" />
-            </time>
-            <time hours="09">
-                <minutes min="00" />
-                <minutes min="07" />
-                <minutes min="14" />
-                <minutes min="21" />
-                <minutes min="28" />
-                <minutes min="35" />
-                <minutes min="42" />
-                <minutes min="49" />
-                <minutes min="56" />
-            </time>
-            <time hours="10">
-                <minutes min="03" />
-                <minutes min="10" />
-                <minutes min="17" />
-                <minutes min="24" />
-                <minutes min="31" />
-                <minutes min="38" />
-                <minutes min="45" />
-                <minutes min="52" />
-                <minutes min="59" />
-            </time>
-            <time hours="11">
-                <minutes min="06" />
-                <minutes min="13" />
-                <minutes min="20" />
-                <minutes min="27" />
-                <minutes min="34" />
-                <minutes min="41" />
-                <minutes min="48" />
-                <minutes min="55" />
-            </time>
-            <time hours="12">
-                <minutes min="02" />
-                <minutes min="09" />
-                <minutes min="16" />
-                <minutes min="23" />
-                <minutes min="30" />
-                <minutes min="40" />
-                <minutes min="50" />
-            </time>
-            <time hours="13">
-                <minutes min="00" />
-                <minutes min="10" />
-                <minutes min="20" />
-                <minutes min="30" />
-                <minutes min="40" />
-                <minutes min="50" />
-            </time>
-            <time hours="14">
-                <minutes min="00" />
-                <minutes min="10" />
-                <minutes min="20" />
-                <minutes min="30" />
-                <minutes min="40" />
-                <minutes min="50" />
-            </time>
-            <time hours="15">
-                <minutes min="00" />
-                <minutes min="10" />
-                <minutes min="20" />
-                <minutes min="30" />
-                <minutes min="40" />
-                <minutes min="50" />
-            </time>
-            <time hours="16">
-                <minutes min="00" />
-                <minutes min="10" />
-                <minutes min="20" />
-                <minutes min="30" />
-                <minutes min="40" />
-                <minutes min="50" />
-            </time>
-            <time hours="17">
-                <minutes min="00" />
-                <minutes min="10" />
-                <minutes min="20" />
                 <minutes min="30" />
             </time>
         </schedule>
 	</depart_point>
-    <depart_point from="Business Leadership Building">
-        <schedule days="Mon-Thurs">
+    <depart_point from="Highland">
+        <schedule days="Mon-Fri">
             <time hours="07">
-                <minutes min="26" />
-                <minutes min="33" />
                 <minutes min="40" />
-                <minutes min="47" />
-                <minutes min="54" />
             </time>
             <time hours="08">
-                <minutes min="01" />
-                <minutes min="08" />
-                <minutes min="15" />
-                <minutes min="22" />
-                <minutes min="29" />
-                <minutes min="36" />
-                <minutes min="43" />
-                <minutes min="50" />
-                <minutes min="57" />
+                <minutes min="00" />
+                <minutes min="20" />
+                <minutes min="40" />
             </time>
             <time hours="09">
-                <minutes min="04" />
-                <minutes min="11" />
-                <minutes min="18" />
-                <minutes min="25" />
-                <minutes min="32" />
-                <minutes min="39" />
-                <minutes min="46" />
-                <minutes min="53" />
+                <minutes min="00" />
+                <minutes min="20" />
+                <minutes min="40" />
             </time>
             <time hours="10">
                 <minutes min="00" />
-                <minutes min="07" />
-                <minutes min="14" />
-                <minutes min="21" />
-                <minutes min="28" />
-                <minutes min="35" />
-                <minutes min="42" />
-                <minutes min="49" />
-                <minutes min="56" />
+                <minutes min="20" />
+                <minutes min="40" />
             </time>
             <time hours="11">
-                <minutes min="03" />
-                <minutes min="10" />
-                <minutes min="17" />
-                <minutes min="24" />
-                <minutes min="31" />
-                <minutes min="38" />
-                <minutes min="45" />
-                <minutes min="52" />
-                <minutes min="59" />
+                <minutes min="00" />
+                <minutes min="20" />
+                <minutes min="40" />
             </time>
             <time hours="12">
-                <minutes min="06" />
-                <minutes min="13" />
+                <minutes min="00" />
                 <minutes min="20" />
-                <minutes min="27" />
                 <minutes min="40" />
-                <minutes min="50" />
             </time>
             <time hours="13">
                 <minutes min="00" />
-                <minutes min="10" />
                 <minutes min="20" />
-                <minutes min="30" />
                 <minutes min="40" />
-                <minutes min="50" />
             </time>
             <time hours="14">
                 <minutes min="00" />
-                <minutes min="10" />
                 <minutes min="20" />
-                <minutes min="30" />
                 <minutes min="40" />
-                <minutes min="50" />
             </time>
             <time hours="15">
                 <minutes min="00" />
-                <minutes min="10" />
                 <minutes min="20" />
-                <minutes min="30" />
                 <minutes min="40" />
-                <minutes min="50" />
             </time>
             <time hours="16">
                 <minutes min="00" />
-                <minutes min="10" />
                 <minutes min="20" />
-                <minutes min="30" />
                 <minutes min="40" />
-                <minutes min="50" />
             </time>
             <time hours="17">
                 <minutes min="00" />
-                <minutes min="10" />
                 <minutes min="20" />
-                <minutes min="30" />
                 <minutes min="40" />
             </time>
             <time hours="18">
@@ -1759,113 +1041,6 @@
             </time>
             <time hours="20">
                 <minutes min="00" />
-                <minutes min="20" />
-                <minutes min="40" />
-            </time>
-            <time hours="21">
-                <minutes min="00" />
-                <minutes min="20" />
-                <minutes min="40" />
-            </time>
-            <time hours="22">
-                <minutes min="00" />
-                <minutes min="20" />
-            </time>
-        </schedule>
-        <schedule days="Fri">
-            <time hours="07">
-                <minutes min="26" />
-                <minutes min="33" />
-                <minutes min="40" />
-                <minutes min="47" />
-                <minutes min="54" />
-            </time>
-            <time hours="08">
-                <minutes min="01" />
-                <minutes min="08" />
-                <minutes min="15" />
-                <minutes min="22" />
-                <minutes min="29" />
-                <minutes min="36" />
-                <minutes min="43" />
-                <minutes min="50" />
-                <minutes min="57" />
-            </time>
-            <time hours="09">
-                <minutes min="04" />
-                <minutes min="11" />
-                <minutes min="18" />
-                <minutes min="25" />
-                <minutes min="32" />
-                <minutes min="39" />
-                <minutes min="46" />
-                <minutes min="53" />
-            </time>
-            <time hours="10">
-                <minutes min="00" />
-                <minutes min="07" />
-                <minutes min="14" />
-                <minutes min="21" />
-                <minutes min="28" />
-                <minutes min="35" />
-                <minutes min="42" />
-                <minutes min="49" />
-                <minutes min="56" />
-            </time>
-            <time hours="11">
-                <minutes min="03" />
-                <minutes min="10" />
-                <minutes min="17" />
-                <minutes min="24" />
-                <minutes min="31" />
-                <minutes min="38" />
-                <minutes min="45" />
-                <minutes min="52" />
-                <minutes min="59" />
-            </time>
-            <time hours="12">
-                <minutes min="06" />
-                <minutes min="13" />
-                <minutes min="20" />
-                <minutes min="27" />
-                <minutes min="40" />
-                <minutes min="50" />
-            </time>
-            <time hours="13">
-                <minutes min="00" />
-                <minutes min="10" />
-                <minutes min="20" />
-                <minutes min="30" />
-                <minutes min="40" />
-                <minutes min="50" />
-            </time>
-            <time hours="14">
-                <minutes min="00" />
-                <minutes min="10" />
-                <minutes min="20" />
-                <minutes min="30" />
-                <minutes min="40" />
-                <minutes min="50" />
-            </time>
-            <time hours="15">
-                <minutes min="00" />
-                <minutes min="10" />
-                <minutes min="20" />
-                <minutes min="30" />
-                <minutes min="40" />
-                <minutes min="50" />
-            </time>
-            <time hours="16">
-                <minutes min="00" />
-                <minutes min="10" />
-                <minutes min="20" />
-                <minutes min="30" />
-                <minutes min="40" />
-                <minutes min="50" />
-            </time>
-            <time hours="17">
-                <minutes min="00" />
-                <minutes min="10" />
                 <minutes min="20" />
             </time>
         </schedule>
@@ -1873,306 +1048,119 @@
     </bus>
     <bus id="7" name="Colorado Express">
         <depart_point from="Medpark">
-            <schedule days="Mon-Thurs">
+            <schedule days="Mon-Fri">
                 <time hours="07">
-                    <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
-                    <minutes min="57" />
+                    <minutes min="30" />
                 </time>
                 <time hours="08">
-                    <minutes min="07" />
-                    <minutes min="17" />
-                    <minutes min="39" />
-                    <minutes min="49" />
-                    <minutes min="59" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="09">
-                    <minutes min="21" />
-                    <minutes min="31" />
-                    <minutes min="41" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="10">
-                    <minutes min="03" />
-                    <minutes min="13" />
-                    <minutes min="23" />
-                    <minutes min="45" />
-                    <minutes min="55" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="11">
-                    <minutes min="05" />
-                    <minutes min="27" />
-                    <minutes min="37" />
-                    <minutes min="47" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="12">
-                    <minutes min="09" />
-                    <minutes min="19" />
-                    <minutes min="29" />
-                    <minutes min="51" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="13">
-                    <minutes min="01" />
-                    <minutes min="11" />
-                    <minutes min="43" />
-                    <minutes min="53" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="14">
-                    <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
-                    <minutes min="57" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="15">
-                    <minutes min="07" />
-                    <minutes min="17" />
-                    <minutes min="39" />
-                    <minutes min="49" />
-                    <minutes min="59" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="16">
-                    <minutes min="21" />
-                    <minutes min="31" />
-                    <minutes min="41" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="17">
-                    <minutes min="03" />
-                    <minutes min="45" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="18">
-                    <minutes min="27" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="19">
-                    <minutes min="09" />
-                    <minutes min="51" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="20">
-                    <minutes min="33" />
-                </time>
-                <time hours="21">
-                    <minutes min="15" />
-                    <minutes min="57" />
-                </time>
-            </schedule>
-            <schedule days="Fri">
-                <time hours="07">
-                    <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
-                    <minutes min="57" />
-                </time>
-                <time hours="08">
-                    <minutes min="07" />
-                    <minutes min="17" />
-                    <minutes min="39" />
-                    <minutes min="49" />
-                    <minutes min="59" />
-                </time>
-                <time hours="09">
-                    <minutes min="21" />
-                    <minutes min="31" />
-                    <minutes min="41" />
-                </time>
-                <time hours="10">
-                    <minutes min="03" />
-                    <minutes min="13" />
-                    <minutes min="23" />
-                    <minutes min="45" />
-                    <minutes min="55" />
-                </time>
-                <time hours="11">
-                    <minutes min="05" />
-                    <minutes min="27" />
-                    <minutes min="37" />
-                    <minutes min="47" />
-                </time>
-                <time hours="12">
-                    <minutes min="09" />
-                    <minutes min="19" />
-                    <minutes min="29" />
-                    <minutes min="51" />
-                </time>
-                <time hours="13">
-                    <minutes min="01" />
-                    <minutes min="11" />
-                    <minutes min="43" />
-                    <minutes min="53" />
-                </time>
-                <time hours="14">
-                    <minutes min="15" />
-                    <minutes min="25" />
-                    <minutes min="35" />
-                    <minutes min="57" />
-                </time>
-                <time hours="15">
-                    <minutes min="07" />
-                    <minutes min="17" />
-                    <minutes min="39" />
-                    <minutes min="49" />
-                    <minutes min="59" />
-                </time>
-                <time hours="16">
-                    <minutes min="21" />
-                    <minutes min="31" />
-                    <minutes min="41" />
-                </time>
-                <time hours="17">
-                    <minutes min="03" />
-                    <minutes min="13" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
             </schedule>
 	    </depart_point>
         <depart_point from="Business Leadership Building">
-            <schedule days="Mon-Thurs">
+            <schedule days="Mon-Fri">
                 <time hours="07">
-                    <minutes min="36" />
-                    <minutes min="39" />
-                    <minutes min="56" />
+                    <minutes min="43" />
                 </time>
                 <time hours="08">
-                    <minutes min="18" />
-                    <minutes min="21" />
-                    <minutes min="38" />
+                    <minutes min="13" />
+                    <minutes min="43" />
                 </time>
                 <time hours="09">
-                    <minutes min="00" />
-                    <minutes min="03" />
-                    <minutes min="20" />
-                    <minutes min="42" />
-                    <minutes min="45" />
+                    <minutes min="13" />
+                    <minutes min="43" />
                 </time>
                 <time hours="10">
-                    <minutes min="02" />
-                    <minutes min="24" />
-                    <minutes min="27" />
-                    <minutes min="44" />
+                    <minutes min="13" />
+                    <minutes min="43" />
                 </time>
                 <time hours="11">
-                    <minutes min="06" />
-                    <minutes min="09" />
-                    <minutes min="26" />
-                    <minutes min="48" />
-                    <minutes min="51" />
+                    <minutes min="13" />
+                    <minutes min="43" />
                 </time>
                 <time hours="12">
-                    <minutes min="08" />
-                    <minutes min="30" />
-                    <minutes min="33" />
-                    <minutes min="50" />
+                    <minutes min="13" />
+                    <minutes min="43" />
                 </time>
                 <time hours="13">
-                    <minutes min="12" />
-                    <minutes min="15" />
-                    <minutes min="32" />
-                    <minutes min="54" />
-                    <minutes min="57" />
+                    <minutes min="13" />
+                    <minutes min="43" />
                 </time>
                 <time hours="14">
-                    <minutes min="14" />
-                    <minutes min="36" />
-                    <minutes min="39" />
-                    <minutes min="56" />
+                    <minutes min="13" />
+                    <minutes min="43" />
                 </time>
                 <time hours="15">
-                    <minutes min="18" />
-                    <minutes min="21" />
-                    <minutes min="38" />
+                    <minutes min="13" />
+                    <minutes min="43" />
                 </time>
                 <time hours="16">
-                    <minutes min="00" />
-                    <minutes min="03" />
-                    <minutes min="20" />
-                    <minutes min="42" />
-                    <minutes min="45" />
+                    <minutes min="13" />
+                    <minutes min="43" />
                 </time>
                 <time hours="17">
-                    <minutes min="02" />
-                    <minutes min="24" />
+                    <minutes min="13" />
+                    <minutes min="43" />
                 </time>
                 <time hours="18">
-                    <minutes min="06" />
-                    <minutes min="48" />
+                    <minutes min="13" />
+                    <minutes min="43" />
                 </time>
                 <time hours="19">
-                    <minutes min="30" />
+                    <minutes min="13" />
+                    <minutes min="43" />
                 </time>
                 <time hours="20">
-                    <minutes min="12" />
-                    <minutes min="54" />
-                </time>
-                <time hours="21">
-                    <minutes min="36" />
-                </time>
-                <time hours="22">
-                    <minutes min="18" />
-                </time>
-            </schedule>
-            <schedule days="Fri">
-                <time hours="07">
-                    <minutes min="36" />
-                    <minutes min="39" />
-                    <minutes min="56" />
-                </time>
-                <time hours="08">
-                    <minutes min="18" />
-                    <minutes min="21" />
-                    <minutes min="38" />
-                </time>
-                <time hours="09">
-                    <minutes min="00" />
-                    <minutes min="03" />
-                    <minutes min="20" />
-                    <minutes min="42" />
-                    <minutes min="45" />
-                </time>
-                <time hours="10">
-                    <minutes min="02" />
-                    <minutes min="24" />
-                    <minutes min="27" />
-                    <minutes min="44" />
-                </time>
-                <time hours="11">
-                    <minutes min="06" />
-                    <minutes min="09" />
-                    <minutes min="26" />
-                    <minutes min="48" />
-                    <minutes min="51" />
-                </time>
-                <time hours="12">
-                    <minutes min="08" />
-                    <minutes min="30" />
-                    <minutes min="33" />
-                    <minutes min="50" />
-                </time>
-                <time hours="13">
-                    <minutes min="12" />
-                    <minutes min="15" />
-                    <minutes min="32" />
-                    <minutes min="54" />
-                    <minutes min="57" />
-                </time>
-                <time hours="14">
-                    <minutes min="14" />
-                    <minutes min="36" />
-                    <minutes min="39" />
-                    <minutes min="56" />
-                </time>
-                <time hours="15">
-                    <minutes min="18" />
-                    <minutes min="21" />
-                    <minutes min="38" />
-                </time>
-                <time hours="16">
-                    <minutes min="00" />
-                    <minutes min="03" />
-                    <minutes min="20" />
-                    <minutes min="42" />
-                    <minutes min="45" />
-                </time>
-                <time hours="17">
-                    <minutes min="02" />
-                    <minutes min="24" />
-                    <minutes min="34" />
+                    <minutes min="13" />
                 </time>
             </schedule>
         </depart_point>
@@ -2579,155 +1567,60 @@
     </bus>
     <bus id="9" name="Sam Bass">
         <depart_point from="Westminster">
-            <schedule days="Mon-Thurs">
+            <schedule days="Mon-Fri">
                 <time hours="07">
-                    <minutes min="15" />
                     <minutes min="30" />
-                    <minutes min="45" />
                 </time>
                 <time hours="08">
                     <minutes min="00" />
-                    <minutes min="15" />
                     <minutes min="30" />
-                    <minutes min="45" />
                 </time>
                 <time hours="09">
                     <minutes min="00" />
-                    <minutes min="15" />
                     <minutes min="30" />
-                    <minutes min="45" />
                 </time>
                 <time hours="10">
                     <minutes min="00" />
-                    <minutes min="15" />
                     <minutes min="30" />
-                    <minutes min="45" />
                 </time>
                 <time hours="11">
                     <minutes min="00" />
-                    <minutes min="15" />
                     <minutes min="30" />
-                    <minutes min="45" />
                 </time>
                 <time hours="12">
                     <minutes min="00" />
-                    <minutes min="15" />
                     <minutes min="30" />
-                    <minutes min="45" />
                 </time>
                 <time hours="13">
                     <minutes min="00" />
-                    <minutes min="15" />
                     <minutes min="30" />
-                    <minutes min="45" />
                 </time>
                 <time hours="14">
                     <minutes min="00" />
-                    <minutes min="15" />
                     <minutes min="30" />
-                    <minutes min="45" />
                 </time>
                 <time hours="15">
                     <minutes min="00" />
-                    <minutes min="15" />
                     <minutes min="30" />
-                    <minutes min="45" />
                 </time>
                 <time hours="16">
                     <minutes min="00" />
-                    <minutes min="15" />
                     <minutes min="30" />
-                    <minutes min="45" />
                 </time>
                 <time hours="17">
                     <minutes min="00" />
-                    <minutes min="15" />
                     <minutes min="30" />
-                    <minutes min="45" />
                 </time>
                 <time hours="18">
-                    <minutes min="15" />
-                    <minutes min="45" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="19">
-                    <minutes min="15" />
-                    <minutes min="45" />
+                    <minutes min="00" />
+                    <minutes min="30" />
                 </time>
                 <time hours="20">
-                    <minutes min="15" />
-                    <minutes min="45" />
-                </time>
-                <time hours="21">
-                    <minutes min="15" />
-                    <minutes min="45" />
-                </time>
-                <time hours="22">
-                    <minutes min="15" />
-                </time>
-            </schedule>
-            <schedule days="Fri">
-                <time hours="07">
-                    <minutes min="15" />
-                    <minutes min="30" />
-                    <minutes min="45" />
-                </time>
-                <time hours="08">
                     <minutes min="00" />
-                    <minutes min="15" />
-                    <minutes min="30" />
-                    <minutes min="45" />
-                </time>
-                <time hours="09">
-                    <minutes min="00" />
-                    <minutes min="15" />
-                    <minutes min="30" />
-                    <minutes min="45" />
-                </time>
-                <time hours="10">
-                    <minutes min="00" />
-                    <minutes min="15" />
-                    <minutes min="30" />
-                    <minutes min="45" />
-                </time>
-                <time hours="11">
-                    <minutes min="00" />
-                    <minutes min="15" />
-                    <minutes min="30" />
-                    <minutes min="45" />
-                </time>
-                <time hours="12">
-                    <minutes min="00" />
-                    <minutes min="15" />
-                    <minutes min="30" />
-                    <minutes min="45" />
-                </time>
-                <time hours="13">
-                    <minutes min="00" />
-                    <minutes min="15" />
-                    <minutes min="30" />
-                    <minutes min="45" />
-                </time>
-                <time hours="14">
-                    <minutes min="00" />
-                    <minutes min="15" />
-                    <minutes min="30" />
-                    <minutes min="45" />
-                </time>
-                <time hours="15">
-                    <minutes min="00" />
-                    <minutes min="15" />
-                    <minutes min="30" />
-                    <minutes min="45" />
-                </time>
-                <time hours="16">
-                    <minutes min="00" />
-                    <minutes min="15" />
-                    <minutes min="30" />
-                    <minutes min="45" />
-                </time>
-                <time hours="17">
-                    <minutes min="00" />
-                    <minutes min="15" />
                     <minutes min="30" />
                 </time>
             </schedule>
@@ -2735,152 +1628,59 @@
         <depart_point from="Business Leadership Building">
             <schedule days="Mon-Thurs">
                 <time hours="07">
-                    <minutes min="33" />
+                    <minutes min="18" />
                     <minutes min="48" />
                 </time>
                 <time hours="08">
-                    <minutes min="03" />
                     <minutes min="18" />
-                    <minutes min="33" />
                     <minutes min="48" />
                 </time>
                 <time hours="09">
-                    <minutes min="03" />
                     <minutes min="18" />
-                    <minutes min="33" />
                     <minutes min="48" />
                 </time>
                 <time hours="10">
-                    <minutes min="03" />
                     <minutes min="18" />
-                    <minutes min="33" />
                     <minutes min="48" />
                 </time>
                 <time hours="11">
-                    <minutes min="03" />
                     <minutes min="18" />
-                    <minutes min="33" />
                     <minutes min="48" />
                 </time>
                 <time hours="12">
-                    <minutes min="03" />
                     <minutes min="18" />
-                    <minutes min="33" />
                     <minutes min="48" />
                 </time>
                 <time hours="13">
-                    <minutes min="03" />
                     <minutes min="18" />
-                    <minutes min="33" />
                     <minutes min="48" />
                 </time>
                 <time hours="14">
-                    <minutes min="03" />
                     <minutes min="18" />
-                    <minutes min="33" />
                     <minutes min="48" />
                 </time>
                 <time hours="15">
-                    <minutes min="03" />
                     <minutes min="18" />
-                    <minutes min="33" />
                     <minutes min="48" />
                 </time>
                 <time hours="16">
-                    <minutes min="03" />
                     <minutes min="18" />
-                    <minutes min="33" />
                     <minutes min="48" />
                 </time>
                 <time hours="17">
-                    <minutes min="03" />
                     <minutes min="18" />
-                    <minutes min="33" />
                     <minutes min="48" />
                 </time>
                 <time hours="18">
-                    <minutes min="03" />
-                    <minutes min="33" />
+                    <minutes min="18" />
+                    <minutes min="48" />
                 </time>
                 <time hours="19">
-                    <minutes min="03" />
-                    <minutes min="33" />
+                    <minutes min="18" />
+                    <minutes min="48" />
                 </time>
                 <time hours="20">
-                    <minutes min="03" />
-                    <minutes min="33" />
-                </time>
-                <time hours="21">
-                    <minutes min="03" />
-                    <minutes min="33" />
-                </time>
-                <time hours="22">
-                    <minutes min="03" />
-                </time>
-            </schedule>
-            <schedule days="Fri">
-                <time hours="07">
-                    <minutes min="33" />
-                    <minutes min="48" />
-                </time>
-                <time hours="08">
-                    <minutes min="03" />
                     <minutes min="18" />
-                    <minutes min="33" />
-                    <minutes min="48" />
-                </time>
-                <time hours="09">
-                    <minutes min="03" />
-                    <minutes min="18" />
-                    <minutes min="33" />
-                    <minutes min="48" />
-                </time>
-                <time hours="10">
-                    <minutes min="03" />
-                    <minutes min="18" />
-                    <minutes min="33" />
-                    <minutes min="48" />
-                </time>
-                <time hours="11">
-                    <minutes min="03" />
-                    <minutes min="18" />
-                    <minutes min="33" />
-                    <minutes min="48" />
-                </time>
-                <time hours="12">
-                    <minutes min="03" />
-                    <minutes min="18" />
-                    <minutes min="33" />
-                    <minutes min="48" />
-                </time>
-                <time hours="13">
-                    <minutes min="03" />
-                    <minutes min="18" />
-                    <minutes min="33" />
-                    <minutes min="48" />
-                </time>
-                <time hours="14">
-                    <minutes min="03" />
-                    <minutes min="18" />
-                    <minutes min="33" />
-                    <minutes min="48" />
-                </time>
-                <time hours="15">
-                    <minutes min="03" />
-                    <minutes min="18" />
-                    <minutes min="33" />
-                    <minutes min="48" />
-                </time>
-                <time hours="16">
-                    <minutes min="03" />
-                    <minutes min="18" />
-                    <minutes min="33" />
-                    <minutes min="48" />
-                </time>
-                <time hours="17">
-                    <minutes min="03" />
-                    <minutes min="18" />
-                    <minutes min="33" />
                 </time>
             </schedule>
         </depart_point>
