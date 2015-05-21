@@ -11,4 +11,5 @@
     <color name="gray">#898989</color>
     
     <color name="screen_background">#ecf0f1</color>
+    <color name="list_item_pressed_state">#EFEFEF</color>
 </resources>
