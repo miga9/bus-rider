@@ -937,6 +937,7 @@
             <time hours="13">
                 <minutes min="00" />
                 <minutes min="30" />
+                <minutes min="50" />
             </time>
             <time hours="14">
                 <minutes min="10" />
@@ -1626,7 +1627,7 @@
             </schedule>
 	    </depart_point>
         <depart_point from="Business Leadership Building">
-            <schedule days="Mon-Thurs">
+            <schedule days="Mon-Fri">
                 <time hours="07">
                     <minutes min="18" />
                     <minutes min="48" />
