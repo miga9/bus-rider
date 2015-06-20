@@ -23,7 +23,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.migapro.busrider.BusRiderApplication;
@@ -59,6 +58,8 @@ public class MainActivity extends ActionBarActivity {
         if (savedInstanceState == null) {
             loadBusNames();
             initBusDataSelections();
+
+            checkRateMyApp();
         } else {
             restoreState(savedInstanceState);
         }
@@ -66,8 +67,6 @@ public class MainActivity extends ActionBarActivity {
         loadCurrentBusData();
 
         initViews();
-
-        checkRateMyApp();
 	}
 
     private void loadBusNames() {
