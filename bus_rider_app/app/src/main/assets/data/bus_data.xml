@@ -2,7 +2,7 @@
 <data>
     <bus id="0" name="Mean Green">
         <depart_point from="Kerr Hall">
-            <schedule days="Mon-Fri">
+            <schedule days="Mon-Thurs &amp; Final Exam Friday">
                 <time hours="07">
                     <minutes min="30" />
                     <minutes min="43" />
@@ -80,7 +80,7 @@
             </schedule>
         </depart_point>
         <depart_point from="GAB">
-            <schedule days="Mon-Fri">
+            <schedule days="Mon-Thurs &amp; Final Exam Friday">
                 <time hours="07">
                     <minutes min="30" />
                     <minutes min="43" />
@@ -173,7 +173,7 @@
     </bus>
     <bus id="1" name="North Texan">
         <depart_point from="University Uptown">
-            <schedule days="Mon-Fri">
+            <schedule days="Mon-Thurs &amp; Final Exam Friday">
                 <time hours="07">
                     <minutes min="30" />
                     <minutes min="55" />
@@ -238,7 +238,7 @@
             </schedule>
         </depart_point>
         <depart_point from="Avenue A.">
-            <schedule days="Mon-Fri">
+            <schedule days="Mon-Thurs &amp; Final Exam Friday">
                 <time hours="07">
                     <minutes min="42" />
                 </time>
@@ -314,7 +314,7 @@
     </bus>
     <bus id="2" name="Centre Place East">
         <depart_point from="The Republic">
-            <schedule days="Mon-Fri">
+            <schedule days="Mon-Thurs &amp; Final Exam Friday">
                 <time hours="07">
                     <minutes min="30" />
                 </time>
@@ -373,7 +373,7 @@
             </schedule>
 	    </depart_point>
         <depart_point from="Highland St.">
-            <schedule days="Mon-Fri">
+            <schedule days="Mon-Thurs &amp; Final Exam Friday">
                 <time hours="07">
                     <minutes min="45" />
                 </time>
@@ -439,7 +439,7 @@
     </bus>
     <bus id="3" name="Centre Place West">
         <depart_point from="Forum">
-            <schedule days="Mon-Fri">
+            <schedule days="Mon-Thurs &amp; Final Exam Friday">
                 <time hours="07">
                     <minutes min="15" />
                     <minutes min="45" />
@@ -499,7 +499,7 @@
             </schedule>
         </depart_point>
         <depart_point from="Highland St.">
-            <schedule days="Mon-Fri">
+            <schedule days="Mon-Thurs &amp; Final Exam Friday">
                 <time hours="07">
                     <minutes min="30" />
                 </time>
@@ -904,7 +904,7 @@
 	</bus>
     <bus id="6" name="Bernard Street">
     <depart_point from="Gateway Apartments">
-        <schedule days="Mon-Fri">
+        <schedule days="Mon-Thurs &amp; Final Exam Friday">
             <time hours="07">
                 <minutes min="30" />
                 <minutes min="50" />
@@ -976,7 +976,7 @@
         </schedule>
 	</depart_point>
     <depart_point from="Highland">
-        <schedule days="Mon-Fri">
+        <schedule days="Mon-Thurs &amp; Final Exam Friday">
             <time hours="07">
                 <minutes min="40" />
             </time>
@@ -1049,7 +1049,7 @@
     </bus>
     <bus id="7" name="Colorado Express">
         <depart_point from="Medpark">
-            <schedule days="Mon-Fri">
+            <schedule days="Mon-Thurs &amp; Final Exam Friday">
                 <time hours="07">
                     <minutes min="30" />
                 </time>
@@ -1108,7 +1108,7 @@
             </schedule>
 	    </depart_point>
         <depart_point from="Business Leadership Building">
-            <schedule days="Mon-Fri">
+            <schedule days="Mon-Thurs &amp; Final Exam Friday">
                 <time hours="07">
                     <minutes min="43" />
                 </time>
@@ -1568,7 +1568,7 @@
     </bus>
     <bus id="9" name="Sam Bass">
         <depart_point from="Westminster">
-            <schedule days="Mon-Fri">
+            <schedule days="Mon-Thurs &amp; Final Exam Friday">
                 <time hours="07">
                     <minutes min="30" />
                 </time>
@@ -1627,7 +1627,7 @@
             </schedule>
 	    </depart_point>
         <depart_point from="Business Leadership Building">
-            <schedule days="Mon-Fri">
+            <schedule days="Mon-Thurs &amp; Final Exam Friday">
                 <time hours="07">
                     <minutes min="18" />
                     <minutes min="48" />
