@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.PagerTabStrip;
@@ -32,6 +31,7 @@ import com.migapro.busrider.models.Bus;
 import com.migapro.busrider.models.Time;
 import com.migapro.busrider.parser.BusXmlPullParser;
 import com.migapro.busrider.utility.Constants;
+import com.migapro.busrider.utility.Util;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -292,7 +292,7 @@ public class MainActivity extends ActionBarActivity {
 
     private void showVersionInfoDialog() {
         final AlertDialog versionInfoDialog = new AlertDialog.Builder(this)
-                .setTitle(getString(R.string.version_info_title) + getAppVersionNumber())
+                .setTitle(getString(R.string.version_info_title) + Util.getAppVersionNumber(this))
                 .setMessage(R.string.version_info_message)
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
@@ -303,16 +303,6 @@ public class MainActivity extends ActionBarActivity {
                 .create();
         versionInfoDialog.show();
         ((TextView)versionInfoDialog.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
-    }
-
-    private String getAppVersionNumber() {
-        String appVersionNumber = "";
-        try {
-            appVersionNumber = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
-        } catch (PackageManager.NameNotFoundException nameNotFoundException) {
-            nameNotFoundException.printStackTrace();
-        }
-        return appVersionNumber;
     }
 
     public ArrayList<Time> getTimeList(int scheduleIndex) {
