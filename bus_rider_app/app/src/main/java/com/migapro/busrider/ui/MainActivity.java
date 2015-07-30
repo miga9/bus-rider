@@ -1,6 +1,7 @@
 package com.migapro.busrider.ui;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -31,6 +32,7 @@ import com.migapro.busrider.config.FeatureFlags;
 import com.migapro.busrider.gcm.RegistrationIntentService;
 import com.migapro.busrider.models.Bus;
 import com.migapro.busrider.models.Time;
+import com.migapro.busrider.network.DataAsyncTask;
 import com.migapro.busrider.parser.BusXmlPullParser;
 import com.migapro.busrider.utility.Constants;
 import com.migapro.busrider.utility.Util;
@@ -40,7 +42,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnDataServiceListener {
 
 	private BusXmlPullParser mParser;
 	private ArrayList<String> mBusNames;
@@ -48,6 +50,7 @@ public class MainActivity extends ActionBarActivity {
 
     private ViewPagerAdapter mViewPagerAdapter;
     private ViewPager mViewPager;
+    private ProgressDialog mProgressDialog;
 
     private int mBusIndex;
     private int mDeparturePointIndex;
@@ -268,6 +271,9 @@ public class MainActivity extends ActionBarActivity {
             case R.id.action_version_info:
                 showVersionInfoDialog();
                 return true;
+            case R.id.action_download:
+                startDataAsyncTask();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -313,6 +319,12 @@ public class MainActivity extends ActionBarActivity {
         ((TextView)versionInfoDialog.findViewById(android.R.id.message)).setMovementMethod(LinkMovementMethod.getInstance());
     }
 
+    private void startDataAsyncTask() {
+        DataAsyncTask dataAsyncTask = new DataAsyncTask();
+        dataAsyncTask.setOnDataServiceListener(this);
+        dataAsyncTask.execute();
+    }
+
     public ArrayList<Time> getTimeList(int scheduleIndex) {
         return mCurrentBus.getTimes(mDeparturePointIndex, scheduleIndex);
     }
@@ -324,5 +336,25 @@ public class MainActivity extends ActionBarActivity {
         Tracker tracker = ((BusRiderApplication) getApplication()).getTracker();
         tracker.setScreenName(Constants.ANALYTICS_MAIN_SCREEN);
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
+    }
+
+    @Override
+    public void onDataServiceStart() {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(this);
+            mProgressDialog.setIndeterminate(true);
+            mProgressDialog.setCanceledOnTouchOutside(false);
+            mProgressDialog.setCancelable(false);
+        }
+
+        mProgressDialog.setMessage("Downloading the data...");
+        mProgressDialog.show();
+    }
+
+    @Override
+    public void onDataServiceComplete() {
+        if (mProgressDialog != null) {
+            mProgressDialog.dismiss();
+        }
     }
 }
