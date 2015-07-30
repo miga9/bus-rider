@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
@@ -27,6 +28,7 @@ import com.google.android.gms.analytics.Tracker;
 import com.migapro.busrider.BusRiderApplication;
 import com.migapro.busrider.R;
 import com.migapro.busrider.config.FeatureFlags;
+import com.migapro.busrider.gcm.RegistrationIntentService;
 import com.migapro.busrider.models.Bus;
 import com.migapro.busrider.models.Time;
 import com.migapro.busrider.parser.BusXmlPullParser;
@@ -56,6 +58,12 @@ public class MainActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+            if (!sharedPref.getBoolean("regisIdSent", false)) {
+                Intent intent = new Intent(this, RegistrationIntentService.class);
+                startService(intent);
+            }
+
             loadBusNames();
             initBusDataSelections();
 
