@@ -62,7 +62,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
 
         if (savedInstanceState == null) {
             SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-            if (!sharedPref.getBoolean("regisIdSent", false)) {
+            if (!sharedPref.getBoolean(Constants.KEY_GCM_REGIS_ID_SENT, false)) {
                 Intent intent = new Intent(this, RegistrationIntentService.class);
                 startService(intent);
             }
