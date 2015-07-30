@@ -347,7 +347,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
             mProgressDialog.setCancelable(false);
         }
 
-        mProgressDialog.setMessage("Downloading the data...");
+        mProgressDialog.setMessage(getString(R.string.progress_msg_downloading));
         mProgressDialog.show();
     }
 
