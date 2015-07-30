@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">Bus Rider</string>
+    <string name="action_download">Update Data</string>
     <string name="action_map">View the route in Map</string>
     <string name="action_share">Share</string>
     <string name="action_version_info">Version Info</string>
