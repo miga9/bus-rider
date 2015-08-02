@@ -30,24 +30,19 @@ import com.migapro.busrider.BusRiderApplication;
 import com.migapro.busrider.R;
 import com.migapro.busrider.config.FeatureFlags;
 import com.migapro.busrider.gcm.RegistrationIntentService;
-import com.migapro.busrider.models.Bus;
+import com.migapro.busrider.models.BusDataManager;
 import com.migapro.busrider.models.Time;
 import com.migapro.busrider.network.DataAsyncTask;
-import com.migapro.busrider.parser.BusXmlPullParser;
 import com.migapro.busrider.utility.Constants;
 import com.migapro.busrider.utility.Util;
 
-import org.xmlpull.v1.XmlPullParserException;
-
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnDataServiceListener {
 
-	private BusXmlPullParser mParser;
-	private ArrayList<String> mBusNames;
-	private Bus mCurrentBus;
+	private BusDataManager mBusDataManager;
 
+    private ArrayAdapter<String> mTitleSpinnerAdapter;
     private ViewPagerAdapter mViewPagerAdapter;
     private ViewPager mViewPager;
     private ProgressDialog mProgressDialog;
@@ -59,6 +54,14 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+        mBusDataManager = new BusDataManager();
+
+        if (!Util.doesFileExist(this, Constants.BUS_DATA_PATH)) {
+            startDataAsyncTask();
+            initViews();
+            return;
+        }
 
         if (savedInstanceState == null) {
             SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
@@ -81,14 +84,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
 	}
 
     private void loadBusNames() {
-        try {
-            mParser = new BusXmlPullParser();
-            mBusNames = mParser.readBusNames(getAssets().open(Constants.BUS_DATA_PATH));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        }
+        mBusDataManager.loadBusNames(this);
     }
 
     private void initBusDataSelections() {
@@ -98,22 +94,14 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     }
 
     private void restoreState(Bundle savedInstanceState) {
-        mBusNames = savedInstanceState.getStringArrayList(Constants.BUS_NAMES_KEY);
+        mBusDataManager.setBusNames(savedInstanceState.getStringArrayList(Constants.BUS_NAMES_KEY));
+
         mBusIndex = savedInstanceState.getInt(Constants.BUS_INDEX_KEY, 0);
         mDeparturePointIndex = savedInstanceState.getInt(Constants.DEPARTURE_INDEX_KEY, 0);
     }
 
     private void loadCurrentBusData() {
-        try {
-            if (mParser == null) {
-                mParser = new BusXmlPullParser();
-            }
-            mCurrentBus = mParser.readABusData(getAssets().open(Constants.BUS_DATA_PATH), mBusIndex);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        }
+        mBusDataManager.loadCurrentBusData(this, mBusIndex);
     }
 
     private void initViews() {
@@ -121,10 +109,11 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        ArrayAdapter<String> titleSpinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner_title, mBusNames);
-        titleSpinnerAdapter.setDropDownViewResource(R.layout.simple_dropdown_item_1line_light);
+        mTitleSpinnerAdapter =
+                new ArrayAdapter<String>(this, R.layout.spinner_title, mBusDataManager.getBusNames());
+        mTitleSpinnerAdapter.setDropDownViewResource(R.layout.simple_dropdown_item_1line_light);
         Spinner titleSpinner = (Spinner) findViewById(R.id.title_spinner);
-        titleSpinner.setAdapter(titleSpinnerAdapter);
+        titleSpinner.setAdapter(mTitleSpinnerAdapter);
         titleSpinner.setSelection(mBusIndex);
         titleSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -139,7 +128,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
                     editor.commit();
 
                     loadCurrentBusData();
-                    updateCurrentBusData();
+                    updateCurrentBusUI();
                 }
             }
 
@@ -149,6 +138,17 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
             }
         });
 
+        String[] busNames = new String[0];
+        boolean scheduleExists = false;
+
+        if (mBusDataManager.getCurrentBus() != null) {
+            TextView departsFrom = (TextView) findViewById(R.id.depart_from);
+            departsFrom.setText(getString(R.string.departs_from) + mBusDataManager.getDepartingPoint(mDeparturePointIndex));
+
+            busNames = mBusDataManager.getDaysOfOperation(mDeparturePointIndex);
+            scheduleExists = mBusDataManager.scheduleExists(mDeparturePointIndex);
+        }
+
         LinearLayout departsFromLayout = (LinearLayout) findViewById(R.id.depart_from_layout);
         departsFromLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -156,14 +156,11 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
                 showDepartFromDialog();
             }
         });
-        findViewById(R.id.depart_from_layout).setEnabled(scheduleExists());
-
-        TextView departsFrom = (TextView) findViewById(R.id.depart_from);
-        departsFrom.setText(getString(R.string.departs_from) + mCurrentBus.getDepartingPoint(mDeparturePointIndex));
+        departsFromLayout.setEnabled(scheduleExists);
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPagerAdapter = new ViewPagerAdapter(getFragmentManager());
-        mViewPagerAdapter.setTitles(mCurrentBus.getDaysOfOperation(mDeparturePointIndex));
+        mViewPagerAdapter.setTitles(busNames);
         mViewPager.setAdapter(mViewPagerAdapter);
 
         PagerTabStrip pagerTabStrip = (PagerTabStrip) findViewById(R.id.pagertabstrip);
@@ -171,23 +168,27 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
         pagerTabStrip.setTabIndicatorColor(getResources().getColor(R.color.light_accent));
     }
 
-    private void updateCurrentBusData() {
-        findViewById(R.id.depart_from_layout).setEnabled(scheduleExists());
-        ((TextView) findViewById(R.id.depart_from)).setText(getString(R.string.departs_from) + mCurrentBus.getDepartingPoint(mDeparturePointIndex));
+    private void updateCurrentBusUI() {
+        findViewById(R.id.depart_from_layout).setEnabled(mBusDataManager.scheduleExists(mDeparturePointIndex));
+        ((TextView) findViewById(R.id.depart_from))
+                .setText(getString(R.string.departs_from) + mBusDataManager.getDepartingPoint(mDeparturePointIndex));
 
-        mViewPagerAdapter.setTitles(mCurrentBus.getDaysOfOperation(mDeparturePointIndex));
+        mViewPagerAdapter.setTitles(mBusDataManager.getDaysOfOperation(mDeparturePointIndex));
         mViewPagerAdapter.notifyDataSetChanged();
         mViewPager.setCurrentItem(0);
     }
 
-    private boolean scheduleExists() {
-        return !mCurrentBus.getTimes(mDeparturePointIndex, 0).isEmpty();
+    private void updateBusNamesUI() {
+        mTitleSpinnerAdapter.notifyDataSetChanged();
+        ((Spinner) findViewById(R.id.title_spinner)).setSelection(0);
     }
 
     private void showDepartFromDialog() {
         new AlertDialog.Builder(this)
                 .setTitle(getString(R.string.departs_from))
-                .setSingleChoiceItems(mCurrentBus.getDepartingPointsStrings(mDeparturePointIndex), mDeparturePointIndex, new DialogInterface.OnClickListener() {
+                .setSingleChoiceItems(
+                        mBusDataManager.getDepartingPointsStrings(mDeparturePointIndex),
+                        mDeparturePointIndex, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         mDeparturePointIndex = which;
@@ -196,7 +197,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
                         editor.putInt(Constants.DEPARTURE_INDEX_KEY, mDeparturePointIndex);
                         editor.commit();
 
-                        updateCurrentBusData();
+                        updateCurrentBusUI();
                         dialog.dismiss();
                     }
                 })
@@ -248,7 +249,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
-        outState.putStringArrayList(Constants.BUS_NAMES_KEY, mBusNames);
+        outState.putStringArrayList(Constants.BUS_NAMES_KEY, mBusDataManager.getBusNames());
         outState.putInt(Constants.BUS_INDEX_KEY, mBusIndex);
         outState.putInt(Constants.DEPARTURE_INDEX_KEY, mDeparturePointIndex);
     }
@@ -289,9 +290,10 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
 
     private void startMapActivity() {
         Intent intent = new Intent(this, MapActivity.class);
-        intent.putExtra(Constants.MAP_TITLE_KEY, mCurrentBus.getBusName());
-        intent.putStringArrayListExtra(Constants.MAP_BUSSTOP_TITLES_KEY, mCurrentBus.getBusStopTitles());
-        intent.putParcelableArrayListExtra(Constants.MAP_BUSSTOP_LATNLNGS_KEY, mCurrentBus.getBusStopLatLngs());
+        intent.putExtra(Constants.MAP_TITLE_KEY, mBusDataManager.getBusName());
+        intent.putStringArrayListExtra(Constants.MAP_BUSSTOP_TITLES_KEY, mBusDataManager.getBusStopTitles());
+        // TODO Don't have this info, yet
+        //intent.putParcelableArrayListExtra(Constants.MAP_BUSSTOP_LATNLNGS_KEY, mCurrentBus.getBusStopLatLngs());
         startActivity(intent);
     }
 
@@ -326,7 +328,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     }
 
     public ArrayList<Time> getTimeList(int scheduleIndex) {
-        return mCurrentBus.getTimes(mDeparturePointIndex, scheduleIndex);
+        return mBusDataManager.getTimes(mDeparturePointIndex, scheduleIndex);
     }
 
     @Override
@@ -356,5 +358,10 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
         if (mProgressDialog != null) {
             mProgressDialog.dismiss();
         }
+
+        loadBusNames();
+        loadCurrentBusData();
+        updateBusNamesUI();
+        updateCurrentBusUI();
     }
 }

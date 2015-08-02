@@ -33,6 +33,7 @@ public class RegistrationIntentService extends IntentService {
             e.printStackTrace();
             isRegisIdSent = false;
         }
+
         sharedPref.edit().putBoolean(Constants.KEY_GCM_REGIS_ID_SENT, isRegisIdSent).apply();
     }
 }

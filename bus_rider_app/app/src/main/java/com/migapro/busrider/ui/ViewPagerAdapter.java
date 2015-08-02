@@ -13,6 +13,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
+        mTitles = new String[0];
     }
 
     @Override

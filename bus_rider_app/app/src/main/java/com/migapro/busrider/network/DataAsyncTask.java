@@ -1,9 +1,13 @@
 package com.migapro.busrider.network;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.AsyncTask;
-import android.util.Log;
+
+import com.migapro.busrider.utility.Constants;
 
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -30,15 +34,11 @@ public class DataAsyncTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {
         try {
-            URL url = new URL("http://www.migapro.com/busrider/bus_data.xml");
+            URL url = new URL(Constants.BUS_DATA_URL);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    Log.d("data", line);
-                }
+                saveDownloadedFile(urlConnection);
             }
 
         } catch (MalformedURLException e) {
@@ -48,6 +48,25 @@ public class DataAsyncTask extends AsyncTask<Void, Void, Void> {
         }
 
         return null;
+    }
+
+    private void saveDownloadedFile(HttpURLConnection urlConnection) throws IOException {
+        FileOutputStream fileOutputStream =
+                ((Activity) mListener).openFileOutput(Constants.BUS_DATA_PATH, Context.MODE_PRIVATE);
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+        StringBuilder xmlContentBuilder = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            xmlContentBuilder.append(line);
+        }
+
+        String xmlContent = xmlContentBuilder.toString();
+        if (xmlContent != null && !xmlContent.isEmpty()) {
+            fileOutputStream.write(xmlContent.getBytes());
+        }
+
+        fileOutputStream.close();
     }
 
     @Override
