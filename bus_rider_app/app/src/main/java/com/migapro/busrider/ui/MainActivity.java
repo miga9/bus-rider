@@ -138,14 +138,14 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
             }
         });
 
-        String[] busNames = new String[0];
+        String[] daysOfOperation = new String[0];
         boolean scheduleExists = false;
 
         if (mBusDataManager.getCurrentBus() != null) {
             TextView departsFrom = (TextView) findViewById(R.id.depart_from);
             departsFrom.setText(getString(R.string.departs_from) + mBusDataManager.getDepartingPoint(mDeparturePointIndex));
 
-            busNames = mBusDataManager.getDaysOfOperation(mDeparturePointIndex);
+            daysOfOperation = mBusDataManager.getDaysOfOperation(mDeparturePointIndex);
             scheduleExists = mBusDataManager.scheduleExists(mDeparturePointIndex);
         }
 
@@ -160,7 +160,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPagerAdapter = new ViewPagerAdapter(getFragmentManager());
-        mViewPagerAdapter.setTitles(busNames);
+        mViewPagerAdapter.setTitles(daysOfOperation);
         mViewPager.setAdapter(mViewPagerAdapter);
 
         PagerTabStrip pagerTabStrip = (PagerTabStrip) findViewById(R.id.pagertabstrip);
