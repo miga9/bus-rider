@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.view.PagerTabStrip;
@@ -33,6 +32,7 @@ import com.migapro.busrider.gcm.RegistrationIntentService;
 import com.migapro.busrider.models.BusDataManager;
 import com.migapro.busrider.models.Time;
 import com.migapro.busrider.network.DataAsyncTask;
+import com.migapro.busrider.ui.dialog.RateMyAppDialog;
 import com.migapro.busrider.utility.Constants;
 import com.migapro.busrider.utility.Util;
 
@@ -199,28 +199,8 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     }
 
     private void showRateMyAppDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(R.string.rate_this_app))
-                .setMessage(getString(R.string.rate_this_app_msg))
-                .setPositiveButton(getString(R.string.rate_this_app_positive),
-                        new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(Intent.ACTION_VIEW,
-                                        Uri.parse("market://details?id=" + getPackageName())));
-                            }
-                        })
-                .setNegativeButton(getString(R.string.rate_this_app_negative),
-                        new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        })
-                .create()
-                .show();
+        RateMyAppDialog dialog = new RateMyAppDialog(this);
+        dialog.showDialog();
     }
 
     @Override
