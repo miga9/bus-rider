@@ -16,9 +16,9 @@ public class RateMyAppDialog extends AlertDialog.Builder {
         super(context);
         mContext = context;
 
-        setTitle(mContext.getString(R.string.rate_this_app));
-        setMessage(mContext.getString(R.string.rate_this_app_msg));
-        setPositiveButton(mContext.getString(R.string.rate_this_app_positive),
+        setTitle(R.string.rate_this_app);
+        setMessage(R.string.rate_this_app_msg);
+        setPositiveButton(R.string.rate_this_app_positive,
                 new DialogInterface.OnClickListener() {
 
                     @Override
@@ -27,7 +27,7 @@ public class RateMyAppDialog extends AlertDialog.Builder {
                                 Uri.parse("market://details?id=" + mContext.getPackageName())));
                     }
                 });
-        setNegativeButton(mContext.getString(R.string.rate_this_app_negative),
+        setNegativeButton(R.string.rate_this_app_negative,
                 new DialogInterface.OnClickListener() {
 
                     @Override

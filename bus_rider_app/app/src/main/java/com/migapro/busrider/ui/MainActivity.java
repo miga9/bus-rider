@@ -199,8 +199,8 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     }
 
     private void showRateMyAppDialog() {
-        RateMyAppDialog dialog = new RateMyAppDialog(this);
-        dialog.showDialog();
+        RateMyAppDialog rateMyAppDialog = new RateMyAppDialog(this);
+        rateMyAppDialog.showDialog();
     }
 
     @Override
