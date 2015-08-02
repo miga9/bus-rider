@@ -12,7 +12,6 @@ import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,6 +32,7 @@ import com.migapro.busrider.models.BusDataManager;
 import com.migapro.busrider.models.Time;
 import com.migapro.busrider.network.DataAsyncTask;
 import com.migapro.busrider.ui.dialog.RateMyAppDialog;
+import com.migapro.busrider.ui.dialog.VersionInfoDialog;
 import com.migapro.busrider.utility.Constants;
 import com.migapro.busrider.utility.Util;
 
@@ -265,19 +265,8 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     }
 
     private void showVersionInfoDialog() {
-        final AlertDialog versionInfoDialog = new AlertDialog.Builder(this)
-                .setTitle(getString(R.string.version_info_title) + Util.getAppVersionNumber(this))
-                .setMessage(R.string.version_info_message)
-                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .create();
-        versionInfoDialog.show();
-        ((TextView)versionInfoDialog.findViewById(android.R.id.message))
-                .setMovementMethod(LinkMovementMethod.getInstance());
+        VersionInfoDialog versionInfoDialog = new VersionInfoDialog(this);
+        versionInfoDialog.showDialog();
     }
 
     private void startDataAsyncTask() {
