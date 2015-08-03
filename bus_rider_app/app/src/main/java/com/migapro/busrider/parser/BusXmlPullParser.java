@@ -17,6 +17,21 @@ import java.util.ArrayList;
 
 
 public class BusXmlPullParser {
+
+    private static final String TAG_BUS = "bus";
+    private static final String ATTR_ID = "id";
+    private static final String ATTR_NAME = "name";
+    private static final String TAG_DEPART_POINT = "depart_point";
+    private static final String ATTR_FROM = "from";
+    private static final String TAG_SCHEDULE = "schedule";
+    private static final String ATTR_DAYS = "days";
+    private static final String TAG_TIME = "time";
+    private static final String ATTR_HOURS = "hours";
+    private static final String TAG_MINUTES = "minutes";
+    private static final String ATTR_MIN = "min";
+    private static final String TAG_BUS_STOP = "bus_stop";
+    private static final String ATTR_LAT = "lat";
+    private static final String ATTR_LNG = "lng";
 	
 	private XmlPullParserFactory factory;
 	private String mTargetBus;
@@ -44,8 +59,8 @@ public class BusXmlPullParser {
 		
 		int eventType = parser.next();
 		while (eventType != XmlPullParser.END_DOCUMENT) {
-			if (eventType == XmlPullParser.START_TAG && parser.getName().equals("bus"))
-				busNames.add(parser.getAttributeValue(null, "name"));
+			if (eventType == XmlPullParser.START_TAG && parser.getName().equals(TAG_BUS))
+				busNames.add(parser.getAttributeValue(null, ATTR_NAME));
 			eventType = parser.next();
 		}
 		
@@ -77,39 +92,39 @@ public class BusXmlPullParser {
 	
 	private void processStartTag(String prefix, String name, XmlPullParser parser) 
 			throws XmlPullParserException, IOException {
-		if (name.equals("bus")) {
-			if (parser.getAttributeValue(null, "id").equals(mTargetBus)) {
+		if (name.equals(TAG_BUS)) {
+			if (parser.getAttributeValue(null, ATTR_ID).equals(mTargetBus)) {
 				mBus = new Bus();
-				mBus.setBusname(parser.getAttributeValue(null, "name"));
+				mBus.setBusname(parser.getAttributeValue(null, ATTR_NAME));
 				
 				mIsBusFound = true;
 			} else
 				skipToNextBusElement(parser);
 			
-		} else if (name.equals("depart_point")) {
+		} else if (name.equals(TAG_DEPART_POINT)) {
 			mDepartingPoint = new DepartingPoint();
-			mDepartingPoint.setDepartFrom(parser.getAttributeValue(null, "from"));
+			mDepartingPoint.setDepartFrom(parser.getAttributeValue(null, ATTR_FROM));
 			mBus.addDepartingPoint(mDepartingPoint);
 			
-		} else if (name.equals("schedule")) {
+		} else if (name.equals(TAG_SCHEDULE)) {
 			mSchedule = new Schedule();
-			mSchedule.setDaysOfOperation(parser.getAttributeValue(null, "days"));
+			mSchedule.setDaysOfOperation(parser.getAttributeValue(null, ATTR_DAYS));
 			mDepartingPoint.addSchedule(mSchedule);
 			
-		} else if (name.equals("time")) {
+		} else if (name.equals(TAG_TIME)) {
             mTime = new Time();
-            mTime.setHours(parser.getAttributeValue(null, "hours"));
+            mTime.setHours(parser.getAttributeValue(null, ATTR_HOURS));
             mSchedule.addTime(mTime);
 
-        } else if (name.equals("minutes")) {
-            mTime.addMinutes(parser.getAttributeValue(null, "min"));
+        } else if (name.equals(TAG_MINUTES)) {
+            mTime.addMinutes(parser.getAttributeValue(null, ATTR_MIN));
 			
 		} else if(FeatureFlags.MAPS) {
-            if (name.equals("bus_stop")) {
-                mBus.addBusStopTitle(parser.getAttributeValue(null, "name"));
+            if (name.equals(TAG_BUS_STOP)) {
+                mBus.addBusStopTitle(parser.getAttributeValue(null, ATTR_NAME));
                 LatLng latLng = new LatLng(
-                        Double.parseDouble(parser.getAttributeValue(null, "lat")),
-                        Double.parseDouble(parser.getAttributeValue(null, "lng")));
+                        Double.parseDouble(parser.getAttributeValue(null, ATTR_LAT)),
+                        Double.parseDouble(parser.getAttributeValue(null, ATTR_LNG)));
                 mBus.addBusStopLatLng(latLng);
             }
 		}
@@ -121,12 +136,12 @@ public class BusXmlPullParser {
 		do {
 			eventType = parser.next();
 			if (eventType == XmlPullParser.END_TAG)
-				isBusEndTag = parser.getName().equals("bus");
+				isBusEndTag = parser.getName().equals(TAG_BUS);
 		} while (!isBusEndTag);
 	}
 	
 	private boolean isBusFound(int eventType, String name) {
-		return (eventType == XmlPullParser.END_TAG && name.equals("bus") && mIsBusFound);
+		return (eventType == XmlPullParser.END_TAG && name.equals(TAG_BUS) && mIsBusFound);
 	}
 	
 }
