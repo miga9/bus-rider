@@ -69,7 +69,8 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
 
         mBusDataManager = new BusDataManager();
 
-        if (!Util.doesFileExist(this, Constants.BUS_DATA_PATH)) {
+        if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Constants.KEY_NEED_TO_UPDATE_FILE, false)
+                || !Util.doesFileExist(this, Constants.BUS_DATA_PATH)) {
             startDataAsyncTask();
             initViews();
             return;
@@ -332,5 +333,8 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
         loadCurrentBusData();
         updateBusNamesUI();
         updateCurrentBusUI();
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPref.edit().putBoolean(Constants.KEY_NEED_TO_UPDATE_FILE, false).apply();
     }
 }
