@@ -20,7 +20,13 @@
 
     <string name="version_info_title">Version </string>
     <string name="version_info_message">This is an unofficial app.\n\nThe schedule information is pulled from the UNT website.\n\nIn severe weather or school holidays, please refer to the <a href="http://www.unt.edu/transit/routes_sched.html">official website</a>.\n\nThe schedule data was updated on 5/21/15.</string>
+
+    <string name="update_data_title">Refresh Data</string>
+    <string name="update_data_msg">This will update the bus schedule data.</string>
+    <string name="update_data_positive">Update</string>
+
     <string name="ok">"OK"</string>
+    <string name="cancel">Cancel</string>
 
     <string name="progress_msg_downloading">Downloading the data...</string>
 

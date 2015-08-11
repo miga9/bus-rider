@@ -31,6 +31,7 @@ import com.migapro.busrider.gcm.RegistrationIntentService;
 import com.migapro.busrider.models.BusDataManager;
 import com.migapro.busrider.models.Time;
 import com.migapro.busrider.network.DataAsyncTask;
+import com.migapro.busrider.ui.dialog.MsgDialog;
 import com.migapro.busrider.ui.dialog.RateMyAppDialog;
 import com.migapro.busrider.ui.dialog.VersionInfoDialog;
 import com.migapro.busrider.utility.Constants;
@@ -232,7 +233,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
                 showVersionInfoDialog();
                 return true;
             case R.id.action_download:
-                startDataAsyncTask();
+                showDownloadDialog();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -268,6 +269,17 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     private void showVersionInfoDialog() {
         VersionInfoDialog versionInfoDialog = new VersionInfoDialog(this);
         versionInfoDialog.showDialog();
+    }
+
+    private void showDownloadDialog() {
+        MsgDialog msgDialog = new MsgDialog(this, R.string.update_data_title, R.string.update_data_msg, R.string.update_data_positive);
+        msgDialog.setOnPositiveClickListener(new MsgDialog.OnPositiveClickListener() {
+            @Override
+            public void onPositiveClick() {
+                startDataAsyncTask();
+            }
+        });
+        msgDialog.showDialog();
     }
 
     private void startDataAsyncTask() {
