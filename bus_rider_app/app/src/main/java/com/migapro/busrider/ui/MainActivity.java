@@ -324,17 +324,19 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     }
 
     @Override
-    public void onDataServiceComplete() {
+    public void onDataServiceComplete(boolean isSuccess) {
         if (mProgressDialog != null) {
             mProgressDialog.dismiss();
         }
 
-        loadBusNames();
-        loadCurrentBusData();
-        updateBusNamesUI();
-        updateCurrentBusUI();
+        if (isSuccess) {
+            loadBusNames();
+            loadCurrentBusData();
+            updateBusNamesUI();
+            updateCurrentBusUI();
 
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        sharedPref.edit().putBoolean(Constants.KEY_NEED_TO_UPDATE_FILE, false).apply();
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+            sharedPref.edit().putBoolean(Constants.KEY_NEED_TO_UPDATE_FILE, false).apply();
+        }
     }
 }
