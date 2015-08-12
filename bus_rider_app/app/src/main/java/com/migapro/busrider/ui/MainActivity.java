@@ -37,7 +37,9 @@ import com.migapro.busrider.ui.dialog.VersionInfoDialog;
 import com.migapro.busrider.utility.Constants;
 import com.migapro.busrider.utility.Util;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -347,8 +349,11 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
             updateBusNamesUI();
             updateCurrentBusUI();
 
-            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-            sharedPref.edit().putBoolean(Constants.KEY_NEED_TO_UPDATE_FILE, false).apply();
+            SharedPreferences.Editor sharedPrefEditor = PreferenceManager.getDefaultSharedPreferences(this).edit();
+            sharedPrefEditor.putBoolean(Constants.KEY_NEED_TO_UPDATE_FILE, false);
+            String lastUpdatedDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
+            sharedPrefEditor.putString(Constants.KEY_LAST_UPDATED_DATE, lastUpdatedDate);
+            sharedPrefEditor.apply();
         }
     }
 }
