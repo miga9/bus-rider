@@ -27,7 +27,7 @@ public class Bus {
 		return mBusName;
 	}
 
-    public void setBusname(String busName) {
+    public void setBusName(String busName) {
         mBusName = busName;
     }
 

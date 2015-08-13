@@ -95,7 +95,7 @@ public class BusXmlPullParser {
 		if (name.equals(TAG_BUS)) {
 			if (parser.getAttributeValue(null, ATTR_ID).equals(mTargetBus)) {
 				mBus = new Bus();
-				mBus.setBusname(parser.getAttributeValue(null, ATTR_NAME));
+				mBus.setBusName(parser.getAttributeValue(null, ATTR_NAME));
 				
 				mIsBusFound = true;
 			} else
