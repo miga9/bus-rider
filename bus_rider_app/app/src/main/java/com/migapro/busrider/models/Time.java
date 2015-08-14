@@ -1,8 +1,9 @@
 package com.migapro.busrider.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Time {
+public class Time implements Serializable {
 	private String mHours;
 	private ArrayList<String> mMinutes;
 

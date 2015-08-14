@@ -50,6 +50,10 @@ public class BusDataManager {
         }
     }
 
+    public void setCurrentBus(Bus bus) {
+        mCurrentBus = bus;
+    }
+
     public boolean scheduleExists(int departurePointIndex) {
         return !mCurrentBus.getTimes(departurePointIndex, 0).isEmpty();
     }

@@ -1,5 +1,6 @@
 package com.migapro.busrider.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -7,7 +8,7 @@ import java.util.ArrayList;
  * @author Miga
  *
  */
-public class Schedule {
+public class Schedule implements Serializable {
 	
 	private String mDaysOfOperation;
 	private ArrayList<Time> mTimes;

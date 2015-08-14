@@ -72,13 +72,6 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
 
         mBusDataManager = new BusDataManager();
 
-        if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Constants.KEY_NEED_TO_UPDATE_FILE, false)
-                || !Util.doesFileExist(this, Constants.BUS_DATA_PATH)) {
-            startDataAsyncTask();
-            initViews();
-            return;
-        }
-
         if (savedInstanceState == null) {
             SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
             if (!sharedPref.getBoolean(Constants.KEY_GCM_REGIS_ID_SENT, false)) {
@@ -86,15 +79,14 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
                 startService(intent);
             }
 
-            loadBusNames();
             initBusDataSelections();
+            loadBusNames();
+            loadCurrentBusData();
 
             checkRateMyApp();
         } else {
             restoreState(savedInstanceState);
         }
-
-        loadCurrentBusData();
 
         initViews();
 	}
@@ -111,6 +103,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
 
     private void restoreState(Bundle savedInstanceState) {
         mBusDataManager.setBusNames(savedInstanceState.getStringArrayList(Constants.BUS_NAMES_KEY));
+        mBusDataManager.setCurrentBus((com.migapro.busrider.models.Bus) savedInstanceState.getSerializable(Constants.KEY_CURRENT_BUS));
 
         mBusIndex = savedInstanceState.getInt(Constants.BUS_INDEX_KEY, 0);
         mDeparturePointIndex = savedInstanceState.getInt(Constants.DEPARTURE_INDEX_KEY, 0);
@@ -212,6 +205,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
         super.onSaveInstanceState(outState);
 
         outState.putStringArrayList(Constants.BUS_NAMES_KEY, mBusDataManager.getBusNames());
+        outState.putSerializable(Constants.KEY_CURRENT_BUS, mBusDataManager.getCurrentBus());
         outState.putInt(Constants.BUS_INDEX_KEY, mBusIndex);
         outState.putInt(Constants.DEPARTURE_INDEX_KEY, mDeparturePointIndex);
     }
@@ -301,6 +295,11 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
         Tracker tracker = ((BusRiderApplication) getApplication()).getTracker();
         tracker.setScreenName(Constants.ANALYTICS_MAIN_SCREEN);
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
+
+        if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Constants.KEY_NEED_TO_UPDATE_FILE, false)
+                || !Util.doesFileExist(this, Constants.BUS_DATA_PATH)) {
+            startDataAsyncTask();
+        }
     }
 
     @OnItemSelected(R.id.title_spinner)

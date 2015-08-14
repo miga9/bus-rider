@@ -2,6 +2,7 @@ package com.migapro.busrider.models;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -10,7 +11,7 @@ import java.util.ArrayList;
  * @author Miga
  *
  */
-public class Bus {
+public class Bus implements Serializable {
 	
 	private String mBusName;
 	private ArrayList<DepartingPoint> mDepartingPoints;

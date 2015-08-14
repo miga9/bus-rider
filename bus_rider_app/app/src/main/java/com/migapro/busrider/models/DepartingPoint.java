@@ -1,5 +1,6 @@
 package com.migapro.busrider.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  * @author Miga
  *
  */
-public class DepartingPoint {
+public class DepartingPoint implements Serializable {
 	
 	private String mDepartFrom;
 	private ArrayList<Schedule> mSchedules;
