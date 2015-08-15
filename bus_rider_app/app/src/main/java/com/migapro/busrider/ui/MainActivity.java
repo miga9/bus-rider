@@ -268,14 +268,15 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     }
 
     private void showDownloadDialog() {
-        MsgDialog msgDialog = new MsgDialog(this, R.string.update_data_title, R.string.update_data_msg, R.string.update_data_positive);
+        MsgDialog msgDialog = MsgDialog.newInstance(R.string.update_data_title, R.string.update_data_msg, R.string.update_data_positive);
         msgDialog.setOnPositiveClickListener(new MsgDialog.OnPositiveClickListener() {
             @Override
             public void onPositiveClick() {
                 startDataAsyncTask();
             }
         });
-        msgDialog.showDialog();
+        msgDialog.setCancelable(false);
+        msgDialog.show(getFragmentManager(), "downloadDialog");
     }
 
     private void startDataAsyncTask() {
