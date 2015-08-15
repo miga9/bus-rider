@@ -263,8 +263,8 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     }
 
     private void showVersionInfoDialog() {
-        VersionInfoDialog versionInfoDialog = new VersionInfoDialog(this);
-        versionInfoDialog.showDialog();
+        VersionInfoDialog versionInfoDialog = new VersionInfoDialog();
+        versionInfoDialog.show(getFragmentManager(), "versionInfoDialog");
     }
 
     private void showDownloadDialog() {
