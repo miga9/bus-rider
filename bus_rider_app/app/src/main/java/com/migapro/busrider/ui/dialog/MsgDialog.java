@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.migapro.busrider.R;
+import com.migapro.busrider.utility.Constants;
 
 public class MsgDialog extends DialogFragment {
 
@@ -18,9 +19,9 @@ public class MsgDialog extends DialogFragment {
 
     public static MsgDialog newInstance(int titleRes, int msgRes, int posRes) {
         Bundle bundle = new Bundle();
-        bundle.putInt("a", titleRes);
-        bundle.putInt("b", msgRes);
-        bundle.putInt("c", posRes);
+        bundle.putInt(Constants.KEY_MSG_DIALOG_TITLE, titleRes);
+        bundle.putInt(Constants.KEY_MSG_DIALOG_MESSAGE, msgRes);
+        bundle.putInt(Constants.KEY_MSG_DIALOG_POSITIVE, posRes);
 
         MsgDialog dialogFragment = new MsgDialog();
         dialogFragment.setArguments(bundle);
@@ -30,9 +31,9 @@ public class MsgDialog extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        int titleRes = getArguments().getInt("a");
-        int msgRes = getArguments().getInt("b");
-        int posRes = getArguments().getInt("c");
+        int titleRes = getArguments().getInt(Constants.KEY_MSG_DIALOG_TITLE);
+        int msgRes = getArguments().getInt(Constants.KEY_MSG_DIALOG_MESSAGE);
+        int posRes = getArguments().getInt(Constants.KEY_MSG_DIALOG_POSITIVE);
 
         return new AlertDialog.Builder(getActivity())
                 .setTitle(titleRes)

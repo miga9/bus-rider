@@ -17,6 +17,10 @@ public class Constants {
     public static final String KEY_NEED_TO_UPDATE_FILE = "needToUpdateFile";
     public static final String KEY_LAST_UPDATED_DATE = "lastUpdatedDate";
 
+    public static final String KEY_MSG_DIALOG_TITLE = "msgDialogTitle";
+    public static final String KEY_MSG_DIALOG_MESSAGE = "msgDialogMessage";
+    public static final String KEY_MSG_DIALOG_POSITIVE = "msgDialogPositive";
+
     public static final int NUM_OF_VISITS_TO_PROMPT_RATE_THIS_APP = 5;
 
     // Google Analytics screen names
