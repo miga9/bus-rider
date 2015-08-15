@@ -4,6 +4,8 @@
     <dimen name="title_spinner_item_textsize">15dp</dimen>
     <dimen name="title_spinner_width">160dp</dimen>
 
+    <dimen name="scroll_bar_size">4dp</dimen>
+
     <dimen name="xsmall_padding">6dp</dimen>
     <dimen name="small_padding">8dp</dimen>
     <dimen name="medium_padding">14dp</dimen>
