@@ -4,6 +4,7 @@
     <color name="light_accent">#5BB81E</color>
     <color name="light_accent_pressed">#54A81C</color>
     <color name="light_accent_disabled">#8EA380</color>
+    <color name="light_accent_trasparent">#705BB81E</color>
 
     <!-- General colors -->
     <color name="black">#251D18</color>

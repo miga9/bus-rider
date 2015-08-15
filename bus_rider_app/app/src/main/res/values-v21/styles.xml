@@ -5,6 +5,8 @@
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/white</item>
         <item name="android:colorPrimaryDark">@color/accent</item>
+        <item name="android:scrollbarThumbVertical">@drawable/scroll_bar</item>
+        <item name="android:scrollbarSize">@dimen/scroll_bar_size</item>
     </style>
 
 </resources>
