@@ -91,14 +91,18 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
         initViews();
 	}
 
-    private void loadBusNames() {
-        mBusDataManager.loadBusNames(this);
-    }
-
     private void initBusDataSelections() {
         SharedPreferences sp = getPreferences(MODE_PRIVATE);
         mBusIndex = sp.getInt(Constants.BUS_INDEX_KEY, 0);
         mDeparturePointIndex = sp.getInt(Constants.DEPARTURE_INDEX_KEY, 0);
+    }
+
+    private void loadBusNames() {
+        mBusDataManager.loadBusNames(this);
+    }
+
+    private void loadCurrentBusData() {
+        mBusDataManager.loadCurrentBusData(this, mBusIndex);
     }
 
     private void restoreState(Bundle savedInstanceState) {
@@ -107,10 +111,6 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
 
         mBusIndex = savedInstanceState.getInt(Constants.BUS_INDEX_KEY, 0);
         mDeparturePointIndex = savedInstanceState.getInt(Constants.DEPARTURE_INDEX_KEY, 0);
-    }
-
-    private void loadCurrentBusData() {
-        mBusDataManager.loadCurrentBusData(this, mBusIndex);
     }
 
     private void initViews() {
