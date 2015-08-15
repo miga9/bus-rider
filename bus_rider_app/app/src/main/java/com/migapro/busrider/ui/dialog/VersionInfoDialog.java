@@ -32,7 +32,7 @@ public class VersionInfoDialog extends DialogFragment {
 
     private String getLastUpdatedDate() {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        return sharedPref.getString(Constants.KEY_LAST_UPDATED_DATE, "N/A");
+        return sharedPref.getString(Constants.KEY_LAST_UPDATED_DATE, getString(R.string.na));
     }
 
     @Override
