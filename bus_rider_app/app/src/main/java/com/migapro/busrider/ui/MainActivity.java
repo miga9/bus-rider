@@ -296,6 +296,10 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
         tracker.setScreenName(Constants.ANALYTICS_MAIN_SCREEN);
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
 
+        updateDataFileIfNecessary();
+    }
+
+    private void updateDataFileIfNecessary() {
         if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Constants.KEY_NEED_TO_UPDATE_FILE, false)
                 || !Util.doesFileExist(this, Constants.BUS_DATA_PATH)) {
             startDataAsyncTask();
