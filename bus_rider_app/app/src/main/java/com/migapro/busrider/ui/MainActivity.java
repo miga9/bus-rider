@@ -70,11 +70,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
         mBusDataManager = new BusDataManager();
 
         if (savedInstanceState == null) {
-            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-            if (!sharedPref.getBoolean(Constants.KEY_GCM_REGIS_ID_SENT, false)) {
-                Intent intent = new Intent(this, RegistrationIntentService.class);
-                startService(intent);
-            }
+            startGcmRegistrationIfNecessary();
 
             initBusDataSelections();
             loadBusNames();
@@ -87,6 +83,14 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
 
         initViews();
 	}
+
+    private void startGcmRegistrationIfNecessary() {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        if (!sharedPref.getBoolean(Constants.KEY_GCM_REGIS_ID_SENT, false)) {
+            Intent intent = new Intent(this, RegistrationIntentService.class);
+            startService(intent);
+        }
+    }
 
     private void initBusDataSelections() {
         SharedPreferences sp = getPreferences(MODE_PRIVATE);
