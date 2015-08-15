@@ -2,7 +2,6 @@ package com.migapro.busrider.ui;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -81,7 +80,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
             loadBusNames();
             loadCurrentBusData();
 
-            checkRateMyApp();
+            showRateMyAppIfNecessary();
         } else {
             restoreState(savedInstanceState);
         }
@@ -177,19 +176,9 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
                 .create().show();
     }
 
-    private void checkRateMyApp() {
-        SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
-        int count = sp.getInt(Constants.RATE_MY_APP_COUNT_KEY, 0);
-
-        if (count < Constants.NUM_OF_VISITS_TO_PROMPT_RATE_THIS_APP) {
-            count++;
-            SharedPreferences.Editor editor = sp.edit();
-            editor.putInt(Constants.RATE_MY_APP_COUNT_KEY, count);
-            editor.commit();
-
-            if (count == Constants.NUM_OF_VISITS_TO_PROMPT_RATE_THIS_APP) {
-                showRateMyAppDialog();
-            }
+    private void showRateMyAppIfNecessary() {
+        if (Util.shouldPromptRateMyApp(this)) {
+            showRateMyAppDialog();
         }
     }
 

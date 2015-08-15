@@ -1,5 +1,6 @@
 package com.migapro.busrider.utility;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -26,6 +27,23 @@ public class Util {
         String path = context.getFilesDir().getAbsolutePath() + "/" + fileName;
         File file = new File(path);
         return file.exists();
+    }
+
+    public static boolean shouldPromptRateMyApp(Activity activity) {
+        SharedPreferences sp = activity.getPreferences(Context.MODE_PRIVATE);
+        int count = sp.getInt(Constants.RATE_MY_APP_COUNT_KEY, 0);
+
+        if (count < Constants.NUM_OF_VISITS_TO_PROMPT_RATE_THIS_APP) {
+            count++;
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putInt(Constants.RATE_MY_APP_COUNT_KEY, count);
+            editor.commit();
+
+            if (count == Constants.NUM_OF_VISITS_TO_PROMPT_RATE_THIS_APP) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void saveLastUpdatedDate(Context context) {
