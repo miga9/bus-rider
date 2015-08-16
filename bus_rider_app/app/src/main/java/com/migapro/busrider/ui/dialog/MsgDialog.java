@@ -1,5 +1,6 @@
 package com.migapro.busrider.ui.dialog;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -10,18 +11,21 @@ import com.migapro.busrider.R;
 
 public class MsgDialog extends DialogFragment {
 
+    private static final String KEY_ID = "msgDialogId";
     private static final String KEY_TITLE = "msgDialogTitle";
     private static final String KEY_MESSAGE = "msgDialogMessage";
     private static final String KEY_POSITIVE = "msgDialogPositive";
+    public static final int NO_LISTENER = -1;
 
     private OnPositiveClickListener mListener;
 
     public interface OnPositiveClickListener {
-        void onPositiveClick();
+        void onPositiveClick(int id);
     }
 
-    public static MsgDialog newInstance(int titleRes, int msgRes, int posRes) {
+    public static MsgDialog newInstance(int id, int titleRes, int msgRes, int posRes) {
         Bundle bundle = new Bundle();
+        bundle.putInt(KEY_ID, id);
         bundle.putInt(KEY_TITLE, titleRes);
         bundle.putInt(KEY_MESSAGE, msgRes);
         bundle.putInt(KEY_POSITIVE, posRes);
@@ -34,6 +38,7 @@ public class MsgDialog extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        final int id = getArguments().getInt(KEY_ID);
         int titleRes = getArguments().getInt(KEY_TITLE);
         int msgRes = getArguments().getInt(KEY_MESSAGE);
         int posRes = getArguments().getInt(KEY_POSITIVE);
@@ -46,7 +51,7 @@ public class MsgDialog extends DialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (mListener != null) {
-                            mListener.onPositiveClick();
+                            mListener.onPositiveClick(id);
                         }
                         dialog.dismiss();
                     }
@@ -61,7 +66,11 @@ public class MsgDialog extends DialogFragment {
                 .create();
     }
 
-    public void setOnPositiveClickListener(OnPositiveClickListener listener) {
-        mListener = listener;
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (getArguments().getInt(KEY_ID) != NO_LISTENER) {
+            mListener = (OnPositiveClickListener) activity;
+        }
     }
 }

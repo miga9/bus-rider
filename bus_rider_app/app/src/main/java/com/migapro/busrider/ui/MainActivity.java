@@ -43,7 +43,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 
-public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnDataServiceListener {
+public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnDataServiceListener,
+        MsgDialog.OnPositiveClickListener {
+
+    private static final int DIALOG_MSG_ID_UPDATE_FILE = 0;
+    private static final int DIALOG_MSG_ID_FAILURE = 1;
 
     @Bind(R.id.toolbar) Toolbar toolbar;
     @Bind(R.id.title_spinner) Spinner titleSpinner;
@@ -259,13 +263,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     }
 
     private void showDownloadDialog() {
-        MsgDialog msgDialog = MsgDialog.newInstance(R.string.update_data_title, R.string.update_data_msg, R.string.update_data_positive);
-        msgDialog.setOnPositiveClickListener(new MsgDialog.OnPositiveClickListener() {
-            @Override
-            public void onPositiveClick() {
-                startDataAsyncTask();
-            }
-        });
+        MsgDialog msgDialog = MsgDialog.newInstance(DIALOG_MSG_ID_UPDATE_FILE, R.string.update_data_title, R.string.update_data_msg, R.string.update_data_positive);
         msgDialog.setCancelable(false);
         msgDialog.show(getFragmentManager(), "downloadDialog");
     }
@@ -345,6 +343,18 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
             updateCurrentBusUI();
 
             Util.saveLastUpdatedDate(this);
+        }
+    }
+
+    @Override
+    public void onPositiveClick(int id) {
+        switch (id) {
+            case DIALOG_MSG_ID_UPDATE_FILE:
+                startDataAsyncTask();
+                break;
+            case DIALOG_MSG_ID_FAILURE:
+                startDataAsyncTask();
+                break;
         }
     }
 }
