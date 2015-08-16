@@ -1,8 +1,6 @@
 package com.migapro.busrider.ui;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -32,6 +30,7 @@ import com.migapro.busrider.models.Time;
 import com.migapro.busrider.network.DataAsyncTask;
 import com.migapro.busrider.ui.dialog.MsgDialog;
 import com.migapro.busrider.ui.dialog.RateMyAppDialog;
+import com.migapro.busrider.ui.dialog.SingleChoiceDialog;
 import com.migapro.busrider.ui.dialog.VersionInfoDialog;
 import com.migapro.busrider.utility.Constants;
 import com.migapro.busrider.utility.Util;
@@ -44,8 +43,10 @@ import butterknife.OnClick;
 import butterknife.OnItemSelected;
 
 public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnDataServiceListener,
+        SingleChoiceDialog.OnDialogItemSelectedListener,
         MsgDialog.OnPositiveClickListener {
 
+    private static final int DIALOG_ITEM_ID_DEPART_FROM = 0;
     private static final int DIALOG_MSG_ID_UPDATE_FILE = 0;
     private static final int DIALOG_MSG_ID_FAILURE = 1;
 
@@ -164,24 +165,9 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     }
 
     private void showDepartFromDialog() {
-        new AlertDialog.Builder(this)
-                .setTitle(getString(R.string.departs_from))
-                .setSingleChoiceItems(
-                        mBusDataManager.getDepartingPointsStrings(mDeparturePointIndex),
-                        mDeparturePointIndex, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        mDeparturePointIndex = which;
-
-                        SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
-                        editor.putInt(Constants.DEPARTURE_INDEX_KEY, mDeparturePointIndex);
-                        editor.commit();
-
-                        updateCurrentBusUI();
-                        dialog.dismiss();
-                    }
-                })
-                .create().show();
+        SingleChoiceDialog showDepartFromDialog = SingleChoiceDialog.newInstance(DIALOG_ITEM_ID_DEPART_FROM, R.string.departs_from,
+                mBusDataManager.getDepartingPointsStrings(mDeparturePointIndex), mDeparturePointIndex);
+        showDepartFromDialog.show(getFragmentManager(), "showDepartFromDialog");
     }
 
     private void showRateMyAppIfNecessary() {
@@ -343,6 +329,21 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
             updateCurrentBusUI();
 
             Util.saveLastUpdatedDate(this);
+        }
+    }
+
+    @Override
+    public void onItemSelected(int id, int which) {
+        switch (id) {
+            case DIALOG_ITEM_ID_DEPART_FROM:
+                mDeparturePointIndex = which;
+
+                SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+                editor.putInt(Constants.DEPARTURE_INDEX_KEY, mDeparturePointIndex);
+                editor.commit();
+
+                updateCurrentBusUI();
+                break;
         }
     }
 
