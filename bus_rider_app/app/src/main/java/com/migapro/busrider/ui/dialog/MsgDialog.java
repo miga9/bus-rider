@@ -7,9 +7,12 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import com.migapro.busrider.R;
-import com.migapro.busrider.utility.Constants;
 
 public class MsgDialog extends DialogFragment {
+
+    private static final String KEY_TITLE = "msgDialogTitle";
+    private static final String KEY_MESSAGE = "msgDialogMessage";
+    private static final String KEY_POSITIVE = "msgDialogPositive";
 
     private OnPositiveClickListener mListener;
 
@@ -19,9 +22,9 @@ public class MsgDialog extends DialogFragment {
 
     public static MsgDialog newInstance(int titleRes, int msgRes, int posRes) {
         Bundle bundle = new Bundle();
-        bundle.putInt(Constants.KEY_MSG_DIALOG_TITLE, titleRes);
-        bundle.putInt(Constants.KEY_MSG_DIALOG_MESSAGE, msgRes);
-        bundle.putInt(Constants.KEY_MSG_DIALOG_POSITIVE, posRes);
+        bundle.putInt(KEY_TITLE, titleRes);
+        bundle.putInt(KEY_MESSAGE, msgRes);
+        bundle.putInt(KEY_POSITIVE, posRes);
 
         MsgDialog dialogFragment = new MsgDialog();
         dialogFragment.setArguments(bundle);
@@ -31,9 +34,9 @@ public class MsgDialog extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        int titleRes = getArguments().getInt(Constants.KEY_MSG_DIALOG_TITLE);
-        int msgRes = getArguments().getInt(Constants.KEY_MSG_DIALOG_MESSAGE);
-        int posRes = getArguments().getInt(Constants.KEY_MSG_DIALOG_POSITIVE);
+        int titleRes = getArguments().getInt(KEY_TITLE);
+        int msgRes = getArguments().getInt(KEY_MESSAGE);
+        int posRes = getArguments().getInt(KEY_POSITIVE);
 
         return new AlertDialog.Builder(getActivity())
                 .setTitle(titleRes)
