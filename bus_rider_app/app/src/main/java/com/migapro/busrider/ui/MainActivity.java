@@ -329,6 +329,10 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
             updateCurrentBusUI();
 
             Util.saveLastUpdatedDate(this);
+        } else {
+            MsgDialog failureDialog = MsgDialog.newInstance(DIALOG_MSG_ID_FAILURE, R.string.download_failure_title, R.string.download_failure_msg, R.string.download_failure_pos);
+            failureDialog.setCancelable(false);
+            failureDialog.show(getFragmentManager(), "failureDialog");
         }
     }
 
