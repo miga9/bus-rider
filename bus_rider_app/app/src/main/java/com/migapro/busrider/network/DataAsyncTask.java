@@ -17,7 +17,7 @@ import java.net.URL;
 public class DataAsyncTask extends AsyncTask<Void, Void, Void> {
 
     private OnDataServiceListener mListener;
-    private boolean mIsFileDownloaded;
+    private boolean mIsDownloadSuccess;
 
     public interface OnDataServiceListener {
         void onDataServiceStart();
@@ -40,7 +40,7 @@ public class DataAsyncTask extends AsyncTask<Void, Void, Void> {
 
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 saveDownloadedFile(urlConnection);
-                mIsFileDownloaded = true;
+                mIsDownloadSuccess = true;
             }
 
         } catch (MalformedURLException e) {
@@ -64,9 +64,10 @@ public class DataAsyncTask extends AsyncTask<Void, Void, Void> {
         }
 
         String xmlContent = xmlContentBuilder.toString();
-        if (xmlContent != null && !xmlContent.isEmpty()) {
-            fileOutputStream.write(xmlContent.getBytes());
+        if (xmlContent == null || xmlContent.isEmpty()) {
+            throw new IOException();
         }
+        fileOutputStream.write(xmlContent.getBytes());
 
         fileOutputStream.close();
     }
@@ -75,7 +76,7 @@ public class DataAsyncTask extends AsyncTask<Void, Void, Void> {
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
         if (mListener != null) {
-            mListener.onDataServiceComplete(mIsFileDownloaded);
+            mListener.onDataServiceComplete(mIsDownloadSuccess);
         }
     }
 
