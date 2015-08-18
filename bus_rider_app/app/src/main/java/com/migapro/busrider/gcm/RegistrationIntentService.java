@@ -52,7 +52,7 @@ public class RegistrationIntentService extends IntentService {
     private void sendRegisIdToAppServer(String token) throws IOException, JSONException {
         URL url = null;
         try {
-            url = new URL("http://www.bus.migapro.com/gcm/register.php");
+            url = new URL(Constants.BUS_SERVER_URL + Constants.REGISTER_GCM_PATH);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

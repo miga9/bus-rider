@@ -1,8 +1,9 @@
 package com.migapro.busrider.utility;
 
 public class Constants {
-    public static final String BUS_DATA_PATH = "bus_data.xml";
-    public static final String BUS_DATA_URL = "url_goes_here";
+    public static final String BUS_SERVER_URL = "url goes here";
+    public static final String BUS_DATA_PATH = "bus data path";
+    public static final String REGISTER_GCM_PATH = "gcm path";
 
     public static final String BUS_NAMES_KEY = "busNames";
     public static final String KEY_CURRENT_BUS = "currentBus";

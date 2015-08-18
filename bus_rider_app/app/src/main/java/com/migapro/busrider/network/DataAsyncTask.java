@@ -35,7 +35,7 @@ public class DataAsyncTask extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {
         try {
-            URL url = new URL(Constants.BUS_DATA_URL);
+            URL url = new URL(Constants.BUS_SERVER_URL + Constants.BUS_DATA_PATH);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
