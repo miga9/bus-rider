@@ -1,27 +1,23 @@
 package com.migapro.busrider.network;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.AsyncTask;
 
 import com.migapro.busrider.utility.Constants;
 
 import java.io.BufferedReader;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class DataAsyncTask extends AsyncTask<Void, Void, Void> {
+public class DataAsyncTask extends AsyncTask<Void, Void, String> {
 
     private OnDataServiceListener mListener;
-    private boolean mIsDownloadSuccess;
 
     public interface OnDataServiceListener {
         void onDataServiceStart();
-        void onDataServiceComplete(boolean isSuccess);
+        void onDataServiceComplete(String result);
     }
 
     @Override
@@ -33,14 +29,19 @@ public class DataAsyncTask extends AsyncTask<Void, Void, Void> {
     }
 
     @Override
-    protected Void doInBackground(Void... params) {
+    protected String doInBackground(Void... params) {
+        StringBuilder xmlContentBuilder = new StringBuilder();
+
         try {
             URL url = new URL(Constants.BUS_SERVER_URL + Constants.BUS_DATA_PATH);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                saveDownloadedFile(urlConnection);
-                mIsDownloadSuccess = true;
+                BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    xmlContentBuilder.append(line);
+                }
             }
 
         } catch (MalformedURLException e) {
@@ -49,34 +50,14 @@ public class DataAsyncTask extends AsyncTask<Void, Void, Void> {
             e.printStackTrace();
         }
 
-        return null;
-    }
-
-    private void saveDownloadedFile(HttpURLConnection urlConnection) throws IOException {
-        FileOutputStream fileOutputStream =
-                ((Activity) mListener).openFileOutput(Constants.BUS_DATA_PATH, Context.MODE_PRIVATE);
-
-        BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-        StringBuilder xmlContentBuilder = new StringBuilder();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            xmlContentBuilder.append(line);
-        }
-
-        String xmlContent = xmlContentBuilder.toString();
-        if (xmlContent == null || xmlContent.isEmpty()) {
-            throw new IOException();
-        }
-        fileOutputStream.write(xmlContent.getBytes());
-
-        fileOutputStream.close();
+        return xmlContentBuilder.toString();
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
+    protected void onPostExecute(String result) {
+        super.onPostExecute(result);
         if (mListener != null) {
-            mListener.onDataServiceComplete(mIsDownloadSuccess);
+            mListener.onDataServiceComplete(result);
         }
     }
 

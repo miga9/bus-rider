@@ -7,6 +7,9 @@ import android.content.pm.PackageManager;
 import android.preference.PreferenceManager;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -52,5 +55,26 @@ public class Util {
         String lastUpdatedDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
         sharedPrefEditor.putString(Constants.KEY_LAST_UPDATED_DATE, lastUpdatedDate);
         sharedPrefEditor.apply();
+    }
+
+    public static void saveBusData(Context context, String result) {
+        FileOutputStream fileOutputStream = null;
+        try {
+            fileOutputStream = context.openFileOutput(Constants.BUS_DATA_PATH, Context.MODE_PRIVATE);
+            fileOutputStream.write(result.getBytes());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        finally {
+            if (fileOutputStream != null) {
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

@@ -317,18 +317,20 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     }
 
     @Override
-    public void onDataServiceComplete(boolean isSuccess) {
-        if (mProgressDialog != null) {
+    public void onDataServiceComplete(String result) {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.dismiss();
         }
 
+        boolean isSuccess = (result != null && !result.isEmpty());
         if (isSuccess) {
+            Util.saveBusData(this, result);
+            Util.saveLastUpdatedDate(this);
+
             loadBusNames();
             loadCurrentBusData();
             updateBusNamesUI();
             updateCurrentBusUI();
-
-            Util.saveLastUpdatedDate(this);
         } else {
             MsgDialog failureDialog = MsgDialog.newInstance(DIALOG_MSG_ID_FAILURE, R.string.download_failure_title, R.string.download_failure_msg, R.string.download_failure_pos);
             failureDialog.setCancelable(false);
