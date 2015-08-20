@@ -1,6 +1,6 @@
 package com.migapro.busrider.ui;
 
-import android.app.ProgressDialog;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -27,7 +27,7 @@ import com.migapro.busrider.config.FeatureFlags;
 import com.migapro.busrider.gcm.RegistrationIntentService;
 import com.migapro.busrider.models.BusDataManager;
 import com.migapro.busrider.models.Time;
-import com.migapro.busrider.network.DataAsyncTask;
+import com.migapro.busrider.network.WorkerFragment;
 import com.migapro.busrider.ui.dialog.MsgDialog;
 import com.migapro.busrider.ui.dialog.RateMyAppDialog;
 import com.migapro.busrider.ui.dialog.SingleChoiceDialog;
@@ -42,7 +42,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 
-public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnDataServiceListener,
+public class MainActivity extends ActionBarActivity implements WorkerFragment.WorkerListener,
         SingleChoiceDialog.OnDialogItemSelectedListener,
         MsgDialog.OnPositiveClickListener {
 
@@ -59,7 +59,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
 
     private ArrayAdapter<String> mTitleSpinnerAdapter;
     private ViewPagerAdapter mViewPagerAdapter;
-    private ProgressDialog mProgressDialog;
+    private WorkerFragment mWorkerFragment;
 
     private BusDataManager mBusDataManager;
     private int mBusIndex;
@@ -74,6 +74,8 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
 
         mBusDataManager = new BusDataManager();
 
+        loadWorkerFragment();
+
         if (savedInstanceState == null) {
             startGcmRegistrationIfNecessary();
 
@@ -87,7 +89,16 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
         }
 
         initViews();
-	}
+    }
+
+    private void loadWorkerFragment() {
+        FragmentManager fm = getFragmentManager();
+        mWorkerFragment = (WorkerFragment) fm.findFragmentByTag("worker");
+        if (mWorkerFragment == null) {
+            mWorkerFragment = new WorkerFragment();
+            fm.beginTransaction().add(mWorkerFragment, "worker").commit();
+        }
+    }
 
     private void startGcmRegistrationIfNecessary() {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
@@ -255,9 +266,7 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     }
 
     private void startDataAsyncTask() {
-        DataAsyncTask dataAsyncTask = new DataAsyncTask();
-        dataAsyncTask.setOnDataServiceListener(this);
-        dataAsyncTask.execute();
+        mWorkerFragment.startDataAsyncTask();
     }
 
     public ArrayList<Time> getTimeList(int scheduleIndex) {
@@ -304,41 +313,6 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
     }
 
     @Override
-    public void onDataServiceStart() {
-        if (mProgressDialog == null) {
-            mProgressDialog = new ProgressDialog(this);
-            mProgressDialog.setIndeterminate(true);
-            mProgressDialog.setCanceledOnTouchOutside(false);
-            mProgressDialog.setCancelable(false);
-        }
-
-        mProgressDialog.setMessage(getString(R.string.progress_msg_downloading));
-        mProgressDialog.show();
-    }
-
-    @Override
-    public void onDataServiceComplete(String result) {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.dismiss();
-        }
-
-        boolean isSuccess = (result != null && !result.isEmpty());
-        if (isSuccess) {
-            Util.saveBusData(this, result);
-            Util.saveLastUpdatedDate(this);
-
-            loadBusNames();
-            loadCurrentBusData();
-            updateBusNamesUI();
-            updateCurrentBusUI();
-        } else {
-            MsgDialog failureDialog = MsgDialog.newInstance(DIALOG_MSG_ID_FAILURE, R.string.download_failure_title, R.string.download_failure_msg, R.string.download_failure_pos);
-            failureDialog.setCancelable(false);
-            failureDialog.show(getFragmentManager(), "failureDialog");
-        }
-    }
-
-    @Override
     public void onItemSelected(int id, int which) {
         switch (id) {
             case DIALOG_ITEM_ID_DEPART_FROM:
@@ -362,6 +336,25 @@ public class MainActivity extends ActionBarActivity implements DataAsyncTask.OnD
             case DIALOG_MSG_ID_FAILURE:
                 startDataAsyncTask();
                 break;
+        }
+    }
+
+    @Override
+    public void onPostExecute(String result) {
+        boolean isSuccess = (result != null && !result.isEmpty());
+        if (isSuccess) {
+            Util.saveBusData(this, result);
+            Util.saveLastUpdatedDate(this);
+
+            loadBusNames();
+            loadCurrentBusData();
+            updateBusNamesUI();
+            updateCurrentBusUI();
+        } else {
+            MsgDialog failureDialog = MsgDialog.newInstance(DIALOG_MSG_ID_FAILURE,
+                    R.string.download_failure_title, R.string.download_failure_msg, R.string.download_failure_pos);
+            failureDialog.setCancelable(false);
+            failureDialog.show(getFragmentManager(), "failureDialog");
         }
     }
 }
