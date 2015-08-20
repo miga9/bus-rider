@@ -27,16 +27,19 @@ public class WorkerFragment extends Fragment implements DataAsyncTask.OnDataServ
     @Override
     public void onStart() {
         super.onStart();
-        if (mDataAsyncTask != null && mDataAsyncTask.getStatus() == AsyncTask.Status.RUNNING) {
+        if (isDataAsyncTaskRunning()) {
             showProgressDialog();
         }
+    }
+
+    private boolean isDataAsyncTaskRunning() {
+        return mDataAsyncTask != null && mDataAsyncTask.getStatus() == AsyncTask.Status.RUNNING;
     }
 
     private void showProgressDialog() {
         if (mProgressDialog == null) {
             mProgressDialog = new ProgressDialog(getActivity());
         }
-
         mProgressDialog.setMessage(getString(R.string.progress_msg_downloading));
         mProgressDialog.show();
     }
@@ -50,9 +53,11 @@ public class WorkerFragment extends Fragment implements DataAsyncTask.OnDataServ
     }
 
     public void startDataAsyncTask() {
-        mDataAsyncTask = new DataAsyncTask();
-        mDataAsyncTask.setOnDataServiceListener(this);
-        mDataAsyncTask.execute();
+        if (!isDataAsyncTaskRunning()) {
+            mDataAsyncTask = new DataAsyncTask();
+            mDataAsyncTask.setOnDataServiceListener(this);
+            mDataAsyncTask.execute();
+        }
     }
 
     @Override
