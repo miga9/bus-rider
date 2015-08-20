@@ -341,7 +341,8 @@ public class MainActivity extends ActionBarActivity implements WorkerFragment.Wo
 
     @Override
     public void onPostExecute(String result) {
-        boolean isSuccess = (result != null && !result.isEmpty());
+        boolean isSuccess = (result != null && !result.isEmpty()
+                && result.charAt(0) == '<' && result.charAt(result.length() - 1) == '>');
         if (isSuccess) {
             Util.saveBusData(this, result);
             Util.saveLastUpdatedDate(this);
