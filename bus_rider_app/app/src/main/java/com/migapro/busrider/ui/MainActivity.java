@@ -1,6 +1,8 @@
 package com.migapro.busrider.ui;
 
+import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -367,17 +369,44 @@ public class MainActivity extends ActionBarActivity implements WorkerFragment.Wo
     }
 
     private void showDownloadResultDialog(boolean isSuccess) {
+        MsgDialog msgDialog;
+        String fragmentTag;
+
         if (isSuccess) {
-            MsgDialog successDialog = MsgDialog.newInstance(MsgDialog.NO_LISTENER,
+            msgDialog = MsgDialog.newInstance(MsgDialog.NO_LISTENER,
                     R.string.download_success_title, R.string.download_success_msg,
                     R.string.ok, MsgDialog.NO_NEGATIVE_BUTTON);
-            getFragmentManager().beginTransaction().add(successDialog, "successDialog").commitAllowingStateLoss();
+            fragmentTag = "successDialog";
         } else {
-            MsgDialog failureDialog = MsgDialog.newInstance(DIALOG_MSG_ID_FAILURE,
+            msgDialog = MsgDialog.newInstance(DIALOG_MSG_ID_FAILURE,
                     R.string.download_failure_title, R.string.download_failure_msg,
                     R.string.download_failure_pos, R.string.cancel);
-            failureDialog.setCancelable(false);
-            getFragmentManager().beginTransaction().add(failureDialog, "failureDialog").commitAllowingStateLoss();
+            msgDialog.setCancelable(false);
+            fragmentTag = "failureDialog";
+        }
+        removeDuplicateDialogFragments();
+
+        getFragmentManager().beginTransaction().add(msgDialog, fragmentTag).commitAllowingStateLoss();
+    }
+
+    private void removeDuplicateDialogFragments() {
+        FragmentManager fm = getFragmentManager();
+        DialogFragment duplicateFragmentToRemove = (DialogFragment) fm.findFragmentByTag("failureDialog");
+        FragmentTransaction ft = fm.beginTransaction();
+        boolean commitTransaction = false;
+
+        if (duplicateFragmentToRemove != null) {
+            ft.remove(duplicateFragmentToRemove);
+            commitTransaction = true;
+        }
+        duplicateFragmentToRemove = (DialogFragment) fm.findFragmentByTag("successDialog");
+        if (duplicateFragmentToRemove != null) {
+            ft.remove(duplicateFragmentToRemove);
+            commitTransaction = true;
+        }
+
+        if (commitTransaction) {
+            ft.commit();
         }
     }
 }
