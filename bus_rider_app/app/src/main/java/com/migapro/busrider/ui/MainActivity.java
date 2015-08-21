@@ -361,9 +361,21 @@ public class MainActivity extends ActionBarActivity implements WorkerFragment.Wo
 
             loadBusNames();
             updateBusNamesUI();
+        }
+
+        showDownloadResultDialog(isSuccess);
+    }
+
+    private void showDownloadResultDialog(boolean isSuccess) {
+        if (isSuccess) {
+            MsgDialog successDialog = MsgDialog.newInstance(MsgDialog.NO_LISTENER,
+                    R.string.download_success_title, R.string.download_success_msg,
+                    R.string.ok, MsgDialog.NO_NEGATIVE_BUTTON);
+            getFragmentManager().beginTransaction().add(successDialog, "successDialog").commitAllowingStateLoss();
         } else {
             MsgDialog failureDialog = MsgDialog.newInstance(DIALOG_MSG_ID_FAILURE,
-                    R.string.download_failure_title, R.string.download_failure_msg, R.string.download_failure_pos);
+                    R.string.download_failure_title, R.string.download_failure_msg,
+                    R.string.download_failure_pos, R.string.cancel);
             failureDialog.setCancelable(false);
             getFragmentManager().beginTransaction().add(failureDialog, "failureDialog").commitAllowingStateLoss();
         }

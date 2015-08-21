@@ -26,6 +26,9 @@
     <string name="update_data_msg">This will take a moment to update the bus schedule data.</string>
     <string name="update_data_positive">Update</string>
 
+    <string name="download_success_title">Data Download Success</string>
+    <string name="download_success_msg">The app has received bus schedule update.</string>
+
     <string name="download_failure_title">Data Download Failure</string>
     <string name="download_failure_msg">Sorry, schedule data download failed.\n\nPlease make sure your device is connected to internet.</string>
     <string name="download_failure_pos">Try again</string>

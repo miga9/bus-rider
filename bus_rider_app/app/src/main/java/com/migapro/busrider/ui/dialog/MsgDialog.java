@@ -7,15 +7,15 @@ import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
-import com.migapro.busrider.R;
-
 public class MsgDialog extends DialogFragment {
 
     private static final String KEY_ID = "msgDialogId";
     private static final String KEY_TITLE = "msgDialogTitle";
     private static final String KEY_MESSAGE = "msgDialogMessage";
     private static final String KEY_POSITIVE = "msgDialogPositive";
+    private static final String KEY_NEGATIVE = "msgDialogNegative";
     public static final int NO_LISTENER = -1;
+    public static final int NO_NEGATIVE_BUTTON = -1;
 
     private OnPositiveClickListener mListener;
 
@@ -23,12 +23,13 @@ public class MsgDialog extends DialogFragment {
         void onPositiveClick(int id);
     }
 
-    public static MsgDialog newInstance(int id, int titleRes, int msgRes, int posRes) {
+    public static MsgDialog newInstance(int id, int titleRes, int msgRes, int posRes, int negRes) {
         Bundle bundle = new Bundle();
         bundle.putInt(KEY_ID, id);
         bundle.putInt(KEY_TITLE, titleRes);
         bundle.putInt(KEY_MESSAGE, msgRes);
         bundle.putInt(KEY_POSITIVE, posRes);
+        bundle.putInt(KEY_NEGATIVE, negRes);
 
         MsgDialog dialogFragment = new MsgDialog();
         dialogFragment.setArguments(bundle);
@@ -42,8 +43,9 @@ public class MsgDialog extends DialogFragment {
         int titleRes = getArguments().getInt(KEY_TITLE);
         int msgRes = getArguments().getInt(KEY_MESSAGE);
         int posRes = getArguments().getInt(KEY_POSITIVE);
+        int negRes = getArguments().getInt(KEY_NEGATIVE);
 
-        return new AlertDialog.Builder(getActivity())
+        AlertDialog.Builder dialogBuilder =  new AlertDialog.Builder(getActivity())
                 .setTitle(titleRes)
                 .setMessage(msgRes)
                 .setPositiveButton(posRes, new DialogInterface.OnClickListener() {
@@ -55,15 +57,19 @@ public class MsgDialog extends DialogFragment {
                         }
                         dialog.dismiss();
                     }
-                })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                });
 
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                })
-                .create();
+        if (negRes != NO_NEGATIVE_BUTTON) {
+            dialogBuilder.setNegativeButton(negRes, new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+        }
+
+        return dialogBuilder.create();
     }
 
     @Override
