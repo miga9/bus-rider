@@ -3,6 +3,7 @@ package com.migapro.busrider.network;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -39,6 +40,12 @@ public class WorkerFragment extends Fragment implements DataAsyncTask.OnDataServ
     private void showProgressDialog() {
         if (mProgressDialog == null) {
             mProgressDialog = new ProgressDialog(getActivity());
+            mProgressDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                @Override
+                public void onCancel(DialogInterface dialog) {
+                    mDataAsyncTask.cancel(true);
+                }
+            });
         }
         mProgressDialog.setMessage(getString(R.string.progress_msg_downloading));
         mProgressDialog.show();
