@@ -264,7 +264,11 @@ public class MainActivity extends ActionBarActivity implements WorkerFragment.Wo
     }
 
     private void showDownloadDialog() {
-        MsgDialog msgDialog = MsgDialog.newInstance(DIALOG_MSG_ID_UPDATE_FILE, R.string.update_data_title, R.string.update_data_msg, R.string.update_data_positive);
+        MsgDialog msgDialog = MsgDialog.newInstance(DIALOG_MSG_ID_UPDATE_FILE,
+                R.string.update_data_title,
+                R.string.update_data_msg,
+                R.string.update_data_positive,
+                R.string.cancel);
         msgDialog.setCancelable(false);
         msgDialog.show(getFragmentManager(), "downloadDialog");
     }
