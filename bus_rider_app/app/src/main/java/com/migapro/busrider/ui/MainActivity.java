@@ -172,11 +172,11 @@ public class MainActivity extends ActionBarActivity implements WorkerFragment.Wo
 
     private void updateBusNamesUI() {
         mTitleSpinnerAdapter.notifyDataSetChanged();
-        titleSpinner.setSelection(0);
         // Workaround to update Spinner on unchanged selection when I want
         if (mBusIndex == 0) {
             updateSelectedBus(0);
         }
+        titleSpinner.setSelection(0);
     }
 
     private void showDepartFromDialog() {
