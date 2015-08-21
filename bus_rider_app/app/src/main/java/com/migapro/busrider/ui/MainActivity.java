@@ -173,6 +173,10 @@ public class MainActivity extends ActionBarActivity implements WorkerFragment.Wo
     private void updateBusNamesUI() {
         mTitleSpinnerAdapter.notifyDataSetChanged();
         titleSpinner.setSelection(0);
+        // Workaround to update Spinner on unchanged selection when I want
+        if (mBusIndex == 0) {
+            updateSelectedBus(0);
+        }
     }
 
     private void showDepartFromDialog() {
@@ -294,17 +298,21 @@ public class MainActivity extends ActionBarActivity implements WorkerFragment.Wo
     @OnItemSelected(R.id.title_spinner)
     public void onTitleSpinnerItemSelected(AdapterView<?> parent, View view, int position, long id) {
         if (mBusIndex != position) {
-            mBusIndex = position;
-            mDeparturePointIndex = 0;
-
-            SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
-            editor.putInt(Constants.BUS_INDEX_KEY, mBusIndex);
-            editor.putInt(Constants.DEPARTURE_INDEX_KEY, mDeparturePointIndex);
-            editor.commit();
-
-            loadCurrentBusData();
-            updateCurrentBusUI();
+            updateSelectedBus(position);
         }
+    }
+
+    private void updateSelectedBus(int position) {
+        mBusIndex = position;
+        mDeparturePointIndex = 0;
+
+        SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
+        editor.putInt(Constants.BUS_INDEX_KEY, mBusIndex);
+        editor.putInt(Constants.DEPARTURE_INDEX_KEY, mDeparturePointIndex);
+        editor.commit();
+
+        loadCurrentBusData();
+        updateCurrentBusUI();
     }
 
     @OnClick(R.id.depart_from_layout)
@@ -348,9 +356,7 @@ public class MainActivity extends ActionBarActivity implements WorkerFragment.Wo
             Util.saveLastUpdatedDate(this);
 
             loadBusNames();
-            loadCurrentBusData();
             updateBusNamesUI();
-            updateCurrentBusUI();
         } else {
             MsgDialog failureDialog = MsgDialog.newInstance(DIALOG_MSG_ID_FAILURE,
                     R.string.download_failure_title, R.string.download_failure_msg, R.string.download_failure_pos);
