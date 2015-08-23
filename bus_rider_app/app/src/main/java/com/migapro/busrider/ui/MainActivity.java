@@ -295,7 +295,7 @@ public class MainActivity extends ActionBarActivity implements WorkerFragment.Wo
     }
 
     private void updateDataFileIfNecessary() {
-        if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Constants.KEY_NEED_TO_UPDATE_FILE, false)
+        if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(Constants.KEY_GCM_MSG_UPDATE_SCHEDULE_FILE, false)
                 || !Util.doesFileExist(this, Constants.BUS_DATA_PATH)) {
             startDataAsyncTask();
         }

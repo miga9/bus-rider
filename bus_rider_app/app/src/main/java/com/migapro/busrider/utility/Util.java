@@ -51,7 +51,7 @@ public class Util {
 
     public static void saveLastUpdatedDate(Context context) {
         SharedPreferences.Editor sharedPrefEditor = PreferenceManager.getDefaultSharedPreferences(context).edit();
-        sharedPrefEditor.putBoolean(Constants.KEY_NEED_TO_UPDATE_FILE, false);
+        sharedPrefEditor.putBoolean(Constants.KEY_GCM_MSG_UPDATE_SCHEDULE_FILE, false);
         String lastUpdatedDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
         sharedPrefEditor.putString(Constants.KEY_LAST_UPDATED_DATE, lastUpdatedDate);
         sharedPrefEditor.apply();
