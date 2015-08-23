@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
+import com.migapro.busrider.R;
 import com.migapro.busrider.utility.Constants;
 
 import org.json.JSONException;
@@ -34,7 +35,7 @@ public class RegistrationIntentService extends IntentService {
 
         try {
             InstanceID instanceID = InstanceID.getInstance(this);
-            String token = instanceID.getToken(Constants.GCM_SENDER_ID, GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
+            String token = instanceID.getToken(getString(R.string.gcm_sender_id), GoogleCloudMessaging.INSTANCE_ID_SCOPE, null);
             Log.d("Token", "token= " + token);
 
             sendRegisIdToAppServer(token);

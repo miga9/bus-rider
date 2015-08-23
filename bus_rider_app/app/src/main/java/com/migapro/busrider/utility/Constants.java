@@ -21,8 +21,6 @@ public class Constants {
 
     public static final int NUM_OF_VISITS_TO_PROMPT_RATE_THIS_APP = 5;
 
-    public static final String GCM_SENDER_ID = "sender id";
-
     // Google Analytics screen names
     public static final String ANALYTICS_MAIN_SCREEN = "Main";
     public static final String ANALYTICS_MAP_SCREEN = "Map";
