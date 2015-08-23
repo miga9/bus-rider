@@ -223,7 +223,7 @@ public class MainActivity extends ActionBarActivity implements WorkerFragment.Wo
             case R.id.action_share:
                 showShareAppChooser();
                 return true;
-            case R.id.action_version_info:
+            case R.id.action_about:
                 showVersionInfoDialog();
                 return true;
             case R.id.action_download:

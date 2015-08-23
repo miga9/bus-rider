@@ -5,7 +5,7 @@
     <string name="action_download">Update Schedule Data</string>
     <string name="action_map">View the route in Map</string>
     <string name="action_share">Share</string>
-    <string name="action_version_info">Version Info</string>
+    <string name="action_about">About</string>
 
     <string name="share_title">Share this app</string>
     <string name="share_message">Check out Bus Rider https://play.google.com/store/apps/details?id=</string>
