@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Bus Rider</string>
-    <string name="action_download">Update Data</string>
+    <string name="action_download">Update Schedule Data</string>
     <string name="action_map">View the route in Map</string>
     <string name="action_share">Share</string>
     <string name="action_version_info">Version Info</string>
@@ -22,15 +22,15 @@
     <string name="version_info_message">This is an unofficial app.\n\nThe schedule information is copied from the UNT website.\n\nIn severe weather or school holidays, please refer to the <a href="http://www.unt.edu/transit/routes_sched.html">official website</a>.</string>
     <string name="na">N/A</string>
 
-    <string name="update_data_title">Refresh Schedule Data</string>
+    <string name="update_data_title">Update Schedule Data</string>
     <string name="update_data_msg">This will take a moment to update the bus schedule data.</string>
     <string name="update_data_positive">Update</string>
 
     <string name="download_success_title">Data Download Success</string>
-    <string name="download_success_msg">The app has received bus schedule update.</string>
+    <string name="download_success_msg">The app has received a bus schedule update.</string>
 
     <string name="download_failure_title">Data Download Failure</string>
-    <string name="download_failure_msg">Sorry, schedule data download failed.\n\nPlease make sure your device is connected to internet.</string>
+    <string name="download_failure_msg">Sorry, schedule data update failed.\n\nPlease make sure your device is connected to internet.</string>
     <string name="download_failure_pos">Try again</string>
 
     <string name="ok">"OK"</string>
