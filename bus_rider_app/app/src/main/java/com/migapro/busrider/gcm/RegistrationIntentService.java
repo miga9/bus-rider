@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class RegistrationIntentService extends IntentService {
@@ -51,12 +50,7 @@ public class RegistrationIntentService extends IntentService {
     }
 
     private void sendRegisIdToAppServer(String token) throws IOException, JSONException {
-        URL url = null;
-        try {
-            url = new URL(Constants.BUS_SERVER_URL + Constants.REGISTER_GCM_PATH);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        URL url = new URL(Constants.BUS_SERVER_URL + Constants.REGISTER_GCM_PATH);
 
         String body = "regId=" + token;
         byte[] bytes = body.getBytes();
