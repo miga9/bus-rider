@@ -238,7 +238,7 @@ public class MainActivity extends ActionBarActivity implements WorkerFragment.Wo
         if (FeatureFlags.MAPS) {
             startMapActivity();
         } else {
-            Toast.makeText(this, "Map feature coming soon...", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Map feature will be available in near future", Toast.LENGTH_LONG).show();
         }
     }
 
