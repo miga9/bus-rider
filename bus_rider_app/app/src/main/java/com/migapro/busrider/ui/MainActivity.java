@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -44,7 +44,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemSelected;
 
-public class MainActivity extends ActionBarActivity implements WorkerFragment.WorkerListener,
+public class MainActivity extends AppCompatActivity implements
+        WorkerFragment.WorkerListener,
         SingleChoiceDialog.OnDialogItemSelectedListener,
         MsgDialog.OnPositiveClickListener {
 

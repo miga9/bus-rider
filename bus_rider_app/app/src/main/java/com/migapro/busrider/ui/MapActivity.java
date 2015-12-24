@@ -1,7 +1,7 @@
 package com.migapro.busrider.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.google.android.gms.analytics.HitBuilders;
@@ -16,7 +16,7 @@ import com.migapro.busrider.utility.Constants;
 
 import java.util.ArrayList;
 
-public class MapActivity extends ActionBarActivity implements OnMapReadyCallback {
+public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
