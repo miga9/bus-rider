@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements
         String[] daysOfOperation = new String[0];
 
         if (mBusDataManager.getCurrentBus() != null) {
-            departFrom.setText(getString(R.string.departs_from) + mBusDataManager.getDepartingPoint(mDeparturePointIndex));
+            departFrom.setText(getString(R.string.departs_from_s, mBusDataManager.getDepartingPoint(mDeparturePointIndex)));
 
             scheduleExists = mBusDataManager.scheduleExists(mDeparturePointIndex);
             daysOfOperation = mBusDataManager.getDaysOfOperation(mDeparturePointIndex);
@@ -167,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private void updateCurrentBusUI() {
         departFromLayout.setEnabled(mBusDataManager.scheduleExists(mDeparturePointIndex));
-        departFrom.setText(getString(R.string.departs_from) + mBusDataManager.getDepartingPoint(mDeparturePointIndex));
+        departFrom.setText(getString(R.string.departs_from_s, mBusDataManager.getDepartingPoint(mDeparturePointIndex)));
 
         mViewPagerAdapter.setTitles(mBusDataManager.getDaysOfOperation(mDeparturePointIndex));
         mViewPagerAdapter.notifyDataSetChanged();
