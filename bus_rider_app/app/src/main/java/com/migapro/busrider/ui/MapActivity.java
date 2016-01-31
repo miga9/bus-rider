@@ -49,9 +49,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        ArrayList<String> busStopTitles =
-                getIntent().getStringArrayListExtra(Constants.MAP_BUSSTOP_TITLES_KEY);
-        ArrayList<LatLng> busStopLatLngs =
-                getIntent().getParcelableArrayListExtra(Constants.MAP_BUSSTOP_LATNLNGS_KEY);
+        
     }
 }

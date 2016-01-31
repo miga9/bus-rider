@@ -1,6 +1,7 @@
 package com.migapro.busrider.models;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.migapro.busrider.parser.BusXmlPullParser;
 import com.migapro.busrider.utility.Constants;
@@ -50,6 +51,26 @@ public class BusDataManager {
         }
     }
 
+    public BusMap retrieveBusMapData(Context context, int busIndex, int busMapIndex) {
+        BusMap busMap = null;
+        try {
+            if (mParser == null) {
+                mParser = new BusXmlPullParser();
+            }
+            FileInputStream fileInputStream = context.openFileInput(Constants.BUS_DATA_PATH);
+            long start = System.currentTimeMillis();
+            busMap = mParser.readBusMapData(fileInputStream, busIndex, busMapIndex);
+            Log.d("TAAG", "map " + (System.currentTimeMillis() - start));
+            fileInputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        }
+
+        return busMap;
+    }
+
     public void setCurrentBus(Bus bus) {
         mCurrentBus = bus;
     }
@@ -72,10 +93,6 @@ public class BusDataManager {
 
     public ArrayList<Time> getTimes(int departurePointIndex, int scheduleIndex) {
         return mCurrentBus.getTimes(departurePointIndex, scheduleIndex);
-    }
-
-    public ArrayList<String> getBusStopTitles() {
-        return mCurrentBus.getBusStopTitles();
     }
 
     public String getBusName() {

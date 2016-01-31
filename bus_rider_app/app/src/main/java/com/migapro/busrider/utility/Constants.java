@@ -7,9 +7,10 @@ public class Constants {
 
     public static final String BUS_NAMES_KEY = "busNames";
     public static final String KEY_CURRENT_BUS = "currentBus";
+    public static final String KEY_MAP_DATA = "mapData";
     public static final String MAP_TITLE_KEY = "mapTitle";
-    public static final String MAP_BUSSTOP_TITLES_KEY = "busStopTitles";
-    public static final String MAP_BUSSTOP_LATNLNGS_KEY = "busStopLatLngs";
+    public static final String KEY_BUS_STOPS = "busStops";
+    public static final String KEY_BUS_WAYPOINTS = "busWaypoints";
     public static final String RATE_MY_APP_COUNT_KEY = "rateMyApp";
     public static final String BUS_INDEX_KEY = "busIndex";
     public static final String DEPARTURE_INDEX_KEY = "departureIndex";

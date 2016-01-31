@@ -1,9 +1,10 @@
 package com.migapro.busrider.parser;
 
-import com.google.android.gms.maps.model.LatLng;
-import com.migapro.busrider.config.FeatureFlags;
 import com.migapro.busrider.models.Bus;
+import com.migapro.busrider.models.BusStop;
 import com.migapro.busrider.models.DepartingPoint;
+import com.migapro.busrider.models.LatLngData;
+import com.migapro.busrider.models.BusMap;
 import com.migapro.busrider.models.Schedule;
 import com.migapro.busrider.models.Time;
 
@@ -29,18 +30,22 @@ public class BusXmlPullParser {
     private static final String ATTR_HOURS = "hours";
     private static final String TAG_MINUTES = "minutes";
     private static final String ATTR_MIN = "min";
+	private static final String TAG_BUS_MAP = "bus_map";
     private static final String TAG_BUS_STOP = "bus_stop";
+	private static final String TAG_BUS_WAYPOINT = "bus_waypoint";
     private static final String ATTR_LAT = "lat";
     private static final String ATTR_LNG = "lng";
 	
 	private XmlPullParserFactory factory;
-	private String mTargetBus;
-	private boolean mIsBusFound;
+	private String mTargetBus, mTargetBusMap;
+	private boolean mIsBusFound, mIsBusMapFound;
 	
 	private Bus mBus;
 	private DepartingPoint mDepartingPoint;
 	private Schedule mSchedule;
     private Time mTime;
+
+	private BusMap mBusMap;
 	
 	public BusXmlPullParser() throws XmlPullParserException {
 		factory = XmlPullParserFactory.newInstance();
@@ -100,7 +105,7 @@ public class BusXmlPullParser {
 				mIsBusFound = true;
 			} else
 				skipToNextBusElement(parser);
-			
+
 		} else if (name.equals(TAG_DEPART_POINT)) {
 			mDepartingPoint = new DepartingPoint();
 			mDepartingPoint.setDepartFrom(parser.getAttributeValue(null, ATTR_FROM));
@@ -119,14 +124,6 @@ public class BusXmlPullParser {
         } else if (name.equals(TAG_MINUTES)) {
             mTime.addMinutes(parser.getAttributeValue(null, ATTR_MIN));
 			
-		} else if(FeatureFlags.MAPS) {
-            if (name.equals(TAG_BUS_STOP)) {
-                mBus.addBusStopTitle(parser.getAttributeValue(null, ATTR_NAME));
-                LatLng latLng = new LatLng(
-                        Double.parseDouble(parser.getAttributeValue(null, ATTR_LAT)),
-                        Double.parseDouble(parser.getAttributeValue(null, ATTR_LNG)));
-                mBus.addBusStopLatLng(latLng);
-            }
 		}
 	}
 	
@@ -143,5 +140,73 @@ public class BusXmlPullParser {
 	private boolean isBusFound(int eventType, String name) {
 		return (eventType == XmlPullParser.END_TAG && name.equals(TAG_BUS) && mIsBusFound);
 	}
-	
+
+	public BusMap readBusMapData(InputStream inputStream, int targeBus, int targetBusMap) throws XmlPullParserException, IOException {
+		mTargetBus = String.valueOf(targeBus);
+		mTargetBusMap = String.valueOf(targetBusMap);
+
+		XmlPullParser parser = factory.newPullParser();
+		parser.setInput(inputStream, "utf-8");
+
+		return parseForBusMapData(parser);
+	}
+
+	private BusMap parseForBusMapData(XmlPullParser parser) throws XmlPullParserException, IOException {
+		int eventType = parser.next();
+		while (eventType != XmlPullParser.END_DOCUMENT) {
+			if (eventType == XmlPullParser.START_TAG)
+				processStartTag(parser.getName(), parser);
+			else if (isBusMapFound(eventType, parser.getName()))
+				break;
+
+			eventType = parser.next();
+		}
+
+		return mBusMap;
+	}
+
+	private void processStartTag(String name, XmlPullParser parser)
+			throws XmlPullParserException, IOException {
+		if (name.equals(TAG_BUS)) {
+			if (!parser.getAttributeValue(null, ATTR_ID).equals(mTargetBus)) {
+				skipToNextBusElement(parser);
+			}
+		}
+		else if (name.equals(TAG_BUS_MAP)) {
+			if (parser.getAttributeValue(null, ATTR_ID).equals(mTargetBusMap)) {
+				mBusMap = new BusMap();
+				mIsBusMapFound = true;
+			}
+			else {
+				skipToNextBusMapElement(parser);
+			}
+		}
+		else if (name.equals(TAG_BUS_STOP)) {
+			BusStop busStop = new BusStop();
+			busStop.setTitle(parser.getAttributeValue(null, ATTR_NAME));
+			busStop.setLatitude(Double.parseDouble(parser.getAttributeValue(null, ATTR_LAT)));
+			busStop.setLongitude(Double.parseDouble(parser.getAttributeValue(null, ATTR_LNG)));
+			mBusMap.addBusStop(busStop);
+		}
+		else if (name.equals(TAG_BUS_WAYPOINT)) {
+			LatLngData latLng = new LatLngData();
+			latLng.setLatitude(Double.parseDouble(parser.getAttributeValue(null, ATTR_LAT)));
+			latLng.setLongitude(Double.parseDouble(parser.getAttributeValue(null, ATTR_LNG)));
+			mBusMap.addWaypoint(latLng);
+		}
+	}
+
+	private void skipToNextBusMapElement(XmlPullParser parser) throws XmlPullParserException, IOException {
+		int eventType;
+		boolean isBusMapEndTag = false;
+		do {
+			eventType = parser.next();
+			if (eventType == XmlPullParser.END_TAG)
+				isBusMapEndTag = parser.getName().equals(TAG_BUS_MAP);
+		} while (!isBusMapEndTag);
+	}
+
+	private boolean isBusMapFound(int eventType, String name) {
+		return (eventType == XmlPullParser.END_TAG && name.equals(TAG_BUS_MAP) && mIsBusMapFound);
+	}
 }

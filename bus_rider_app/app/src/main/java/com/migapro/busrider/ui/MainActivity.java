@@ -28,6 +28,7 @@ import com.migapro.busrider.R;
 import com.migapro.busrider.config.FeatureFlags;
 import com.migapro.busrider.gcm.RegistrationIntentService;
 import com.migapro.busrider.models.BusDataManager;
+import com.migapro.busrider.models.BusMap;
 import com.migapro.busrider.models.Time;
 import com.migapro.busrider.network.WorkerFragment;
 import com.migapro.busrider.ui.dialog.MsgDialog;
@@ -244,11 +245,15 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void startMapActivity() {
+        BusMap busMap = mBusDataManager.retrieveBusMapData(this, mBusIndex, 0); // TODO 0 for testing
+
         Intent intent = new Intent(this, MapActivity.class);
-        intent.putExtra(Constants.MAP_TITLE_KEY, mBusDataManager.getBusName());
-        intent.putStringArrayListExtra(Constants.MAP_BUSSTOP_TITLES_KEY, mBusDataManager.getBusStopTitles());
-        // TODO Don't have this info, yet
-        //intent.putParcelableArrayListExtra(Constants.MAP_BUSSTOP_LATNLNGS_KEY, mCurrentBus.getBusStopLatLngs());
+        Bundle bundle = new Bundle();
+        bundle.putString(Constants.MAP_TITLE_KEY, mBusDataManager.getBusName());
+        bundle.putSerializable(Constants.KEY_BUS_STOPS, busMap.getBusStops());
+        bundle.putSerializable(Constants.KEY_BUS_WAYPOINTS, busMap.getWaypoints());
+        intent.putExtra(Constants.KEY_MAP_DATA, bundle);
+
         startActivity(intent);
     }
 
