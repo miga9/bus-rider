@@ -31,9 +31,6 @@ import butterknife.ButterKnife;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private static final double UNT_CENTER_LAT = 33.206743;
-    private static final double UNT_CENTER_LNG = -97.149355;
-
     @Bind(R.id.toolbar) Toolbar toolbar;
     @Bind(R.id.days) TextView daysTextView;
 
@@ -79,15 +76,6 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         BusMap busMap = (BusMap) bundle.getSerializable(Constants.KEY_BUS_MAP);
 
         if (googleMap != null) {
-            CameraPosition cameraPosition = new CameraPosition.Builder()
-                    .target(new LatLng(UNT_CENTER_LAT, UNT_CENTER_LNG))
-                    .zoom(14)
-                    .build();
-
-            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-            googleMap.setMyLocationEnabled(true);
-            googleMap.getUiSettings().setZoomControlsEnabled(true);
-
             for (BusStop busStop : busMap.getBusStops()) {
                 googleMap.addMarker(new MarkerOptions()
                         .title(busStop.getTitle())
@@ -102,6 +90,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     .width(6);
 
             googleMap.addPolyline(polylineOptions);
+
+            BusStop firstStop = busMap.getBusStops().get(0);
+            CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(new LatLng(firstStop.getLatitude(), firstStop.getLongitude()))
+                    .zoom(14)
+                    .build();
+
+            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+            googleMap.setMyLocationEnabled(true);
+            googleMap.getUiSettings().setZoomControlsEnabled(true);
         }
     }
 
