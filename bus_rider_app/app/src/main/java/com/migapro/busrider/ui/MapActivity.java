@@ -94,7 +94,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             BusStop firstStop = busMap.getBusStops().get(0);
             CameraPosition cameraPosition = new CameraPosition.Builder()
                     .target(new LatLng(firstStop.getLatitude(), firstStop.getLongitude()))
-                    .zoom(14)
+                    .zoom(15)
                     .build();
 
             googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
