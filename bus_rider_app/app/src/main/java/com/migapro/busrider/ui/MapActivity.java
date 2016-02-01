@@ -112,4 +112,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         }
         return latLngs;
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        super.onBackPressed();
+        return true;
+    }
 }
