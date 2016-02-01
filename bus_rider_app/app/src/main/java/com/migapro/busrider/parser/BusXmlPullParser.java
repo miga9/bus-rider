@@ -118,11 +118,7 @@ public class BusXmlPullParser {
 		else if (name.equals(TAG_SCHEDULE)) {
 			mSchedule = new Schedule();
 			mSchedule.setDaysOfOperation(parser.getAttributeValue(null, ATTR_DAYS));
-			String busMapId = parser.getAttributeValue(null, ATTR_SCHEDULE_MAP_ID);
-			if (busMapId == null) {
-				busMapId = "0"; // Default
-			}
-			mSchedule.setBusMapId(busMapId);
+			mSchedule.setBusMapId(parser.getAttributeValue(null, ATTR_SCHEDULE_MAP_ID));
 			mDepartingPoint.addSchedule(mSchedule);
 		}
 		else if (name.equals(TAG_TIME)) {

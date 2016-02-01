@@ -61,7 +61,7 @@ public class Bus implements Serializable {
         return mDepartingPoints.get(departureIndex).getSchedule(scheduleIndex).getTimes();
     }
 
-    public String getBusMapIdBySchedule(int departureIndex, int scheduleIndex) {
-        return mDepartingPoints.get(departureIndex).getSchedule(scheduleIndex).getBusMapId();
+    public Schedule getSchedule(int departureIndex, int scheduleIndex) {
+        return mDepartingPoints.get(departureIndex).getSchedule(scheduleIndex);
     }
 }

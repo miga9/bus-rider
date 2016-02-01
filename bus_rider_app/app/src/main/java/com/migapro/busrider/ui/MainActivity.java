@@ -29,6 +29,7 @@ import com.migapro.busrider.config.FeatureFlags;
 import com.migapro.busrider.gcm.RegistrationIntentService;
 import com.migapro.busrider.models.BusDataManager;
 import com.migapro.busrider.models.BusMap;
+import com.migapro.busrider.models.Schedule;
 import com.migapro.busrider.models.Time;
 import com.migapro.busrider.network.WorkerFragment;
 import com.migapro.busrider.ui.dialog.MsgDialog;
@@ -248,8 +249,12 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void startMapActivity() {
-        BusMap busMap = mBusDataManager.retrieveBusMapData(this, mBusIndex,
-                mBusDataManager.getBusMapIdBySchedule(mDeparturePointIndex, mScheduleIndex));
+        Schedule schedule = mBusDataManager.getSchedule(mDeparturePointIndex, mScheduleIndex);
+        String busMapId = schedule.getBusMapId();
+        if (busMapId == null) {
+            busMapId = "0";
+        }
+        BusMap busMap = mBusDataManager.retrieveBusMapData(this, mBusIndex, busMapId);
 
         if (busMap == null) {
             Toast.makeText(this, R.string.no_bus_map_available, Toast.LENGTH_SHORT).show();
@@ -258,6 +263,9 @@ public class MainActivity extends AppCompatActivity implements
 
         Intent intent = new Intent(this, MapActivity.class);
         intent.putExtra(Constants.MAP_TITLE_KEY, mBusDataManager.getBusName());
+        if (schedule.getBusMapId() != null) {
+            intent.putExtra(Constants.KEY_MAP_DAYS, schedule.getDaysOfOperation());
+        }
         Bundle bundle = new Bundle();
         bundle.putSerializable(Constants.KEY_BUS_MAP, busMap);
         intent.putExtra(Constants.KEY_MAP_DATA, bundle);

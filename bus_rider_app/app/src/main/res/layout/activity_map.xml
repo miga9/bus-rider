@@ -11,6 +11,14 @@
         android:background="@color/accent"
         android:theme="@style/ToolbarTheme" />
 
+    <TextView
+        android:id="@+id/days"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/medium_padding"
+        android:textSize="@dimen/medium_textsize"
+        android:visibility="gone"/>
+
     <fragment
         android:id="@+id/map_fragment"
         android:layout_width="match_parent"

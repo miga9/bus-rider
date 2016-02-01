@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
@@ -33,6 +35,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private static final double UNT_CENTER_LNG = -97.149355;
 
     @Bind(R.id.toolbar) Toolbar toolbar;
+    @Bind(R.id.days) TextView daysTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,12 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         toolbar.setTitle(title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        String days = getIntent().getStringExtra(Constants.KEY_MAP_DAYS);
+        if (days != null && !days.isEmpty()) {
+            daysTextView.setVisibility(View.VISIBLE);
+            daysTextView.setText(days);
+        }
 
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map_fragment);
         mapFragment.getMapAsync(this);

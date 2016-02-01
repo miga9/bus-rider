@@ -99,8 +99,8 @@ public class BusDataManager {
         return mCurrentBus.getBusName();
     }
 
-    public String getBusMapIdBySchedule(int departurePointIndex, int scheduleIndex) {
-        return mCurrentBus.getBusMapIdBySchedule(departurePointIndex, scheduleIndex);
+    public Schedule getSchedule(int departurePointIndex, int scheduleIndex) {
+        return mCurrentBus.getSchedule(departurePointIndex, scheduleIndex);
     }
 
     public ArrayList<String> getBusNames() {
