@@ -338,7 +338,7 @@ public class MainActivity extends AppCompatActivity implements
         SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
         editor.putInt(Constants.BUS_INDEX_KEY, mBusIndex);
         editor.putInt(Constants.DEPARTURE_INDEX_KEY, mDeparturePointIndex);
-        editor.commit();
+        editor.apply();
 
         loadCurrentBusData();
         updateCurrentBusUI();
@@ -357,7 +357,7 @@ public class MainActivity extends AppCompatActivity implements
 
                 SharedPreferences.Editor editor = getPreferences(MODE_PRIVATE).edit();
                 editor.putInt(Constants.DEPARTURE_INDEX_KEY, mDeparturePointIndex);
-                editor.commit();
+                editor.apply();
 
                 updateCurrentBusUI();
                 break;
