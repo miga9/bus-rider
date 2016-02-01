@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -166,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements
         viewPager.addOnPageChangeListener(this);
 
         pagerTabStrip.setDrawFullUnderline(true);
-        pagerTabStrip.setTabIndicatorColor(getResources().getColor(R.color.light_accent));
+        pagerTabStrip.setTabIndicatorColor(ContextCompat.getColor(this, R.color.light_accent));
     }
 
     private void updateCurrentBusUI() {
