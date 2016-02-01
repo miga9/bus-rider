@@ -83,8 +83,8 @@ public class BusDataManager {
         return mCurrentBus.getDepartingPoint(departurePointIndex);
     }
 
-    public CharSequence[] getDepartingPointsStrings(int departingPointIndex) {
-        return mCurrentBus.getDepartingPointsStrings(departingPointIndex);
+    public CharSequence[] getDepartingPointsStrings() {
+        return mCurrentBus.getDepartingPointsStrings();
     }
 
     public String[] getDaysOfOperation(int departurePointIndex) {

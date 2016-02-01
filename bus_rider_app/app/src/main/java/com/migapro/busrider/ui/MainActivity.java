@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private void showDepartFromDialog() {
         SingleChoiceDialog showDepartFromDialog = SingleChoiceDialog.newInstance(DIALOG_ITEM_ID_DEPART_FROM, R.string.departs_from,
-                mBusDataManager.getDepartingPointsStrings(mDeparturePointIndex), mDeparturePointIndex);
+                mBusDataManager.getDepartingPointsStrings(), mDeparturePointIndex);
         showDepartFromDialog.show(getFragmentManager(), "showDepartFromDialog");
     }
 

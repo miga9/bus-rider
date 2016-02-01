@@ -35,7 +35,7 @@ public class Bus implements Serializable {
         return mDepartingPoints.get(departingIndex).getDepartFrom();
     }
 
-    public CharSequence[] getDepartingPointsStrings(int departingIndex) {
+    public CharSequence[] getDepartingPointsStrings() {
         CharSequence[] departingPointsStrings = new CharSequence[mDepartingPoints.size()];
         for (int i = 0; i < departingPointsStrings.length; i++) {
             departingPointsStrings[i] = mDepartingPoints.get(i).getDepartFrom();
