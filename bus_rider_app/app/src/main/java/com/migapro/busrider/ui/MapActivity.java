@@ -76,20 +76,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         BusMap busMap = (BusMap) bundle.getSerializable(Constants.KEY_BUS_MAP);
 
         if (googleMap != null) {
-            for (BusStop busStop : busMap.getBusStops()) {
-                googleMap.addMarker(new MarkerOptions()
-                        .title(busStop.getTitle())
-                        .position(new LatLng(busStop.getLatitude(), busStop.getLongitude())));
-            }
-
-            ArrayList<LatLng> latLngs = convertToLatLngArrayList(busMap.getWaypoints());
-            PolylineOptions polylineOptions = new PolylineOptions()
-                    .addAll(latLngs)
-                    .geodesic(false)
-                    .color(ContextCompat.getColor(this, R.color.accent))
-                    .width(6);
-
-            googleMap.addPolyline(polylineOptions);
+            initMarkers(googleMap, busMap);
+            initRoutePolyline(googleMap, busMap);
 
             BusStop firstStop = busMap.getBusStops().get(0);
             CameraPosition cameraPosition = new CameraPosition.Builder()
@@ -101,6 +89,25 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             googleMap.setMyLocationEnabled(true);
             googleMap.getUiSettings().setZoomControlsEnabled(true);
         }
+    }
+
+    private void initMarkers(GoogleMap googleMap, BusMap busMap) {
+        for (BusStop busStop : busMap.getBusStops()) {
+            googleMap.addMarker(new MarkerOptions()
+                    .title(busStop.getTitle())
+                    .position(new LatLng(busStop.getLatitude(), busStop.getLongitude())));
+        }
+    }
+
+    private void initRoutePolyline(GoogleMap googleMap, BusMap busMap) {
+        ArrayList<LatLng> latLngs = convertToLatLngArrayList(busMap.getWaypoints());
+        PolylineOptions polylineOptions = new PolylineOptions()
+                .addAll(latLngs)
+                .geodesic(false)
+                .color(ContextCompat.getColor(this, R.color.accent))
+                .width(6);
+
+        googleMap.addPolyline(polylineOptions);
     }
 
     private ArrayList<LatLng> convertToLatLngArrayList(ArrayList<LatLngData> latLngDataArrayyList) {
