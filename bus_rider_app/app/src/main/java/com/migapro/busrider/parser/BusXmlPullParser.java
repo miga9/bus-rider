@@ -88,7 +88,7 @@ public class BusXmlPullParser {
 		int eventType = parser.next();
 		while (eventType != XmlPullParser.END_DOCUMENT) {
 			if (eventType == XmlPullParser.START_TAG)
-				processStartTag(parser.getPrefix(), parser.getName(), parser);
+				processStartTagForBus(parser.getName(), parser);
 			else if (isBusFound(eventType, parser.getName()))
 				break;
 
@@ -98,7 +98,7 @@ public class BusXmlPullParser {
 		return mBus;
 	}
 
-	private void processStartTag(String prefix, String name, XmlPullParser parser)
+	private void processStartTagForBus(String name, XmlPullParser parser)
 			throws XmlPullParserException, IOException {
 		if (name.equals(TAG_BUS)) {
 			if (parser.getAttributeValue(null, ATTR_ID).equals(mTargetBus)) {
@@ -159,7 +159,7 @@ public class BusXmlPullParser {
 		int eventType = parser.next();
 		while (eventType != XmlPullParser.END_DOCUMENT) {
 			if (eventType == XmlPullParser.START_TAG)
-				processStartTag(parser.getName(), parser);
+				processStartTagForBusMap(parser.getName(), parser);
 			else if (isBusMapFound(eventType, parser.getName()))
 				break;
 
@@ -169,7 +169,7 @@ public class BusXmlPullParser {
 		return mBusMap;
 	}
 
-	private void processStartTag(String name, XmlPullParser parser)
+	private void processStartTagForBusMap(String name, XmlPullParser parser)
 			throws XmlPullParserException, IOException {
 		if (name.equals(TAG_BUS)) {
 			if (!parser.getAttributeValue(null, ATTR_ID).equals(mTargetBus)) {
