@@ -13,6 +13,9 @@ import android.widget.TextView;
 import com.migapro.busrider.R;
 import com.migapro.busrider.utility.Constants;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class VersionInfoDialog extends DialogFragment {
 
     @Override
@@ -32,7 +35,17 @@ public class VersionInfoDialog extends DialogFragment {
 
     private String getLastUpdatedDate() {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        return sharedPref.getString(Constants.KEY_LAST_UPDATED_DATE, getString(R.string.na));
+        long lastUpdatedTimeInMillis = sharedPref.getLong(Constants.KEY_LAST_UPDATED_TIME, 0);
+
+        String lastUpdatedDate;
+        if (lastUpdatedTimeInMillis == 0) {
+            lastUpdatedDate = getString(R.string.na);
+        }
+        else {
+            lastUpdatedDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
+        }
+
+        return lastUpdatedDate;
     }
 
     @Override

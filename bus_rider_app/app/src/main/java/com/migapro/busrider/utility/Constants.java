@@ -17,7 +17,7 @@ public class Constants {
     public static final String FRAGMENT_SCHEDULE_INDEX_KEY = "scheduleIndexArg";
     public static final String KEY_GCM_REGIS_ID_SENT = "regisIdSent";
     public static final String KEY_GCM_MSG_UPDATE_SCHEDULE_FILE = "updateSchedule";
-    public static final String KEY_LAST_UPDATED_DATE = "lastUpdatedDate";
+    public static final String KEY_LAST_UPDATED_TIME = "lastUpdatedTime";
     public static final String KEY_GCM_MESSAGE = "message";
 
     public static final int NUM_OF_VISITS_TO_PROMPT_RATE_THIS_APP = 5;
