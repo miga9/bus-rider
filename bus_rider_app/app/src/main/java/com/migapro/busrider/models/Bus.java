@@ -16,7 +16,7 @@ public class Bus implements Serializable {
 	private ArrayList<DepartingPoint> mDepartingPoints;
 
 	public Bus() {
-		mDepartingPoints = new ArrayList<DepartingPoint>();
+		mDepartingPoints = new ArrayList<>();
 	}
 	
 	public String getBusName() {

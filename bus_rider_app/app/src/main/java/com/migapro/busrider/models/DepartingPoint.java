@@ -15,7 +15,7 @@ public class DepartingPoint implements Serializable {
 	private ArrayList<Schedule> mSchedules;
 	
 	public DepartingPoint() {
-		mSchedules = new ArrayList<Schedule>();
+		mSchedules = new ArrayList<>();
 	}
 	
 	public String getDepartFrom() {

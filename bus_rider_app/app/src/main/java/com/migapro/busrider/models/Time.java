@@ -8,7 +8,7 @@ public class Time implements Serializable {
 	private ArrayList<String> mMinutes;
 
     public Time() {
-        mMinutes = new ArrayList<String>();
+        mMinutes = new ArrayList<>();
     }
 	
 	public String getHours() {

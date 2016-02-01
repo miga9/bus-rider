@@ -9,8 +9,8 @@ public class BusMap implements Serializable {
     private ArrayList<LatLngData> mWaypoints;
 
     public BusMap() {
-        mBusStops = new ArrayList<BusStop>();
-        mWaypoints = new ArrayList<LatLngData>();
+        mBusStops = new ArrayList<>();
+        mWaypoints = new ArrayList<>();
     }
 
     public ArrayList<BusStop> getBusStops() {

@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         mTitleSpinnerAdapter =
-                new ArrayAdapter<String>(this, R.layout.spinner_title, mBusDataManager.getBusNames());
+                new ArrayAdapter<>(this, R.layout.spinner_title, mBusDataManager.getBusNames());
         mTitleSpinnerAdapter.setDropDownViewResource(R.layout.simple_dropdown_item_1line_light);
 
         titleSpinner.setAdapter(mTitleSpinnerAdapter);

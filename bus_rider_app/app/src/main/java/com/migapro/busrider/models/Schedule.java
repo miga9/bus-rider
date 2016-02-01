@@ -15,7 +15,7 @@ public class Schedule implements Serializable {
 	private ArrayList<Time> mTimes;
 	
 	public Schedule() {
-		mTimes = new ArrayList<Time>();
+		mTimes = new ArrayList<>();
 	}
 	
 	public String getDaysOfOperation() {

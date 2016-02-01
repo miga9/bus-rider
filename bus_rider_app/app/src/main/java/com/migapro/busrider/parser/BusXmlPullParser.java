@@ -63,7 +63,7 @@ public class BusXmlPullParser {
 	}
 	
 	private ArrayList<String> parseForBusNames(XmlPullParser parser) throws XmlPullParserException, IOException {
-		ArrayList<String> busNames = new ArrayList<String>();
+		ArrayList<String> busNames = new ArrayList<>();
 		
 		int eventType = parser.next();
 		while (eventType != XmlPullParser.END_DOCUMENT) {
