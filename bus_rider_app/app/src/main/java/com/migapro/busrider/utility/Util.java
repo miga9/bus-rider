@@ -27,7 +27,7 @@ public class Util {
             count++;
             SharedPreferences.Editor editor = sp.edit();
             editor.putInt(Constants.RATE_MY_APP_COUNT_KEY, count);
-            editor.commit();
+            editor.apply();
 
             if (count == Constants.NUM_OF_VISITS_TO_PROMPT_RATE_THIS_APP) {
                 return true;
