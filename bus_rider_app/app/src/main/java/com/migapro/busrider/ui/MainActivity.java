@@ -26,7 +26,6 @@ import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 import com.migapro.busrider.BusRiderApplication;
 import com.migapro.busrider.R;
-import com.migapro.busrider.config.FeatureFlags;
 import com.migapro.busrider.gcm.RegistrationIntentService;
 import com.migapro.busrider.models.BusDataManager;
 import com.migapro.busrider.models.BusMap;
@@ -225,7 +224,7 @@ public class MainActivity extends AppCompatActivity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_map:
-                processActionMapSelected();
+                startMapActivity();
                 return true;
             case R.id.action_share:
                 showShareAppChooser();
@@ -238,14 +237,6 @@ public class MainActivity extends AppCompatActivity implements
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void processActionMapSelected() {
-        if (FeatureFlags.MAPS) {
-            startMapActivity();
-        } else {
-            Toast.makeText(this, "Map feature will be available in near future", Toast.LENGTH_LONG).show();
         }
     }
 
