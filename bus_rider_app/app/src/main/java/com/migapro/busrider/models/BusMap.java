@@ -1,8 +1,9 @@
 package com.migapro.busrider.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BusMap {
+public class BusMap implements Serializable {
 
     private ArrayList<BusStop> mBusStops;
     private ArrayList<LatLngData> mWaypoints;

@@ -26,6 +26,7 @@ public class BusXmlPullParser {
     private static final String ATTR_FROM = "from";
     private static final String TAG_SCHEDULE = "schedule";
     private static final String ATTR_DAYS = "days";
+	private static final String ATTR_SCHEDULE_MAP_ID = "map_id";
     private static final String TAG_TIME = "time";
     private static final String ATTR_HOURS = "hours";
     private static final String TAG_MINUTES = "minutes";
@@ -35,6 +36,8 @@ public class BusXmlPullParser {
 	private static final String TAG_BUS_WAYPOINT = "bus_waypoint";
     private static final String ATTR_LAT = "lat";
     private static final String ATTR_LNG = "lng";
+
+	private static final String CHAR_SET = "utf-8";
 	
 	private XmlPullParserFactory factory;
 	private String mTargetBus, mTargetBusMap;
@@ -54,7 +57,7 @@ public class BusXmlPullParser {
 	
 	public ArrayList<String> readBusNames(InputStream inputStream) throws XmlPullParserException, IOException {
 		XmlPullParser parser = factory.newPullParser();
-		parser.setInput(inputStream, "utf-8");
+		parser.setInput(inputStream, CHAR_SET);
 		
 		return parseForBusNames(parser);
 	}
@@ -74,13 +77,13 @@ public class BusXmlPullParser {
 	
 	public Bus readABusData(InputStream inputStream, int targetBus) throws XmlPullParserException, IOException {
 		mTargetBus = String.valueOf(targetBus);
-		
+
 		XmlPullParser parser = factory.newPullParser();
-		parser.setInput(inputStream, "utf-8");
-		
+		parser.setInput(inputStream, CHAR_SET);
+
 		return parseForABusData(parser);
 	}
-	
+
 	private Bus parseForABusData(XmlPullParser parser) throws XmlPullParserException, IOException {
 		int eventType = parser.next();
 		while (eventType != XmlPullParser.END_DOCUMENT) {
@@ -88,45 +91,50 @@ public class BusXmlPullParser {
 				processStartTag(parser.getPrefix(), parser.getName(), parser);
 			else if (isBusFound(eventType, parser.getName()))
 				break;
-			
+
 			eventType = parser.next();
 		}
-		
+
 		return mBus;
 	}
-	
-	private void processStartTag(String prefix, String name, XmlPullParser parser) 
+
+	private void processStartTag(String prefix, String name, XmlPullParser parser)
 			throws XmlPullParserException, IOException {
 		if (name.equals(TAG_BUS)) {
 			if (parser.getAttributeValue(null, ATTR_ID).equals(mTargetBus)) {
 				mBus = new Bus();
 				mBus.setBusName(parser.getAttributeValue(null, ATTR_NAME));
-				
-				mIsBusFound = true;
-			} else
-				skipToNextBusElement(parser);
 
-		} else if (name.equals(TAG_DEPART_POINT)) {
+				mIsBusFound = true;
+			}
+			else
+				skipToNextBusElement(parser);
+		}
+		else if (name.equals(TAG_DEPART_POINT)) {
 			mDepartingPoint = new DepartingPoint();
 			mDepartingPoint.setDepartFrom(parser.getAttributeValue(null, ATTR_FROM));
 			mBus.addDepartingPoint(mDepartingPoint);
-			
-		} else if (name.equals(TAG_SCHEDULE)) {
+		}
+		else if (name.equals(TAG_SCHEDULE)) {
 			mSchedule = new Schedule();
 			mSchedule.setDaysOfOperation(parser.getAttributeValue(null, ATTR_DAYS));
+			String busMapId = parser.getAttributeValue(null, ATTR_SCHEDULE_MAP_ID);
+			if (busMapId == null) {
+				busMapId = "0"; // Default
+			}
+			mSchedule.setBusMapId(busMapId);
 			mDepartingPoint.addSchedule(mSchedule);
-			
-		} else if (name.equals(TAG_TIME)) {
+		}
+		else if (name.equals(TAG_TIME)) {
             mTime = new Time();
             mTime.setHours(parser.getAttributeValue(null, ATTR_HOURS));
             mSchedule.addTime(mTime);
-
-        } else if (name.equals(TAG_MINUTES)) {
+        }
+		else if (name.equals(TAG_MINUTES)) {
             mTime.addMinutes(parser.getAttributeValue(null, ATTR_MIN));
-			
 		}
 	}
-	
+
 	private void skipToNextBusElement(XmlPullParser parser) throws XmlPullParserException, IOException {
 		int eventType;
 		boolean isBusEndTag = false;
@@ -136,17 +144,17 @@ public class BusXmlPullParser {
 				isBusEndTag = parser.getName().equals(TAG_BUS);
 		} while (!isBusEndTag);
 	}
-	
+
 	private boolean isBusFound(int eventType, String name) {
 		return (eventType == XmlPullParser.END_TAG && name.equals(TAG_BUS) && mIsBusFound);
 	}
 
-	public BusMap readBusMapData(InputStream inputStream, int targeBus, int targetBusMap) throws XmlPullParserException, IOException {
+	public BusMap readBusMapData(InputStream inputStream, int targeBus, String targetBusMap) throws XmlPullParserException, IOException {
 		mTargetBus = String.valueOf(targeBus);
-		mTargetBusMap = String.valueOf(targetBusMap);
+		mTargetBusMap = targetBusMap;
 
 		XmlPullParser parser = factory.newPullParser();
-		parser.setInput(inputStream, "utf-8");
+		parser.setInput(inputStream, CHAR_SET);
 
 		return parseForBusMapData(parser);
 	}

@@ -48,7 +48,8 @@ import butterknife.OnItemSelected;
 public class MainActivity extends AppCompatActivity implements
         WorkerFragment.WorkerListener,
         SingleChoiceDialog.OnDialogItemSelectedListener,
-        MsgDialog.OnPositiveClickListener {
+        MsgDialog.OnPositiveClickListener,
+        ViewPager.OnPageChangeListener {
 
     private static final int DIALOG_ITEM_ID_DEPART_FROM = 0;
     private static final int DIALOG_MSG_ID_UPDATE_FILE = 0;
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements
     private BusDataManager mBusDataManager;
     private int mBusIndex;
     private int mDeparturePointIndex;
+    private int mScheduleIndex;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -160,6 +162,7 @@ public class MainActivity extends AppCompatActivity implements
         mViewPagerAdapter = new ViewPagerAdapter(getFragmentManager());
         mViewPagerAdapter.setTitles(daysOfOperation);
         viewPager.setAdapter(mViewPagerAdapter);
+        viewPager.addOnPageChangeListener(this);
 
         pagerTabStrip.setDrawFullUnderline(true);
         pagerTabStrip.setTabIndicatorColor(getResources().getColor(R.color.light_accent));
@@ -245,13 +248,18 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void startMapActivity() {
-        BusMap busMap = mBusDataManager.retrieveBusMapData(this, mBusIndex, 0); // TODO 0 for testing
+        BusMap busMap = mBusDataManager.retrieveBusMapData(this, mBusIndex,
+                mBusDataManager.getBusMapIdBySchedule(mDeparturePointIndex, mScheduleIndex));
+
+        if (busMap == null) {
+            Toast.makeText(this, R.string.no_bus_map_available, Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         Intent intent = new Intent(this, MapActivity.class);
+        intent.putExtra(Constants.MAP_TITLE_KEY, mBusDataManager.getBusName());
         Bundle bundle = new Bundle();
-        bundle.putString(Constants.MAP_TITLE_KEY, mBusDataManager.getBusName());
-        bundle.putSerializable(Constants.KEY_BUS_STOPS, busMap.getBusStops());
-        bundle.putSerializable(Constants.KEY_BUS_WAYPOINTS, busMap.getWaypoints());
+        bundle.putSerializable(Constants.KEY_BUS_MAP, busMap);
         intent.putExtra(Constants.KEY_MAP_DATA, bundle);
 
         startActivity(intent);
@@ -414,5 +422,18 @@ public class MainActivity extends AppCompatActivity implements
         if (commitTransaction) {
             ft.commit();
         }
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        mScheduleIndex = position;
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
     }
 }

@@ -60,4 +60,8 @@ public class Bus implements Serializable {
     public ArrayList<Time> getTimes(int departureIndex, int scheduleIndex) {
         return mDepartingPoints.get(departureIndex).getSchedule(scheduleIndex).getTimes();
     }
+
+    public String getBusMapIdBySchedule(int departureIndex, int scheduleIndex) {
+        return mDepartingPoints.get(departureIndex).getSchedule(scheduleIndex).getBusMapId();
+    }
 }

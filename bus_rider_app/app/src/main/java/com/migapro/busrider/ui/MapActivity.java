@@ -1,22 +1,38 @@
 package com.migapro.busrider.ui;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.migapro.busrider.BusRiderApplication;
 import com.migapro.busrider.R;
+import com.migapro.busrider.models.BusMap;
+import com.migapro.busrider.models.BusStop;
+import com.migapro.busrider.models.LatLngData;
 import com.migapro.busrider.utility.Constants;
 
 import java.util.ArrayList;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+    private static final double UNT_CENTER_LAT = 33.206743;
+    private static final double UNT_CENTER_LNG = -97.149355;
+
+    @Bind(R.id.toolbar) Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +43,14 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     }
 
     private void initViews() {
-        String title = getIntent().getStringExtra(Constants.MAP_TITLE_KEY);
+        ButterKnife.bind(this);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        String title = getIntent().getStringExtra(Constants.MAP_TITLE_KEY);
         toolbar.setTitle(title);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map_fragment);
         mapFragment.getMapAsync(this);
     }
 
@@ -49,6 +65,42 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        
+        Bundle bundle = getIntent().getBundleExtra(Constants.KEY_MAP_DATA);
+
+        BusMap busMap = (BusMap) bundle.getSerializable(Constants.KEY_BUS_MAP);
+
+        if (googleMap != null) {
+            CameraPosition cameraPosition = new CameraPosition.Builder()
+                    .target(new LatLng(UNT_CENTER_LAT, UNT_CENTER_LNG))
+                    .zoom(14)
+                    .build();
+
+            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+            googleMap.setMyLocationEnabled(true);
+            googleMap.getUiSettings().setZoomControlsEnabled(true);
+
+            for (BusStop busStop : busMap.getBusStops()) {
+                googleMap.addMarker(new MarkerOptions()
+                        .title(busStop.getTitle())
+                        .position(new LatLng(busStop.getLatitude(), busStop.getLongitude())));
+            }
+
+            ArrayList<LatLng> latLngs = convertToLatLngArrayList(busMap.getWaypoints());
+            PolylineOptions polylineOptions = new PolylineOptions()
+                    .addAll(latLngs)
+                    .geodesic(false)
+                    .color(ContextCompat.getColor(this, R.color.accent))
+                    .width(6);
+
+            googleMap.addPolyline(polylineOptions);
+        }
+    }
+
+    private ArrayList<LatLng> convertToLatLngArrayList(ArrayList<LatLngData> latLngDataArrayyList) {
+        ArrayList<LatLng> latLngs = new ArrayList<>();
+        for (LatLngData latLngData : latLngDataArrayyList) {
+            latLngs.add(new LatLng(latLngData.getLatitude(), latLngData.getLongitude()));
+        }
+        return latLngs;
     }
 }

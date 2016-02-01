@@ -51,7 +51,7 @@ public class BusDataManager {
         }
     }
 
-    public BusMap retrieveBusMapData(Context context, int busIndex, int busMapIndex) {
+    public BusMap retrieveBusMapData(Context context, int busIndex, String busMapIndex) {
         BusMap busMap = null;
         try {
             if (mParser == null) {
@@ -97,6 +97,10 @@ public class BusDataManager {
 
     public String getBusName() {
         return mCurrentBus.getBusName();
+    }
+
+    public String getBusMapIdBySchedule(int departurePointIndex, int scheduleIndex) {
+        return mCurrentBus.getBusMapIdBySchedule(departurePointIndex, scheduleIndex);
     }
 
     public ArrayList<String> getBusNames() {
