@@ -41,5 +41,6 @@
     <string name="progress_msg_downloading">Downloading the data...</string>
 
     <string name="no_bus_map_available">No map data available</string>
+    <string name="s_route">%1$s Route</string>
 
 </resources>

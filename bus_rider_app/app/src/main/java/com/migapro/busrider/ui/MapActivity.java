@@ -53,7 +53,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         String days = getIntent().getStringExtra(Constants.KEY_MAP_DAYS);
         if (days != null && !days.isEmpty()) {
             daysTextView.setVisibility(View.VISIBLE);
-            daysTextView.setText(days);
+            daysTextView.setText(getString(R.string.s_route, days));
         }
 
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map_fragment);
