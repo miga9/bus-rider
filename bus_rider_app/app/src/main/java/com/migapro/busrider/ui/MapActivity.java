@@ -34,6 +34,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     @Bind(R.id.toolbar) Toolbar toolbar;
     @Bind(R.id.days) TextView daysTextView;
 
+    private String mBusName;;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +47,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private void initViews() {
         ButterKnife.bind(this);
 
-        String title = getIntent().getStringExtra(Constants.MAP_TITLE_KEY);
-        toolbar.setTitle(title);
+        mBusName = getIntent().getStringExtra(Constants.MAP_TITLE_KEY);
+        toolbar.setTitle(mBusName);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -65,7 +67,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         super.onStart();
 
         Tracker tracker = ((BusRiderApplication) getApplication()).getTracker();
-        tracker.setScreenName(Constants.ANALYTICS_MAP_SCREEN);
+        tracker.setScreenName(Constants.ANALYTICS_MAP_SCREEN + mBusName);
         tracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 

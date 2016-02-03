@@ -24,5 +24,5 @@ public class Constants {
 
     // Google Analytics screen names
     public static final String ANALYTICS_MAIN_SCREEN = "Main";
-    public static final String ANALYTICS_MAP_SCREEN = "Map";
+    public static final String ANALYTICS_MAP_SCREEN = "Map ";
 }
