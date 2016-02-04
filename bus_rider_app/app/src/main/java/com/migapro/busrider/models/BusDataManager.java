@@ -58,9 +58,7 @@ public class BusDataManager {
                 mParser = new BusXmlPullParser();
             }
             FileInputStream fileInputStream = context.openFileInput(Constants.BUS_DATA_PATH);
-            long start = System.currentTimeMillis();
             busMap = mParser.readBusMapData(fileInputStream, busIndex, busMapIndex);
-            Log.d("TAAG", "map " + (System.currentTimeMillis() - start));
             fileInputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
