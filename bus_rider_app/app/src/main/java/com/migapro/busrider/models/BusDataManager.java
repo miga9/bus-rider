@@ -1,7 +1,6 @@
 package com.migapro.busrider.models;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.migapro.busrider.parser.BusXmlPullParser;
 import com.migapro.busrider.utility.Constants;
@@ -14,20 +13,19 @@ import java.util.ArrayList;
 
 public class BusDataManager {
 
-    private BusXmlPullParser mParser;
     private ArrayList<String> mBusNames;
     private Bus mCurrentBus;
 
     public BusDataManager() {
-        mBusNames = new ArrayList<String>();
+        mBusNames = new ArrayList<>();
     }
 
     public void loadBusNames(Context context) {
         try {
-            mParser = new BusXmlPullParser();
+            BusXmlPullParser parser = new BusXmlPullParser();
             FileInputStream fileInputStream = context.openFileInput(Constants.BUS_DATA_PATH);
             mBusNames.clear();
-            mBusNames.addAll(mParser.readBusNames(fileInputStream));
+            mBusNames.addAll(parser.readBusNames(fileInputStream));
             fileInputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,11 +36,9 @@ public class BusDataManager {
 
     public void loadCurrentBusData(Context context, int busIndex) {
         try {
-            if (mParser == null) {
-                mParser = new BusXmlPullParser();
-            }
+            BusXmlPullParser parser = new BusXmlPullParser();
             FileInputStream fileInputStream = context.openFileInput(Constants.BUS_DATA_PATH);
-            mCurrentBus = mParser.readABusData(fileInputStream, busIndex);
+            mCurrentBus = parser.readABusData(fileInputStream, busIndex);
             fileInputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -54,11 +50,9 @@ public class BusDataManager {
     public BusMap retrieveBusMapData(Context context, int busIndex, String busMapIndex) {
         BusMap busMap = null;
         try {
-            if (mParser == null) {
-                mParser = new BusXmlPullParser();
-            }
+            BusXmlPullParser parser = new BusXmlPullParser();
             FileInputStream fileInputStream = context.openFileInput(Constants.BUS_DATA_PATH);
-            busMap = mParser.readBusMapData(fileInputStream, busIndex, busMapIndex);
+            busMap = parser.readBusMapData(fileInputStream, busIndex, busMapIndex);
             fileInputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
