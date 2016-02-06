@@ -9,8 +9,8 @@ android {
         applicationId "com.migapro.busrider"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 7
+        versionName "4.0"
     }
     buildTypes {
         release {
